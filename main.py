@@ -1,11 +1,26 @@
-"""Entry point: load one question's data, build and solve the model, save results and figures.
+"""Entry point: run a selected model and save results and figures.
 
-    python main.py                          # base case of Q1_caseA
-    python main.py --question Q2_linear     # another case
-    python main.py --scenarios              # also run the example sensitivity scenarios
+Usage:
+    python main.py --question Q1_caseA
+        Run the Q1 Case A base case.
 
-Results (CSV, TXT, PNG) are written to ``results/<question>/``. Extend ``run_scenarios``
-with your own scenarios, or add a new function per question, as your analysis grows.
+    python main.py --question Q1_caseB
+        Run the Q1 Case B base case.
+
+    python main.py --question Q2_quadratic
+        Run the Q2(c) base case only.
+
+    python main.py --question Q2_quadratic --sweep
+        Run the Q2(c) base case and quadratic coefficient sweep.
+
+    python main.py --question Q1_caseA --scenarios
+        Run Q1 Case A and the example sensitivity scenarios.
+
+    python main.py
+        Run Q1 Case A by default.
+
+Outputs are saved to results/<question>/.
+Q2(c) can also be run independently with: python run_q2c.py
 """
 from __future__ import annotations
 
@@ -69,7 +84,20 @@ def main() -> None:
     parser.add_argument("--question", default="Q1_caseA", choices=list_questions(), help="data case to use")
     parser.add_argument("--scenarios", action="store_true", help="also run the example sensitivity scenarios")
     parser.add_argument("--show", action="store_true", help="open the figures in a window")
+    parser.add_argument("--cq", type=float, default=None, help="Q2(c) quadratic coefficient")
+    parser.add_argument("--sweep", action="store_true", help="run the Q2(c) coefficient sweep")
     args = parser.parse_args()
+
+    if args.question == "Q2_quadratic":
+        if args.scenarios or args.show:
+            parser.error("For Q2(c), use --sweep; figures are saved to disk without --show.")
+        from run_q2c import reproduce, DEFAULT_SWEEP
+        reproduce(args.cq, DEFAULT_SWEEP if args.sweep else [])
+        return
+    if not args.question.startswith("Q1_"):
+        parser.error("This project currently implements Q1 and Q2_quadratic only.")
+    if args.cq is not None or args.sweep:
+        parser.error("--cq and --sweep are for Q2_quadratic only.")
 
     out = RESULTS_DIR / args.question
     out.mkdir(parents=True, exist_ok=True)
