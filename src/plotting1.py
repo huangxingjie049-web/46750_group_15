@@ -22,6 +22,13 @@ def _finish(fig: plt.Figure, save_to: Path | str | None) -> plt.Figure:
     return fig
 
 
+def _hour_reference_lines(ax: plt.Axes, hours: np.ndarray) -> None:
+    """Add a light vertical reference line at every hourly decision point."""
+    ax.set_xticks(hours)
+    ax.grid(axis="x", color="0.85", ls=":", lw=0.7)
+    ax.set_axisbelow(True)
+
+
 def plot_inputs(data: InputData, save_to: Path | str | None = None) -> plt.Figure:
     """Hourly prices (with tariffs) and available PV / load preferences, side by side."""
     h = data.hours
@@ -30,7 +37,24 @@ def plot_inputs(data: InputData, save_to: Path | str | None = None) -> plt.Figur
     ax1.step(h, data.energy_price, where="mid", label="energy price", color="k")
     ax1.step(h, data.energy_price + data.import_tariff, where="mid", ls="--", label="price + import tariff")
     ax1.step(h, data.energy_price - data.export_tariff, where="mid", ls=":", label="price - export tariff")
+    if data.consumption_utility is not None:
+        ax1.axhline(
+            data.consumption_utility,
+            color="C2",
+            ls="-.",
+            lw=1.2,
+            label=r"load utility $u_L$",
+        )
+    if data.pv_marginal_cost is not None:
+        ax1.axhline(
+            data.pv_marginal_cost,
+            color="C4",
+            ls=(0, (3, 1, 1, 1)),
+            lw=1.2,
+            label=r"PV marginal cost $c^{\mathrm{PV}}$",
+        )
     ax1.set(xlabel="hour", ylabel="DKK/kWh", title="Electricity prices")
+    _hour_reference_lines(ax1, h)
     ax1.legend(fontsize=8)
 
     ax2.fill_between(h, data.pv_available, step="mid", alpha=0.4, color="orange", label="PV available")
@@ -40,6 +64,7 @@ def plot_inputs(data: InputData, save_to: Path | str | None = None) -> plt.Figur
     if data.reference_load is not None:
         ax2.step(h, data.reference_load, where="mid", color="C0", label="reference load")
     ax2.set(xlabel="hour", ylabel="kWh/h", title="PV and load preferences")
+    _hour_reference_lines(ax2, h)
     ax2.legend(fontsize=8)
     fig.suptitle(f"Input data - {data.question}", fontsize=11)
     return _finish(fig, save_to)
@@ -64,6 +89,7 @@ def plot_schedule(results: Results, data: InputData, save_to: Path | str | None 
         ax.step(h, hr["reference_load"], where="mid", color="C0", ls=":", label="reference load")
     ax.axhline(0, color="grey", lw=0.8)
     ax.set(xlabel="hour", ylabel="kWh/h", title=f"Optimal schedule - {results.question} (cost {results.objective:.1f} DKK)")
+    _hour_reference_lines(ax, h)
 
     ax2 = ax.twinx()
     ax2.step(h, hr["price"], where="mid", color="C3", lw=1.2, label="energy price")
@@ -86,7 +112,74 @@ def plot_duals(results: Results, data: InputData, save_to: Path | str | None = N
     ax.step(h, data.energy_price + data.import_tariff, where="mid", color="grey", ls="--", lw=1, label="price + import tariff")
     ax.step(h, data.energy_price - data.export_tariff, where="mid", color="grey", ls=":", lw=1, label="price - export tariff")
     ax.set(xlabel="hour", ylabel="DKK/kWh", title=f"Dual variables - {results.question}")
+    _hour_reference_lines(ax, h)
     ax.legend(fontsize=8, ncol=3)
+    return _finish(fig, save_to)
+
+
+def plot_q1_overview(results: Results, data: InputData, save_to: Path | str | None = None) -> plt.Figure:
+    """Create one four-panel Q1 figure with aligned hourly axes and reference lines.
+
+    The panels show electricity prices, PV/load limits, the optimal schedule and the
+    dual variables. It is intended for the numerical analysis of Question 1.
+    """
+    hr = results.hourly
+    h = hr.index.to_numpy()
+    fig, (ax_limits, ax_price, ax_schedule, ax_duals) = plt.subplots(
+        4, 1, sharex=True, figsize=(12, 12)
+    )
+
+    # 1. Electricity prices and the two Q1 marginal values.
+    ax_price.step(h, data.energy_price, where="mid", color="k", label="energy price")
+    ax_price.step(h, data.energy_price + data.import_tariff, where="mid", ls="--", label="price + import tariff")
+    ax_price.step(h, data.energy_price - data.export_tariff, where="mid", ls=":", label="price - export tariff")
+    if data.consumption_utility is not None:
+        ax_price.axhline(data.consumption_utility, color="C2", ls="-.", lw=1.2, label=r"load utility $u_L$")
+    if data.pv_marginal_cost is not None:
+        ax_price.axhline(data.pv_marginal_cost, color="C4", ls=(0, (3, 1, 1, 1)), lw=1.2,
+                         label=r"PV marginal cost $c^{\mathrm{PV}}$")
+    ax_price.set(ylabel="DKK/kWh", title="b) Electricity prices")
+    ax_price.legend(fontsize=8, ncol=3)
+
+    # 2. Available PV and the load bounds.
+    ax_limits.fill_between(h, data.pv_available, step="mid", alpha=0.4, color="orange", label="PV available")
+    ax_limits.axhline(data.load_max_kWh, color="C3", ls="--", label="max load")
+    if data.load_min_kWh > 0:
+        ax_limits.axhline(data.load_min_kWh, color="C3", ls=":", label="min load")
+    ax_limits.set(ylabel="kWh/h", title="a) PV and load preferences")
+    ax_limits.legend(fontsize=8)
+
+    # 3. Optimal schedule.
+    width = 0.8
+    ax_schedule.bar(h, hr["load"], width, color="C0", alpha=0.7, label="load")
+    ax_schedule.bar(h, -hr["pv"], width, color="orange", alpha=0.7, label="PV used (negative = generation)")
+    ax_schedule.step(h, -hr["pv_available"], where="mid", color="orange", ls="--", lw=1, label="PV available")
+    ax_schedule.plot(h, hr["import"] - hr["export"], "k.-", label="net import (+) / export (-)")
+    ax_schedule.axhline(0, color="grey", lw=0.8)
+    ax_schedule.set(ylabel="kWh/h", title="c) Optimal schedule")
+    ax_schedule_price = ax_schedule.twinx()
+    ax_schedule_price.step(h, hr["price"], where="mid", color="C3", lw=1.2, label="energy price")
+    ax_schedule_price.set_ylabel("DKK/kWh", color="C3")
+    lines, labels = ax_schedule.get_legend_handles_labels()
+    price_lines, price_labels = ax_schedule_price.get_legend_handles_labels()
+    ax_schedule.legend(lines + price_lines, labels + price_labels, fontsize=8, ncol=3, loc="upper center")
+
+    # 4. Dual variables and the effective price signals.
+    for column in (c for c in hr.columns if c.startswith("dual_")):
+        ax_duals.step(h, hr[column], where="mid", label=column.removeprefix("dual_"))
+    ax_duals.step(h, data.energy_price + data.import_tariff, where="mid", color="grey", ls="--", lw=1,
+                  label="price + import tariff")
+    ax_duals.step(h, data.energy_price - data.export_tariff, where="mid", color="grey", ls=":", lw=1,
+                  label="price - export tariff")
+    ax_duals.set(xlabel="hour", ylabel="DKK/kWh", title="d) Dual variables")
+    ax_duals.legend(fontsize=8, ncol=3)
+
+    for ax in (ax_price, ax_limits, ax_schedule, ax_duals):
+        _hour_reference_lines(ax, h)
+        # Keep the shared x-axis aligned while showing every hourly label on every panel.
+        ax.tick_params(axis="x", labelbottom=True)
+
+    fig.suptitle(f"Q1 overview - {results.question}", fontsize=13)
     return _finish(fig, save_to)
 
 
@@ -107,3 +200,4 @@ def plot_scenario_comparison(
     ax.set(ylabel=ylabel, title=f"Scenario comparison - {metric}")
     ax.tick_params(axis="x", rotation=20)
     return _finish(fig, save_to)
+
