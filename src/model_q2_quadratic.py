@@ -17,6 +17,14 @@ class QuadraticResults(Results):
 
 class QuadraticConsumerModel(FlexibleConsumerModel):
     """Reuse the Q1 solve interface; change the preference term and accounting."""
+    def _check_intertemporal_inputs(self):
+        """Q2(c) has no daily energy or storage; subclasses may add coupling."""
+        if self.data.min_daily_energy_kWh is not None or self.data.battery_capacity_kWh is not None:
+            raise ValueError('Daily energy requirements and storage belong to Q3, not Q2(c).')
+
+    def _add_intertemporal_constraints(self):
+        """Extension hook; the Q2(c) model has only hourly constraints."""
+
     def build(self):
         d,m,T=self.data,self.m,self.T
         if d.reference_load is None or d.quadratic_disutility is None:
@@ -25,8 +33,7 @@ class QuadraticConsumerModel(FlexibleConsumerModel):
             raise ValueError('The quadratic disutility coefficient must be finite and positive.')
         if d.linear_disutility not in (None,0.) or d.consumption_utility not in (None,0.):
             raise ValueError('Q2(c) replaces utility and has no linear disutility term.')
-        if d.min_daily_energy_kWh is not None or d.battery_capacity_kWh is not None:
-            raise ValueError('Daily energy requirements and storage belong to Q3, not Q2(c).')
+        self._check_intertemporal_inputs()
         if not (0<=d.load_min_kWh<=d.load_max_kWh) or np.any(d.pv_available<0):
             raise ValueError('Invalid load or PV bounds.')
         if np.any(d.energy_price+d.import_tariff <= d.energy_price-d.export_tariff):
@@ -49,6 +56,7 @@ class QuadraticConsumerModel(FlexibleConsumerModel):
             -d.quadratic_disutility*(L[t]-d.reference_load[t])**2
             -d.pv_marginal_cost*P[t]-(d.energy_price[t]+d.import_tariff)*I[t]
             +(d.energy_price[t]-d.export_tariff)*E[t] for t in T),GRB.MAXIMIZE)
+        self._add_intertemporal_constraints()
         m.update()
         return self
 
@@ -57,7 +65,12 @@ class QuadraticConsumerModel(FlexibleConsumerModel):
         h=pd.DataFrame(index=pd.Index(T,name='hour'))
         for name,values in [('price',d.energy_price),('pv_available',d.pv_available),('reference_load',d.reference_load)]: h[name]=values
         for name,v in self.var.items(): h[name]=[v[t].X for t in T]
-        for name,c in self.con.items(): h['dual_'+name]=[_dual(c[t]) for t in T]
+        duals = {}
+        for name,c in self.con.items():
+            if isinstance(c, gp.tupledict):
+                h['dual_'+name]=[_dual(c[t]) for t in T]
+            else:
+                duals[name] = float(_dual(c))
         h['effective_import_price']=d.energy_price+d.import_tariff
         h['effective_export_price']=d.energy_price-d.export_tariff
         h['deviation']=h['load']-h['reference_load']
@@ -82,4 +95,4 @@ class QuadraticConsumerModel(FlexibleConsumerModel):
               'balance_residual_max':float((h['pv']+h['import']-h['load']-h['export']).abs().max()),
               'objective_accounting_error':float(abs(self.m.ObjVal+C+D)),
               'solver':'Gurobi','solver_version':'.'.join(map(str,gp.gurobi.version()))}
-        return QuadraticResults(d.question,status,float(self.m.ObjVal),h,{},meta)
+        return QuadraticResults(d.question,status,float(self.m.ObjVal),h,duals,meta)
