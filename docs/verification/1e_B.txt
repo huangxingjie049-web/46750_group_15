@@ -1,0 +1,18 @@
+Case                 : Q1_caseB
+Consumer             : C_01_B
+Energy price         : mean 1.32, min 0.85, max 2.50 DKK/kWh
+Import/export tariff : 0.50 / 0.40 DKK/kWh
+PV                   : 6.0 kW peak, 26.9 kWh available/day, marginal cost 1.47 DKK/kWh
+Load bounds          : 0.0 - 6.0 kWh/h
+Consumption utility  : 1.43
+Min daily energy     : None
+Reference profile    : no
+Disutility lin/quad  : None / None
+Battery              : no
+Next-day forecasts   : yes 
+
+Restricted license - for non-production use only - expires 2027-11-29
+status: OPTIMAL | objective: 1.95 DKK
+daily totals (kWh): import=12.0, export=3.0, load=12.0, pv=3.0 
+
+Outputs written to /workspace/scratch/35ec56ed2451/work/organized/46750_group_15/results/Q1_caseB

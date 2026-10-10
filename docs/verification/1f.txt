@@ -1,0 +1,36 @@
+Case                 : Q1_caseA
+Consumer             : C_01_A
+Energy price         : mean 1.32, min 0.85, max 2.50 DKK/kWh
+Import/export tariff : 0.50 / 0.40 DKK/kWh
+PV                   : 6.0 kW peak, 26.9 kWh available/day, marginal cost 1.41 DKK/kWh
+Load bounds          : 0.0 - 6.0 kWh/h
+Consumption utility  : 1.43
+Min daily energy     : None
+Reference profile    : no
+Disutility lin/quad  : None / None
+Battery              : no
+Next-day forecasts   : yes 
+
+Restricted license - for non-production use only - expires 2027-11-29
+status: OPTIMAL | objective: 2.61 DKK
+daily totals (kWh): import=12.0, export=3.0, load=35.9, pv=26.9 
+
+Case                 : Q1_caseB
+Consumer             : C_01_B
+Energy price         : mean 1.32, min 0.85, max 2.50 DKK/kWh
+Import/export tariff : 0.50 / 0.40 DKK/kWh
+PV                   : 6.0 kW peak, 26.9 kWh available/day, marginal cost 1.47 DKK/kWh
+Load bounds          : 0.0 - 6.0 kWh/h
+Consumption utility  : 1.43
+Min daily energy     : None
+Reference profile    : no
+Disutility lin/quad  : None / None
+Battery              : no
+Next-day forecasts   : yes 
+
+status: OPTIMAL | objective: 1.95 DKK
+daily totals (kWh): import=12.0, export=3.0, load=12.0, pv=3.0 
+
+    case  objective_DKK  load_kWh  pv_kWh  import_kWh  export_kWh
+Q1_caseA         2.6088     35.94   26.94        12.0         3.0
+Q1_caseB         1.9500     12.00    3.00        12.0         3.0

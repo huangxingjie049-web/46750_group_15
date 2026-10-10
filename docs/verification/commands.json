@@ -1,0 +1,42 @@
+[
+  {
+    "task": "1e_A",
+    "command": "python main.py --task 1e --case Q1_caseA",
+    "exit_code": 0
+  },
+  {
+    "task": "1e_B",
+    "command": "python main.py --task 1e --case Q1_caseB",
+    "exit_code": 0
+  },
+  {
+    "task": "1f",
+    "command": "python main.py --task 1f",
+    "exit_code": 0
+  },
+  {
+    "task": "2c",
+    "command": "python main.py --task 2c --sweep",
+    "exit_code": 0
+  },
+  {
+    "task": "3d",
+    "command": "python main.py --task 3d",
+    "exit_code": 0
+  },
+  {
+    "task": "3e",
+    "command": "python main.py --task 3e",
+    "exit_code": 0
+  },
+  {
+    "task": "3g",
+    "command": "python main.py --task 3g --mode both --pi 2 --sweep",
+    "exit_code": 0
+  },
+  {
+    "task": "3g_pi",
+    "command": "python main.py --task 3g-pi --run-today",
+    "exit_code": 0
+  }
+]

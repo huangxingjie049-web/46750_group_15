@@ -1,114 +1,66 @@
-"""Entry point: run a selected model and save results and figures.
+"""Unified assignment entry point.
 
-Usage:
-    python main.py --question Q1_caseA
-        Run the Q1 Case A base case.
+Examples:
+  python main.py --list-tasks
+  python main.py --task 1e --case Q1_caseA
+  python main.py --task 1f
+  python main.py --task 2c --sweep
+  python main.py --task 3d
+  python main.py --task 3e
+  python main.py --task 3g --mode both --pi 2 --sweep
+  python main.py --task 3g-pi --run-today
+  python main.py --task 3g --help
 
-    python main.py --question Q1_caseB
-        Run the Q1 Case B base case.
-
-    python main.py --question Q2_quadratic
-        Run the Q2(c) base case only.
-
-    python main.py --question Q2_quadratic --sweep
-        Run the Q2(c) base case and quadratic coefficient sweep.
-
-    python main.py --question Q1_caseA --scenarios
-        Run Q1 Case A and the example sensitivity scenarios.
-
-    python main.py
-        Run Q1 Case A by default.
-
-Outputs are saved to results/<question>/.
-Q2(c) can also be run independently with: python run_q2c.py
+--question Q1_caseA/Q1_caseB/Q2_quadratic/Q3/Q3_battery remains supported.
+Without task/question, run Q1 Case A. Task-specific options follow --task.
 """
-from __future__ import annotations
-
 import argparse
-from pathlib import Path
+from importlib import import_module
+import sys
 
-import matplotlib
+TASKS={
+ '1e':('src.1e.runner','Q1 model implementation; choose Case A or B'),
+ '1f':('src.1f.runner','Q1 comparison: solve both Case A and Case B'),
+ '2c':('src.2c.runner','Quadratic-disutility model and optional coefficient sweep'),
+ '3d':('src.3d.runner','Daily-minimum model implementation and validation'),
+ '3e':('src.3e.runner','Same-data Q2(c)/Q3 comparison, validation and figures'),
+ '3g':('src.3g.runner','Battery: cyclic/value modes, comparisons and optional sweeps'),
+ '3g-pi':('src.3g.estimate_pi','Estimate terminal value from next-day forecasts'),
+}
+ALIASES={'Q1_caseA':'1e','Q1_caseB':'1e','Q2_quadratic':'2c','Q3':'3e','Q3_battery':'3g'}
 
-from src.data_loader import load_question, list_questions
-from src.model_q1 import FlexibleConsumerModel, Results
-from src.plotting import plot_duals, plot_inputs, plot_scenario_comparison, plot_schedule
-from src.scenarios import scale_prices, scale_pv, set_tariffs
-
-RESULTS_DIR = Path(__file__).resolve().parent / "results"
-
-
-def run_base_case(question: str, out: Path, show: bool) -> Results | None:
-    data = load_question(question)
-    print(data.summary(), "\n")
-    plot_inputs(data, save_to=out / "inputs.png")
-
-    model = FlexibleConsumerModel(data).build()
-    try:
-        results = model.solve()
-    except NotImplementedError as e:
-        print(f"[skipped] {e}")
-        return None
-
-    print(results, "\n")
-    results.save(out)
-    plot_schedule(results, data, save_to=out / "schedule.png")
-    plot_duals(results, data, save_to=out / "duals.png")
-    if show:
-        matplotlib.pyplot.show()
-    return results
-
-
-def run_scenarios(question: str, out: Path) -> dict[str, Results]:
-    """Example sensitivity analysis. Replace with the scenarios you design in Question 1.g."""
-    base = load_question(question)
-    scenarios = {
-        "base": base,
-        "flat_prices": scale_prices(base, factor=0.0, keep_mean=True),
-        "double_spread": scale_prices(base, factor=2.0, keep_mean=True),
-        "no_tariffs": set_tariffs(base, import_tariff=0.0, export_tariff=0.0),
-        "no_pv": scale_pv(base, factor=0.0),
-    }
-    runs: dict[str, Results] = {}
-    for name, data in scenarios.items():
-        results = FlexibleConsumerModel(data).build().solve()
-        results.save(out, tag=name)
-        runs[name] = results
-        print(f"{name:>14}: cost {results.objective:8.2f} DKK | import {results.hourly['import'].sum():5.1f} kWh"
-              f" | export {results.hourly['export'].sum():5.1f} kWh")
-    plot_scenario_comparison(runs, "objective", save_to=out / "scenarios_cost.png")
-    return runs
-
-
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--question", default="Q1_caseA", choices=list_questions(), help="data case to use")
-    parser.add_argument("--scenarios", action="store_true", help="also run the example sensitivity scenarios")
-    parser.add_argument("--show", action="store_true", help="open the figures in a window")
-    parser.add_argument("--cq", type=float, default=None, help="Q2(c) quadratic coefficient")
-    parser.add_argument("--sweep", action="store_true", help="run the Q2(c) coefficient sweep")
-    args = parser.parse_args()
-
-    if args.question == "Q2_quadratic":
-        if args.scenarios or args.show:
-            parser.error("For Q2(c), use --sweep; figures are saved to disk without --show.")
-        from run_q2c import reproduce, DEFAULT_SWEEP
-        reproduce(args.cq, DEFAULT_SWEEP if args.sweep else [])
+def main(argv=None):
+    p=argparse.ArgumentParser(description=__doc__,formatter_class=argparse.RawDescriptionHelpFormatter,add_help=False,allow_abbrev=False)
+    p.add_argument('--task',choices=TASKS)
+    p.add_argument('--question',help='Backward-compatible data-case selector')
+    p.add_argument('--case',choices=['Q1_caseA','Q1_caseB'])
+    p.add_argument('--list-tasks',action='store_true')
+    p.add_argument('-h','--help',action='store_true')
+    a,rest=p.parse_known_args(argv)
+    if a.list_tasks:
+        for key,(_,description) in TASKS.items():print(f'{key:7} {description}')
         return
-    if not args.question.startswith("Q1_"):
-        parser.error("This project currently implements Q1 and Q2_quadratic only.")
-    if args.cq is not None or args.sweep:
-        parser.error("--cq and --sweep are for Q2_quadratic only.")
+    if a.help and a.task is None and a.question is None:
+        p.print_help();return
+    if a.question is not None and a.question not in ALIASES:
+        p.error(f'{a.question} has input data but no implemented task in this uploaded working tree. Use --list-tasks.')
+    task=a.task or ALIASES.get(a.question,'1e')
+    if a.task is not None and a.question is not None and ALIASES[a.question]!=a.task:
+        p.error('--task and --question conflict; choose one selector.')
+    if a.case is not None and task!='1e':p.error('--case is only for task 1e; task 1f runs both cases.')
+    if task=='1e':
+        case=a.case or a.question or 'Q1_caseA'
+        if a.case and a.question and a.case!=a.question:p.error('--case and --question conflict.')
+        rest=['--case',case]+rest
+    if task=='2c' and not a.help:
+        # Keep original main.py behaviour: base only unless --sweep requested.
+        if '--sweep' not in rest and '--base-only' not in rest:rest.append('--base-only')
+        if '--sweep' in rest:
+            i=rest.index('--sweep')
+            if i+1==len(rest) or rest[i+1].startswith('--'):
+                values=import_module('src.2c.runner').DEFAULT_SWEEP
+                rest[i+1:i+1]=[str(v) for v in values]
+    if a.help:rest.append('--help')
+    import_module(TASKS[task][0]).main(rest)
 
-    out = RESULTS_DIR / args.question
-    out.mkdir(parents=True, exist_ok=True)
-    if not args.show:
-        matplotlib.use("Agg")
-
-    base = run_base_case(args.question, out, args.show)
-    if args.scenarios and base is not None:
-        run_scenarios(args.question, out)
-    print(f"\nOutputs written to {out}")
-
-
-if __name__ == "__main__":
-    main()
+if __name__=='__main__':main()

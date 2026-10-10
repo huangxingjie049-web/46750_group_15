@@ -1,0 +1,7 @@
+Restricted license - for non-production use only - expires 2027-11-29
+          model  procurement_cost  disutility  net_utility  daily_energy  absolute_deviation  above_reference_hours
+Q2(c)_same_data         32.544450    7.426575   -39.971025        22.765               9.575                      0
+             Q3         60.395561    2.915724   -63.311285        40.000               7.660                     23
+Q3 mu = 2.368696 DKK/kWh
+All validation checks passed.
+Outputs: /workspace/scratch/35ec56ed2451/work/organized/46750_group_15/results/Q3

@@ -1,0 +1,31 @@
+Restricted license - for non-production use only - expires 2027-11-29
+{
+  "cq": 1.0,
+  "procurement_cost": 32.544450010266836,
+  "disutility": 7.426574989735325,
+  "total_cost": 39.97102500000216,
+  "net_utility": -39.97102500000216,
+  "daily_energy": 22.765000007280037,
+  "absolute_deviation": 9.574999992720024,
+  "squared_deviation": 7.426574989735325,
+  "binding_hours": 13,
+  "lower_bound_hours": 13,
+  "upper_bound_hours": 0,
+  "binding_tolerance": 1e-06,
+  "above_reference_hours": 0,
+  "simultaneous_trade_hours": 0,
+  "balance_residual_max": 4.4050788131773783e-16,
+  "objective_accounting_error": 1.7763568394002505e-14,
+  "solver": "Gurobi",
+  "solver_version": "13.0.3"
+}
+   cq  procurement_cost  disutility  daily_energy  absolute_deviation  binding_hours
+ 0.05          -1.47000    5.523660  4.224922e-12              32.340             24
+ 0.10          -1.47000   11.047320  8.159767e-12              32.340             24
+ 0.20           3.11955   16.819785  3.255000e+00              29.085             19
+ 0.50          20.85100   12.334900  1.554000e+01              16.800             15
+ 1.00          32.54445    7.426575  2.276500e+01               9.575             13
+ 2.00          39.84840    3.954600  2.726000e+01               5.080             12
+ 5.00          44.47570    1.822150  3.011000e+01               2.230             11
+10.00          46.28335    0.966325  3.119000e+01               1.150             10
+Outputs: /workspace/scratch/35ec56ed2451/work/organized/46750_group_15/results/Q2_quadratic

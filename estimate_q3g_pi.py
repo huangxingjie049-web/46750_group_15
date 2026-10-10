@@ -1,7 +1,7 @@
-"""Compatibility entry; implementation is in src.3e.runner."""
+"""Compatibility entry; implementation is in src.3g.estimate_pi."""
 from importlib import import_module
 import sys
-_implementation = import_module("src.3e.runner")
+_implementation = import_module("src.3g.estimate_pi")
 if __name__ == "__main__":
     _implementation.main()
 else:

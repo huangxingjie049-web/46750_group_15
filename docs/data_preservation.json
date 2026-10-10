@@ -1,0 +1,10 @@
+{
+  "data/params_Q3.json": "e7ee3e296795fbd791d35825e9e1fe131fe65f1104dbf72f84c36c88b725cb67",
+  "data/params_Q1_caseB.json": "28c3853f68fea0548d2e14f3bc09550a6f0bf1e9d64b38e4146d1ee97c3c3ce3",
+  "data/bus_params.json": "9221e6ba8c0668520943242f02a037036e7bd4a5b296fda99ef15b69e680b16f",
+  "data/params_Q3_battery.json": "99357ce4a312dee20812e618af39a0ff8aacbee080825cad2d6f647cc4ddd0c2",
+  "data/params_Q1_caseA.json": "aa07e73bf56a4aff49e911911ccdf501f764e5d74d1363a9f71e3f4a623c786e",
+  "data/params_Q2_linear.json": "c33a25b58ff17e6e6ccd89d90ab16731a6cccb87c7203aac4977c75317ceb5f5",
+  "data/appliance_params.json": "f42410590ecf00acec0b8ef45b6a236683933c97dc2a51660f8d0475b8c690b1",
+  "data/params_Q2_quadratic.json": "6674ab8b6c5efeb8d67fa26e745d1f11e6f9d549bd611d05014822b91d800ed1"
+}

@@ -1,0 +1,7 @@
+Restricted license - for non-production use only - expires 2027-11-29
+  scenario  total_cost  objective_DKK  final_soc_kWh  current_day_cost_saving_DKK  inventory_adjusted_battery_value_DKK  simultaneous_charge_discharge_hours
+no_battery   63.311285     -63.311285            NaN                     0.000000                              0.000000                                  NaN
+    cyclic   60.677739     -60.677739            2.0                     2.633546                              2.633546                                  0.0
+     value   64.365727     -56.365727            4.0                    -1.054442                              2.945558                                  0.0
+All feasibility/accounting/KKT checks passed.
+Outputs: /workspace/scratch/35ec56ed2451/work/organized/46750_group_15/results/Q3g

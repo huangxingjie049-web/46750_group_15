@@ -9,3 +9,7 @@ matplotlib>=3.8
 # Optional: notebooks
 jupyterlab>=4.2
 ipykernel>=6.29
+
+# Matrix extraction for battery validation; automated checks
+scipy>=1.11
+pytest>=8

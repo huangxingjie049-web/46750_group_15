@@ -1,0 +1,16 @@
+Restricted license - for non-production use only - expires 2027-11-29
+Estimated pi = 1.473684205 DKK per stored kWh
+Expansion point = 2 kWh; epsilon = 0.01 kWh
+Next-day end treatment: free end energy, zero day-3 terminal value
+ epsilon_kWh  pi_estimate_DKK_per_kWh  left_slope  right_slope
+       0.001                 1.473684    1.473684     1.473684
+       0.010                 1.473684    1.473684     1.473684
+       0.100                 1.473684    1.473684     1.473684
+Outputs: /workspace/scratch/35ec56ed2451/work/organized/46750_group_15/results/Q3g_pi_estimation
+Restricted license - for non-production use only - expires 2027-11-29
+  scenario  total_cost  objective_DKK  final_soc_kWh  current_day_cost_saving_DKK  inventory_adjusted_battery_value_DKK  simultaneous_charge_discharge_hours
+no_battery   63.311285     -63.311285            NaN                     0.000000                              0.000000                                  NaN
+    cyclic   60.677739     -60.677739   2.000000e+00                     2.633546                              2.633546                                  0.0
+     value   57.196707     -57.196707   1.240803e-13                     6.114578                              3.167209                                  0.0
+All feasibility/accounting/KKT checks passed.
+Outputs: /workspace/scratch/35ec56ed2451/work/organized/46750_group_15/results/Q3g_pi_estimation/today_using_estimated_pi
