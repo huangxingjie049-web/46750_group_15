@@ -24,6 +24,7 @@ TASKS={
  '2c':('src.2c.runner','Quadratic-disutility model and optional coefficient sweep'),
  '3d':('src.3d.runner','Daily-minimum model implementation and validation'),
  '3e':('src.3e.runner','Same-data Q2(c)/Q3 comparison, validation and figures'),
+ '3f': ('src.3f.runner', 'No-battery sensitivity: daily minimum and quadratic coefficient'),
  '3g':('src.3g.runner','Battery: cyclic/value modes, comparisons and optional sweeps'),
  '3g-pi':('src.3g.estimate_pi','Estimate terminal value from next-day forecasts'),
 }
