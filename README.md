@@ -147,7 +147,6 @@ same-named files; use a separate output parent to retain independent executions.
 | `src/report_plotting.py` | Generate all numbered report figures from numerical CSV/JSON and capture plotted arrays |
 | `src/plotting.py` | Retained general diagnostic plotting helpers used by the experiment API |
 | `tests/` | Input, mathematical model, experiment, and report integrity tests |
-| `report_reference/source/` | Report LaTeX text for traceability; original pictures are deliberately absent |
 | `report_reference/contract.json` | Report image names/dimensions, numeric expectations, rounding tolerances, known conflicts |
 | `results/<task>/runs/<scenario>/` | Newly executed numerical run files |
 | `results/report/figures/` | Newly generated PNG/JPG, vector PDF, and `.plot_data.json` files |
@@ -250,11 +249,15 @@ Copy this package into the new code branch as a complete project, including
 `report_reference/contract.json` and `docs/diagrams/`. The former supplies report
 comparison expectations; the latter displays the README structure diagrams. Keep one root Python runner: `main.py`.
 
-Run the full command, inspect `results/report/numerical_match.csv`, then commit
-source, tests, README, and report numerical references. `results/` is ignored by Git by
-default although execution results are included in this downloaded ZIP. If you
-want results tracked in the branch, deliberately adjust `.gitignore` or force-add
-selected outputs. Do not commit virtual environments, caches, or private licenses.
+Run the full command, inspect `results/report/numerical_match.csv`, then
+commit the source code, tests, README, and report numerical references.
+
+Generated results are not included in this submission ZIP.
+Run `python main.py --task all` to create the `results/` directory
+and reproduce the numerical outputs and figures.
+
+The `results/` directory is ignored by Git by default.
+Do not commit virtual environments, caches, or private license files.
 
 The original course data/starter source is
 https://github.com/lemitri-DTU/template-assignment-1. 
