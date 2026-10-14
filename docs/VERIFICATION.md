@@ -19,7 +19,10 @@ report-checked outputs. Dimensions and numerical source hashes were rechecked.
 
 ## Tests
 
-`python -m pytest -q`: **45 passed in 43.06s**.
+`python -m pytest -q`: **45 passed**.
+
+The submission was retested after adding LF/CRLF compatibility
+to the original-data hash check.
 
 The seven drawing tests cover default CLI generation without original pictures,
 a changed decision changing actual pixels and bar heights, failed numeric checks
