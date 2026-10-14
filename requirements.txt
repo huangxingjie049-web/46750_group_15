@@ -1,15 +1,7 @@
-# Python dependencies for Assignment 1 (pip). Install with:  pip install -r requirements.txt
-# A Gurobi licence is needed on top of the gurobipy package - see README.md.
-
-gurobipy>=11.0          # optimisation solver interface
-numpy>=1.26
-pandas>=2.1
-matplotlib>=3.8
-
-# Optional: notebooks
-jupyterlab>=4.2
-ipykernel>=6.29
-
-# Matrix extraction for battery validation; automated checks
-scipy>=1.11
-pytest>=8
+# Tested solver; small report models fit the bundled restricted Gurobi license.
+gurobipy==13.0.1
+numpy>=1.26,<3
+pandas>=2.1,<3
+scipy>=1.11,<2
+matplotlib>=3.8,<4
+pytest>=8,<10

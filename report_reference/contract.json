@@ -1,0 +1,4826 @@
+{
+  "authority": "46750_Assignment_1(1).zip, uploaded 2026-10-14",
+  "figure_count": 26,
+  "figures": [
+    {
+      "figure": 1,
+      "path": "figures/Q1/q1_caseA_overview.png",
+      "task": "1f",
+      "source_tex": "sections/Q1/Q1f.tex",
+      "sha256": "cb34c28bdd666f7bcb89b76f4bd103c399d5847e7a2548ceedbd760e73ddb154",
+      "width_pixels": 1800,
+      "height_pixels": 1800,
+      "dpi": 150
+    },
+    {
+      "figure": 2,
+      "path": "figures/Q1/Q1_caseB_overview.png",
+      "task": "1f",
+      "source_tex": "sections/Q1/Q1f.tex",
+      "sha256": "ebf7578718a3920fa5a77c6355adce053560bb43a520b8a4bc9e7f17c40721d5",
+      "width_pixels": 1800,
+      "height_pixels": 1800,
+      "dpi": 150
+    },
+    {
+      "figure": 3,
+      "path": "figures/Q2/q2b_base_schedule.png",
+      "task": "2b",
+      "source_tex": "sections/Q2/Q2b.tex",
+      "sha256": "0673a4620f1f7b0c27b48f8b1201085c201cab469667a82dcae491f06ce51e8c",
+      "width_pixels": 1800,
+      "height_pixels": 720,
+      "dpi": 180
+    },
+    {
+      "figure": 4,
+      "path": "figures/Q2/q2b_load_response.png",
+      "task": "2b",
+      "source_tex": "sections/Q2/Q2b.tex",
+      "sha256": "59fc5bfae38989cea246a5e0bdb1d876439914dfb944d0432bb076217be61327",
+      "width_pixels": 1800,
+      "height_pixels": 720,
+      "dpi": 180
+    },
+    {
+      "figure": 5,
+      "path": "figures/Q2/q2c_base.png",
+      "task": "2c",
+      "source_tex": "sections/Q2/Q2c.tex",
+      "sha256": "88a26845fd0aadb5c34a8b1928026c59229bb55a5f118e2da64296f907fac9c6",
+      "width_pixels": 1980,
+      "height_pixels": 1440,
+      "dpi": 180
+    },
+    {
+      "figure": 6,
+      "path": "figures/Q2/q2c_sweep.png",
+      "task": "2c",
+      "source_tex": "sections/Q2/Q2c.tex",
+      "sha256": "4a6be81ea3dba829cf77b7a895323f9bd4aa70fd725145552e0c70b77ff39cea",
+      "width_pixels": 1980,
+      "height_pixels": 1260,
+      "dpi": 180
+    },
+    {
+      "figure": 7,
+      "path": "figures/Q2/q2d_compare2.jpg",
+      "task": "2d",
+      "source_tex": "sections/Q2/Q2d.tex",
+      "sha256": "3978e0701af5f45c4d5252c579216ade813a463c07cc05a61870dc1b6d2e7485",
+      "width_pixels": 1800,
+      "height_pixels": 1375,
+      "dpi": 180
+    },
+    {
+      "figure": 8,
+      "path": "figures/Q2/q2d_compare1.jpg",
+      "task": "2d",
+      "source_tex": "sections/Q2/Q2d.tex",
+      "sha256": "581a963a251cd9493369ebda9c5019a2a3897e6a4f178d27efedc52ea7310642",
+      "width_pixels": 1800,
+      "height_pixels": 1768,
+      "dpi": 180
+    },
+    {
+      "figure": 9,
+      "path": "figures/Q2/q2e_base.png",
+      "task": "2e",
+      "source_tex": "sections/Q2/Q2e.tex",
+      "sha256": "35dc09459b97fd8c4a09dff8c2624f9d17a9e6e19410268f5ce4f9a44ba0aa15",
+      "width_pixels": 1980,
+      "height_pixels": 720,
+      "dpi": 180
+    },
+    {
+      "figure": 10,
+      "path": "figures/Q2/q2e_comparison.png",
+      "task": "2e",
+      "source_tex": "sections/Q2/Q2e.tex",
+      "sha256": "80fa962ed44e2bf94a4d0f68c8591855bf6d7b1532980ab8d94c964766afca13",
+      "width_pixels": 1980,
+      "height_pixels": 720,
+      "dpi": 180
+    },
+    {
+      "figure": 11,
+      "path": "figures/Q2/q2e_prices.png",
+      "task": "2e",
+      "source_tex": "sections/Q2/Q2e.tex",
+      "sha256": "36799d6857a6198bb404983f0bb420a465aeb4e42ba6e0324d07f971c9ce37ac",
+      "width_pixels": 1980,
+      "height_pixels": 540,
+      "dpi": 180
+    },
+    {
+      "figure": 12,
+      "path": "figures/Q3/q3e_basecase.png",
+      "task": "3e",
+      "source_tex": "sections/Q3/Q3e.tex",
+      "sha256": "a084a23060dc5b5748fa6fb8ee00fd9942e404ea9384303371e0afad6e27427e",
+      "width_pixels": 2554,
+      "height_pixels": 2494,
+      "dpi": 180
+    },
+    {
+      "figure": 13,
+      "path": "figures/Q3/q3e_energy_flows.png",
+      "task": "3e",
+      "source_tex": "sections/Q3/Q3e.tex",
+      "sha256": "c45033ae3ccc2d846539a41012257f1e2b3d9d1f3845084f15e98164a7a8ed07",
+      "width_pixels": 2554,
+      "height_pixels": 1654,
+      "dpi": 180
+    },
+    {
+      "figure": 14,
+      "path": "figures/Q3/q3f_emin_summary.png",
+      "task": "3f",
+      "source_tex": "sections/Q3/Q3f.tex",
+      "sha256": "bd49ebb2edb084d7ee7776fac4e589d842bbb638542197b5cd6531d495af0855",
+      "width_pixels": 1980,
+      "height_pixels": 1260,
+      "dpi": 180
+    },
+    {
+      "figure": 15,
+      "path": "figures/Q3/q3f_emin_load_profiles.png",
+      "task": "3f",
+      "source_tex": "sections/Q3/Q3f.tex",
+      "sha256": "af91ac4e5424f73c8ddbb67653dbe95b78fe90e4617488dbf07579ccf3e2a506",
+      "width_pixels": 2160,
+      "height_pixels": 1620,
+      "dpi": 180
+    },
+    {
+      "figure": 16,
+      "path": "figures/Q3/q3f_cq_summary.png",
+      "task": "3f",
+      "source_tex": "sections/Q3/Q3f.tex",
+      "sha256": "65213347020bba61fc0a49a5b50656321b77a32b69286a5ed8733fdc1f42e14d",
+      "width_pixels": 1980,
+      "height_pixels": 1260,
+      "dpi": 180
+    },
+    {
+      "figure": 17,
+      "path": "figures/Q3/q3f_cq_load_profiles.png",
+      "task": "3f",
+      "source_tex": "sections/Q3/Q3f.tex",
+      "sha256": "913631d52720599c46154bae131be69c7b25e4545b9f1fa187e3c75e248e95fd",
+      "width_pixels": 2160,
+      "height_pixels": 1620,
+      "dpi": 180
+    },
+    {
+      "figure": 18,
+      "path": "figures/Q3/q3g_basecase_check.png",
+      "task": "3g",
+      "source_tex": "sections/Q3/Q3g.tex",
+      "sha256": "eda65574809d68549328b68efacc98a922021d17681304040ca414a53d496d6e",
+      "width_pixels": 1640,
+      "height_pixels": 1370,
+      "dpi": 180
+    },
+    {
+      "figure": 19,
+      "path": "figures/Q3/q3g_schedule_comparison_with_prices.png",
+      "task": "3g",
+      "source_tex": "sections/Q3/Q3g.tex",
+      "sha256": "4862626a18f27681f0cb41deca0f23f439210bc3f5e27355c95472576885e9dd",
+      "width_pixels": 2235,
+      "height_pixels": 1431,
+      "dpi": 180
+    },
+    {
+      "figure": 20,
+      "path": "figures/Q3/q3g_reference_deviations.png",
+      "task": "3g",
+      "source_tex": "sections/Q3/Q3g.tex",
+      "sha256": "5ddecce73c15de38dac0e804c56b82cd231875566f988a1a5de9c761b9b6e047",
+      "width_pixels": 1903,
+      "height_pixels": 1303,
+      "dpi": 180
+    },
+    {
+      "figure": 21,
+      "path": "figures/Q3/q3g_sweep_capacity.png",
+      "task": "3g-sensitivity",
+      "source_tex": "sections/Q3/Q3g.tex",
+      "sha256": "2e0e497e193234ea322dc71646c46493809bc72d94993e35556f6ea487952b92",
+      "width_pixels": 1903,
+      "height_pixels": 1243,
+      "dpi": 180
+    },
+    {
+      "figure": 22,
+      "path": "figures/Q3/q3g_sweep_power.png",
+      "task": "3g-sensitivity",
+      "source_tex": "sections/Q3/Q3g.tex",
+      "sha256": "2140e64b2e6f0221fca6c592e192966d8bda94510c29e9fee6ac3e93a4bc707e",
+      "width_pixels": 1903,
+      "height_pixels": 1243,
+      "dpi": 180
+    },
+    {
+      "figure": 23,
+      "path": "figures/Q3/q3g_price_spread.png",
+      "task": "3g-sensitivity",
+      "source_tex": "sections/Q3/Q3g.tex",
+      "sha256": "68b7e7f4b6c0d7949ece1413459488fb9d283e18725aba3dfa56761f7491f409",
+      "width_pixels": 2494,
+      "height_pixels": 2014,
+      "dpi": 180
+    },
+    {
+      "figure": 24,
+      "path": "figures/Q3/q3g_price_spread_capacity.png",
+      "task": "3g-sensitivity",
+      "source_tex": "sections/Q3/Q3g.tex",
+      "sha256": "c737c6f0ed6fda9e6cad8a864653b879a92fdb53185b483caf782dcffdd2b1bf",
+      "width_pixels": 2494,
+      "height_pixels": 1864,
+      "dpi": 180
+    },
+    {
+      "figure": 25,
+      "path": "figures/Q3/q3g_price_spread_power.png",
+      "task": "3g-sensitivity",
+      "source_tex": "sections/Q3/Q3g.tex",
+      "sha256": "e65d5193d1131576b69d84d3aba8a01a957905b5bfb60291a05d6bf69545efa8",
+      "width_pixels": 2494,
+      "height_pixels": 1864,
+      "dpi": 180
+    },
+    {
+      "figure": 26,
+      "path": "figures/Q2/q2c_linear_comparison.png",
+      "task": "2d",
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "sha256": "6cb2d0a24c552b4af34ecccb07e38ba5e681478fbd81bdae21aac8289a29b29f",
+      "width_pixels": 1980,
+      "height_pixels": 720,
+      "dpi": 180
+    }
+  ],
+  "checks": [
+    {
+      "name": "Table 1: Q1_caseA: pv_kWh",
+      "file": "1f/runs/Q1_caseA/metrics.json",
+      "field": "pv_kWh",
+      "reported": 26.94,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseA: import_kWh",
+      "file": "1f/runs/Q1_caseA/metrics.json",
+      "field": "import_kWh",
+      "reported": 12.0,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseA: export_kWh",
+      "file": "1f/runs/Q1_caseA/metrics.json",
+      "field": "export_kWh",
+      "reported": 3.0,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseA: daily_energy",
+      "file": "1f/runs/Q1_caseA/metrics.json",
+      "field": "daily_energy",
+      "reported": 35.94,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseA: curtailment_kWh",
+      "file": "1f/runs/Q1_caseA/metrics.json",
+      "field": "curtailment_kWh",
+      "reported": 0.0,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseA: utility",
+      "file": "1f/runs/Q1_caseA/metrics.json",
+      "field": "utility",
+      "reported": 51.3942,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseA: procurement_cost",
+      "file": "1f/runs/Q1_caseA/metrics.json",
+      "field": "procurement_cost",
+      "reported": 48.7854,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseA: objective",
+      "file": "1f/runs/Q1_caseA/metrics.json",
+      "field": "objective",
+      "reported": 2.6088,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseB: pv_kWh",
+      "file": "1f/runs/Q1_caseB/metrics.json",
+      "field": "pv_kWh",
+      "reported": 3.0,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseB: import_kWh",
+      "file": "1f/runs/Q1_caseB/metrics.json",
+      "field": "import_kWh",
+      "reported": 12.0,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseB: export_kWh",
+      "file": "1f/runs/Q1_caseB/metrics.json",
+      "field": "export_kWh",
+      "reported": 3.0,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseB: daily_energy",
+      "file": "1f/runs/Q1_caseB/metrics.json",
+      "field": "daily_energy",
+      "reported": 12.0,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseB: curtailment_kWh",
+      "file": "1f/runs/Q1_caseB/metrics.json",
+      "field": "curtailment_kWh",
+      "reported": 23.94,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseB: utility",
+      "file": "1f/runs/Q1_caseB/metrics.json",
+      "field": "utility",
+      "reported": 17.16,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseB: procurement_cost",
+      "file": "1f/runs/Q1_caseB/metrics.json",
+      "field": "procurement_cost",
+      "reported": 15.21,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 1: Q1_caseB: objective",
+      "file": "1f/runs/Q1_caseB/metrics.json",
+      "field": "objective",
+      "reported": 1.95,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q1/Q1f.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 2: base: procurement_cost",
+      "file": "2b/runs/base/metrics.json",
+      "field": "procurement_cost",
+      "reported": 31.101,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 2: base: disutility",
+      "file": "2b/runs/base/metrics.json",
+      "field": "disutility",
+      "reported": 13.2132,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 2: base: daily_energy",
+      "file": "2b/runs/base/metrics.json",
+      "field": "daily_energy",
+      "reported": 23.1,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 2: base: absolute_deviation",
+      "file": "2b/runs/base/metrics.json",
+      "field": "absolute_deviation",
+      "reported": 9.24,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 2: base: binding_hours",
+      "file": "2b/runs/base/metrics.json",
+      "field": "binding_hours",
+      "reported": 11.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 2: base: objective",
+      "file": "2b/runs/base/metrics.json",
+      "field": "objective",
+      "reported": -44.3142,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 2: base: import_kWh",
+      "file": "2b/runs/base/metrics.json",
+      "field": "import_kWh",
+      "reported": 0.0,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 2: base: export_kWh",
+      "file": "2b/runs/base/metrics.json",
+      "field": "export_kWh",
+      "reported": 3.0,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 2: base: pv_kWh",
+      "file": "2b/runs/base/metrics.json",
+      "field": "pv_kWh",
+      "reported": 26.1,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 2: base: curtailment_kWh",
+      "file": "2b/runs/base/metrics.json",
+      "field": "curtailment_kWh",
+      "reported": 0.84,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 3: cL=0.50: procurement_cost",
+      "file": "2b/representative_metrics.csv",
+      "field": "procurement_cost",
+      "reported": -1.47,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 0.5
+      }
+    },
+    {
+      "name": "Table 3: cL=0.50: disutility",
+      "file": "2b/representative_metrics.csv",
+      "field": "disutility",
+      "reported": 16.17,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 0.5
+      }
+    },
+    {
+      "name": "Table 3: cL=0.50: daily_energy",
+      "file": "2b/representative_metrics.csv",
+      "field": "daily_energy",
+      "reported": 0.0,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 0.5
+      }
+    },
+    {
+      "name": "Table 3: cL=0.50: absolute_deviation",
+      "file": "2b/representative_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 32.34,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 0.5
+      }
+    },
+    {
+      "name": "Table 3: cL=0.50: binding_hours",
+      "file": "2b/representative_metrics.csv",
+      "field": "binding_hours",
+      "reported": 24.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 0.5
+      }
+    },
+    {
+      "name": "Table 3: cL=1.40: procurement_cost",
+      "file": "2b/representative_metrics.csv",
+      "field": "procurement_cost",
+      "reported": -1.47,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.4
+      }
+    },
+    {
+      "name": "Table 3: cL=1.40: disutility",
+      "file": "2b/representative_metrics.csv",
+      "field": "disutility",
+      "reported": 45.276,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.4
+      }
+    },
+    {
+      "name": "Table 3: cL=1.40: daily_energy",
+      "file": "2b/representative_metrics.csv",
+      "field": "daily_energy",
+      "reported": 0.0,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.4
+      }
+    },
+    {
+      "name": "Table 3: cL=1.40: absolute_deviation",
+      "file": "2b/representative_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 32.34,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.4
+      }
+    },
+    {
+      "name": "Table 3: cL=1.40: binding_hours",
+      "file": "2b/representative_metrics.csv",
+      "field": "binding_hours",
+      "reported": 24.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.4
+      }
+    },
+    {
+      "name": "Table 3: cL=1.43: procurement_cost",
+      "file": "2b/representative_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 31.101,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.43
+      }
+    },
+    {
+      "name": "Table 3: cL=1.43: disutility",
+      "file": "2b/representative_metrics.csv",
+      "field": "disutility",
+      "reported": 13.2132,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.43
+      }
+    },
+    {
+      "name": "Table 3: cL=1.43: daily_energy",
+      "file": "2b/representative_metrics.csv",
+      "field": "daily_energy",
+      "reported": 23.1,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.43
+      }
+    },
+    {
+      "name": "Table 3: cL=1.43: absolute_deviation",
+      "file": "2b/representative_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 9.24,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.43
+      }
+    },
+    {
+      "name": "Table 3: cL=1.43: binding_hours",
+      "file": "2b/representative_metrics.csv",
+      "field": "binding_hours",
+      "reported": 11.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.43
+      }
+    },
+    {
+      "name": "Table 3: cL=1.47: procurement_cost",
+      "file": "2b/representative_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 31.536,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.47
+      }
+    },
+    {
+      "name": "Table 3: cL=1.47: disutility",
+      "file": "2b/representative_metrics.csv",
+      "field": "disutility",
+      "reported": 13.1418,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.47
+      }
+    },
+    {
+      "name": "Table 3: cL=1.47: daily_energy",
+      "file": "2b/representative_metrics.csv",
+      "field": "daily_energy",
+      "reported": 23.4,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.47
+      }
+    },
+    {
+      "name": "Table 3: cL=1.47: absolute_deviation",
+      "file": "2b/representative_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 8.94,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.47
+      }
+    },
+    {
+      "name": "Table 3: cL=1.47: binding_hours",
+      "file": "2b/representative_metrics.csv",
+      "field": "binding_hours",
+      "reported": 11.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.47
+      }
+    },
+    {
+      "name": "Table 3: cL=1.55: procurement_cost",
+      "file": "2b/representative_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 31.806,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.55
+      }
+    },
+    {
+      "name": "Table 3: cL=1.55: disutility",
+      "file": "2b/representative_metrics.csv",
+      "field": "disutility",
+      "reported": 13.578,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.55
+      }
+    },
+    {
+      "name": "Table 3: cL=1.55: daily_energy",
+      "file": "2b/representative_metrics.csv",
+      "field": "daily_energy",
+      "reported": 23.58,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.55
+      }
+    },
+    {
+      "name": "Table 3: cL=1.55: absolute_deviation",
+      "file": "2b/representative_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 8.76,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.55
+      }
+    },
+    {
+      "name": "Table 3: cL=1.55: binding_hours",
+      "file": "2b/representative_metrics.csv",
+      "field": "binding_hours",
+      "reported": 11.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.55
+      }
+    },
+    {
+      "name": "Table 3: cL=1.65: procurement_cost",
+      "file": "2b/representative_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 36.126,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.65
+      }
+    },
+    {
+      "name": "Table 3: cL=1.65: disutility",
+      "file": "2b/representative_metrics.csv",
+      "field": "disutility",
+      "reported": 9.999,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.65
+      }
+    },
+    {
+      "name": "Table 3: cL=1.65: daily_energy",
+      "file": "2b/representative_metrics.csv",
+      "field": "daily_energy",
+      "reported": 26.28,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.65
+      }
+    },
+    {
+      "name": "Table 3: cL=1.65: absolute_deviation",
+      "file": "2b/representative_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 6.06,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.65
+      }
+    },
+    {
+      "name": "Table 3: cL=1.65: binding_hours",
+      "file": "2b/representative_metrics.csv",
+      "field": "binding_hours",
+      "reported": 11.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.65
+      }
+    },
+    {
+      "name": "Table 3: cL=1.80: procurement_cost",
+      "file": "2b/representative_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 36.738,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.8
+      }
+    },
+    {
+      "name": "Table 3: cL=1.80: disutility",
+      "file": "2b/representative_metrics.csv",
+      "field": "disutility",
+      "reported": 10.26,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.8
+      }
+    },
+    {
+      "name": "Table 3: cL=1.80: daily_energy",
+      "file": "2b/representative_metrics.csv",
+      "field": "daily_energy",
+      "reported": 26.64,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.8
+      }
+    },
+    {
+      "name": "Table 3: cL=1.80: absolute_deviation",
+      "file": "2b/representative_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 5.7,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.8
+      }
+    },
+    {
+      "name": "Table 3: cL=1.80: binding_hours",
+      "file": "2b/representative_metrics.csv",
+      "field": "binding_hours",
+      "reported": 10.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.8
+      }
+    },
+    {
+      "name": "Table 3: cL=1.95: procurement_cost",
+      "file": "2b/representative_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 39.018,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.95
+      }
+    },
+    {
+      "name": "Table 3: cL=1.95: disutility",
+      "file": "2b/representative_metrics.csv",
+      "field": "disutility",
+      "reported": 8.775,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.95
+      }
+    },
+    {
+      "name": "Table 3: cL=1.95: daily_energy",
+      "file": "2b/representative_metrics.csv",
+      "field": "daily_energy",
+      "reported": 27.84,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.95
+      }
+    },
+    {
+      "name": "Table 3: cL=1.95: absolute_deviation",
+      "file": "2b/representative_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 4.5,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.95
+      }
+    },
+    {
+      "name": "Table 3: cL=1.95: binding_hours",
+      "file": "2b/representative_metrics.csv",
+      "field": "binding_hours",
+      "reported": 10.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 1.95
+      }
+    },
+    {
+      "name": "Table 3: cL=2.05: procurement_cost",
+      "file": "2b/representative_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 44.058,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 2.05
+      }
+    },
+    {
+      "name": "Table 3: cL=2.05: disutility",
+      "file": "2b/representative_metrics.csv",
+      "field": "disutility",
+      "reported": 4.059,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 2.05
+      }
+    },
+    {
+      "name": "Table 3: cL=2.05: daily_energy",
+      "file": "2b/representative_metrics.csv",
+      "field": "daily_energy",
+      "reported": 30.36,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 2.05
+      }
+    },
+    {
+      "name": "Table 3: cL=2.05: absolute_deviation",
+      "file": "2b/representative_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 1.98,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 2.05
+      }
+    },
+    {
+      "name": "Table 3: cL=2.05: binding_hours",
+      "file": "2b/representative_metrics.csv",
+      "field": "binding_hours",
+      "reported": 10.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 2.05
+      }
+    },
+    {
+      "name": "Table 3: cL=2.20: procurement_cost",
+      "file": "2b/representative_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 48.216,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 2.2
+      }
+    },
+    {
+      "name": "Table 3: cL=2.20: disutility",
+      "file": "2b/representative_metrics.csv",
+      "field": "disutility",
+      "reported": 0.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 2.2
+      }
+    },
+    {
+      "name": "Table 3: cL=2.20: daily_energy",
+      "file": "2b/representative_metrics.csv",
+      "field": "daily_energy",
+      "reported": 32.34,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 2.2
+      }
+    },
+    {
+      "name": "Table 3: cL=2.20: absolute_deviation",
+      "file": "2b/representative_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 0.0,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 2.2
+      }
+    },
+    {
+      "name": "Table 3: cL=2.20: binding_hours",
+      "file": "2b/representative_metrics.csv",
+      "field": "binding_hours",
+      "reported": 10.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2b.tex",
+      "selector": {
+        "cL": 2.2
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.05: procurement_cost",
+      "file": "2c/sweep_metrics.csv",
+      "field": "procurement_cost",
+      "reported": -1.47,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.05
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.05: disutility",
+      "file": "2c/sweep_metrics.csv",
+      "field": "disutility",
+      "reported": 5.524,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.05
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.05: daily_energy",
+      "file": "2c/sweep_metrics.csv",
+      "field": "daily_energy",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.05
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.05: absolute_deviation",
+      "file": "2c/sweep_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 32.34,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.05
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.05: binding_hours",
+      "file": "2c/sweep_metrics.csv",
+      "field": "binding_hours",
+      "reported": 24.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.05
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.10: procurement_cost",
+      "file": "2c/sweep_metrics.csv",
+      "field": "procurement_cost",
+      "reported": -1.47,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.1
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.10: disutility",
+      "file": "2c/sweep_metrics.csv",
+      "field": "disutility",
+      "reported": 11.047,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.1
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.10: daily_energy",
+      "file": "2c/sweep_metrics.csv",
+      "field": "daily_energy",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.1
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.10: absolute_deviation",
+      "file": "2c/sweep_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 32.34,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.1
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.10: binding_hours",
+      "file": "2c/sweep_metrics.csv",
+      "field": "binding_hours",
+      "reported": 24.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.1
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.20: procurement_cost",
+      "file": "2c/sweep_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 3.12,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.2
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.20: disutility",
+      "file": "2c/sweep_metrics.csv",
+      "field": "disutility",
+      "reported": 16.82,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.2
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.20: daily_energy",
+      "file": "2c/sweep_metrics.csv",
+      "field": "daily_energy",
+      "reported": 3.255,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.2
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.20: absolute_deviation",
+      "file": "2c/sweep_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 29.085,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.2
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.20: binding_hours",
+      "file": "2c/sweep_metrics.csv",
+      "field": "binding_hours",
+      "reported": 19.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.2
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.50: procurement_cost",
+      "file": "2c/sweep_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 20.851,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.5
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.50: disutility",
+      "file": "2c/sweep_metrics.csv",
+      "field": "disutility",
+      "reported": 12.335,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.5
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.50: daily_energy",
+      "file": "2c/sweep_metrics.csv",
+      "field": "daily_energy",
+      "reported": 15.54,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.5
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.50: absolute_deviation",
+      "file": "2c/sweep_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 16.8,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.5
+      }
+    },
+    {
+      "name": "Table 5: cQ=0.50: binding_hours",
+      "file": "2c/sweep_metrics.csv",
+      "field": "binding_hours",
+      "reported": 15.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 0.5
+      }
+    },
+    {
+      "name": "Table 5: cQ=1.00: procurement_cost",
+      "file": "2c/sweep_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 32.544,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 1.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=1.00: disutility",
+      "file": "2c/sweep_metrics.csv",
+      "field": "disutility",
+      "reported": 7.427,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 1.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=1.00: daily_energy",
+      "file": "2c/sweep_metrics.csv",
+      "field": "daily_energy",
+      "reported": 22.765,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 1.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=1.00: absolute_deviation",
+      "file": "2c/sweep_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 9.575,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 1.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=1.00: binding_hours",
+      "file": "2c/sweep_metrics.csv",
+      "field": "binding_hours",
+      "reported": 13.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 1.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=2.00: procurement_cost",
+      "file": "2c/sweep_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 39.848,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 2.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=2.00: disutility",
+      "file": "2c/sweep_metrics.csv",
+      "field": "disutility",
+      "reported": 3.955,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 2.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=2.00: daily_energy",
+      "file": "2c/sweep_metrics.csv",
+      "field": "daily_energy",
+      "reported": 27.26,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 2.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=2.00: absolute_deviation",
+      "file": "2c/sweep_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 5.08,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 2.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=2.00: binding_hours",
+      "file": "2c/sweep_metrics.csv",
+      "field": "binding_hours",
+      "reported": 12.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 2.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=5.00: procurement_cost",
+      "file": "2c/sweep_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 44.476,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 5.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=5.00: disutility",
+      "file": "2c/sweep_metrics.csv",
+      "field": "disutility",
+      "reported": 1.822,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 5.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=5.00: daily_energy",
+      "file": "2c/sweep_metrics.csv",
+      "field": "daily_energy",
+      "reported": 30.11,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 5.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=5.00: absolute_deviation",
+      "file": "2c/sweep_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 2.23,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 5.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=5.00: binding_hours",
+      "file": "2c/sweep_metrics.csv",
+      "field": "binding_hours",
+      "reported": 11.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 5.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=10.00: procurement_cost",
+      "file": "2c/sweep_metrics.csv",
+      "field": "procurement_cost",
+      "reported": 46.283,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 10.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=10.00: disutility",
+      "file": "2c/sweep_metrics.csv",
+      "field": "disutility",
+      "reported": 0.966,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 10.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=10.00: daily_energy",
+      "file": "2c/sweep_metrics.csv",
+      "field": "daily_energy",
+      "reported": 31.19,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 10.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=10.00: absolute_deviation",
+      "file": "2c/sweep_metrics.csv",
+      "field": "absolute_deviation",
+      "reported": 1.15,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 10.0
+      }
+    },
+    {
+      "name": "Table 5: cQ=10.00: binding_hours",
+      "file": "2c/sweep_metrics.csv",
+      "field": "binding_hours",
+      "reported": 10.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2c.tex",
+      "selector": {
+        "cQ": 10.0
+      }
+    },
+    {
+      "name": "Table 6: base_linear: procurement_cost",
+      "file": "2d/runs/base_linear/metrics.json",
+      "field": "procurement_cost",
+      "reported": 31.1,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2d.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 6: base_linear: disutility",
+      "file": "2d/runs/base_linear/metrics.json",
+      "field": "disutility",
+      "reported": 13.21,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2d.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 6: base_linear: daily_energy",
+      "file": "2d/runs/base_linear/metrics.json",
+      "field": "daily_energy",
+      "reported": 23.1,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2d.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 6: base_linear: absolute_deviation",
+      "file": "2d/runs/base_linear/metrics.json",
+      "field": "absolute_deviation",
+      "reported": 9.24,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2d.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 6: base_linear: binding_hours",
+      "file": "2d/runs/base_linear/metrics.json",
+      "field": "binding_hours",
+      "reported": 11.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2d.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 6: base_quadratic: procurement_cost",
+      "file": "2d/runs/base_quadratic/metrics.json",
+      "field": "procurement_cost",
+      "reported": 32.54,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2d.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 6: base_quadratic: disutility",
+      "file": "2d/runs/base_quadratic/metrics.json",
+      "field": "disutility",
+      "reported": 7.43,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2d.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 6: base_quadratic: daily_energy",
+      "file": "2d/runs/base_quadratic/metrics.json",
+      "field": "daily_energy",
+      "reported": 22.77,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2d.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 6: base_quadratic: absolute_deviation",
+      "file": "2d/runs/base_quadratic/metrics.json",
+      "field": "absolute_deviation",
+      "reported": 9.58,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2d.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 6: base_quadratic: binding_hours",
+      "file": "2d/runs/base_quadratic/metrics.json",
+      "field": "binding_hours",
+      "reported": 13.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q2/Q2d.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 7: base_separable: absolute_deviation",
+      "file": "2e/runs/base_separable/metrics.json",
+      "field": "absolute_deviation",
+      "reported": 9.57,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 7: base_separable: daily_energy",
+      "file": "2e/runs/base_separable/metrics.json",
+      "field": "daily_energy",
+      "reported": 22.77,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 7: base_coupled: absolute_deviation",
+      "file": "2e/runs/base_coupled/metrics.json",
+      "field": "absolute_deviation",
+      "reported": 2.26,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 7: base_coupled: daily_energy",
+      "file": "2e/runs/base_coupled/metrics.json",
+      "field": "daily_energy",
+      "reported": 30.08,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 8: alternating_quadratic: absolute_deviation",
+      "file": "2e/runs/alternating_quadratic/metrics.json",
+      "field": "absolute_deviation",
+      "reported": 10.06,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 8: alternating_quadratic: daily_energy",
+      "file": "2e/runs/alternating_quadratic/metrics.json",
+      "field": "daily_energy",
+      "reported": 22.28,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 8: alternating_quadratic: procurement_cost",
+      "file": "2e/runs/alternating_quadratic/metrics.json",
+      "field": "procurement_cost",
+      "reported": 33.17,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 8: alternating_coupled: absolute_deviation",
+      "file": "2e/runs/alternating_coupled/metrics.json",
+      "field": "absolute_deviation",
+      "reported": 2.42,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 8: alternating_coupled: daily_energy",
+      "file": "2e/runs/alternating_coupled/metrics.json",
+      "field": "daily_energy",
+      "reported": 29.98,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 8: alternating_coupled: procurement_cost",
+      "file": "2e/runs/alternating_coupled/metrics.json",
+      "field": "procurement_cost",
+      "reported": 46.38,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 8: block_quadratic: absolute_deviation",
+      "file": "2e/runs/block_quadratic/metrics.json",
+      "field": "absolute_deviation",
+      "reported": 10.83,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 8: block_quadratic: daily_energy",
+      "file": "2e/runs/block_quadratic/metrics.json",
+      "field": "daily_energy",
+      "reported": 21.51,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 8: block_quadratic: procurement_cost",
+      "file": "2e/runs/block_quadratic/metrics.json",
+      "field": "procurement_cost",
+      "reported": 33.05,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 8: block_coupled: absolute_deviation",
+      "file": "2e/runs/block_coupled/metrics.json",
+      "field": "absolute_deviation",
+      "reported": 2.56,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 8: block_coupled: daily_energy",
+      "file": "2e/runs/block_coupled/metrics.json",
+      "field": "daily_energy",
+      "reported": 29.78,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 8: block_coupled: procurement_cost",
+      "file": "2e/runs/block_coupled/metrics.json",
+      "field": "procurement_cost",
+      "reported": 49.2,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q2/Q2e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: without_requirement: daily_energy",
+      "file": "3e/runs/without_requirement/metrics.json",
+      "field": "daily_energy",
+      "reported": 22.765,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: without_requirement: pv_kWh",
+      "file": "3e/runs/without_requirement/metrics.json",
+      "field": "pv_kWh",
+      "reported": 21.345,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: without_requirement: curtailment_kWh",
+      "file": "3e/runs/without_requirement/metrics.json",
+      "field": "curtailment_kWh",
+      "reported": 5.595,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: without_requirement: import_kWh",
+      "file": "3e/runs/without_requirement/metrics.json",
+      "field": "import_kWh",
+      "reported": 4.42,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: without_requirement: export_kWh",
+      "file": "3e/runs/without_requirement/metrics.json",
+      "field": "export_kWh",
+      "reported": 3.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: without_requirement: procurement_cost",
+      "file": "3e/runs/without_requirement/metrics.json",
+      "field": "procurement_cost",
+      "reported": 32.5445,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: without_requirement: disutility",
+      "file": "3e/runs/without_requirement/metrics.json",
+      "field": "disutility",
+      "reported": 7.4266,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: without_requirement: objective",
+      "file": "3e/runs/without_requirement/metrics.json",
+      "field": "objective",
+      "reported": -39.971,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: without_requirement: above_reference_hours",
+      "file": "3e/runs/without_requirement/metrics.json",
+      "field": "above_reference_hours",
+      "reported": 0.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: daily_40: daily_energy",
+      "file": "3e/runs/daily_40/metrics.json",
+      "field": "daily_energy",
+      "reported": 40.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: daily_40: pv_kWh",
+      "file": "3e/runs/daily_40/metrics.json",
+      "field": "pv_kWh",
+      "reported": 26.94,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: daily_40: curtailment_kWh",
+      "file": "3e/runs/daily_40/metrics.json",
+      "field": "curtailment_kWh",
+      "reported": 0.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: daily_40: import_kWh",
+      "file": "3e/runs/daily_40/metrics.json",
+      "field": "import_kWh",
+      "reported": 15.4713,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: daily_40: export_kWh",
+      "file": "3e/runs/daily_40/metrics.json",
+      "field": "export_kWh",
+      "reported": 2.4113,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: daily_40: procurement_cost",
+      "file": "3e/runs/daily_40/metrics.json",
+      "field": "procurement_cost",
+      "reported": 60.3956,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: daily_40: disutility",
+      "file": "3e/runs/daily_40/metrics.json",
+      "field": "disutility",
+      "reported": 2.9157,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: daily_40: objective",
+      "file": "3e/runs/daily_40/metrics.json",
+      "field": "objective",
+      "reported": -63.3113,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 9: daily_40: above_reference_hours",
+      "file": "3e/runs/daily_40/metrics.json",
+      "field": "above_reference_hours",
+      "reported": 23.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q3/Q3e.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: no_battery: daily_energy",
+      "file": "3g/runs/no_battery/metrics.json",
+      "field": "daily_energy",
+      "reported": 40.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: no_battery: pv_kWh",
+      "file": "3g/runs/no_battery/metrics.json",
+      "field": "pv_kWh",
+      "reported": 26.94,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: no_battery: import_kWh",
+      "file": "3g/runs/no_battery/metrics.json",
+      "field": "import_kWh",
+      "reported": 15.4713,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: no_battery: export_kWh",
+      "file": "3g/runs/no_battery/metrics.json",
+      "field": "export_kWh",
+      "reported": 2.4113,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: no_battery: procurement_cost",
+      "file": "3g/runs/no_battery/metrics.json",
+      "field": "procurement_cost",
+      "reported": 60.3956,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: no_battery: absolute_deviation",
+      "file": "3g/runs/no_battery/metrics.json",
+      "field": "absolute_deviation",
+      "reported": 7.66,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: no_battery: squared_deviation",
+      "file": "3g/runs/no_battery/metrics.json",
+      "field": "squared_deviation",
+      "reported": 2.9157,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: no_battery: disutility",
+      "file": "3g/runs/no_battery/metrics.json",
+      "field": "disutility",
+      "reported": 2.9157,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: no_battery: mu",
+      "file": "3g/runs/no_battery/metrics.json",
+      "field": "mu",
+      "reported": 2.3687,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: no_battery: objective",
+      "file": "3g/runs/no_battery/metrics.json",
+      "field": "objective",
+      "reported": -63.3113,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: value_battery: daily_energy",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "daily_energy",
+      "reported": 40.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: value_battery: pv_kWh",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "pv_kWh",
+      "reported": 26.94,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: value_battery: import_kWh",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "import_kWh",
+      "reported": 16.8878,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: value_battery: export_kWh",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "export_kWh",
+      "reported": 5.0711,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: value_battery: procurement_cost",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "procurement_cost",
+      "reported": 54.5016,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: value_battery: absolute_deviation",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "absolute_deviation",
+      "reported": 7.66,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: value_battery: squared_deviation",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "squared_deviation",
+      "reported": 2.6951,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: value_battery: disutility",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "disutility",
+      "reported": 2.6951,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: value_battery: mu",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "mu",
+      "reported": 2.3096,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 10-13: value_battery: objective",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "objective",
+      "reported": -57.1967,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 12-13: value_battery: terminal_credit",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "terminal_credit",
+      "reported": 0.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 12-13: value_battery: final_soc",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "final_soc",
+      "reported": 0.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Tables 12-13: value_battery: minimum_energy_slack",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "minimum_energy_slack",
+      "reported": 0.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 12: no_battery_without_daily_requirement: daily_energy",
+      "file": "3g/runs/no_battery_without_daily_requirement/metrics.json",
+      "field": "daily_energy",
+      "reported": 22.765,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 12: battery_without_daily_requirement: daily_energy",
+      "file": "3g/runs/battery_without_daily_requirement/metrics.json",
+      "field": "daily_energy",
+      "reported": 23.24,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Calibrated pi",
+      "file": "3g/calibration/pi_estimate.json",
+      "field": "pi_DKK_per_kWh",
+      "reported": 1.473684,
+      "tolerance": 6e-07,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {}
+    },
+    {
+      "name": "Table 14: capacity=2: battery_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "battery_value",
+      "reported": 4.985,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 2.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=2: inventory_adjusted_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 2.0377,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 2.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=2: marginal_capacity",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "marginal_capacity",
+      "reported": 0.7265,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 2.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=3: battery_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "battery_value",
+      "reported": 5.6372,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 3.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=3: inventory_adjusted_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 2.6898,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 3.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=3: marginal_capacity",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "marginal_capacity",
+      "reported": 0.5586,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 3.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=4: battery_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "battery_value",
+      "reported": 6.1146,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 4.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=4: inventory_adjusted_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 3.1672,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 4.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=4: marginal_capacity",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "marginal_capacity",
+      "reported": 0.4624,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 4.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=5: battery_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "battery_value",
+      "reported": 6.3829,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 5.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=5: inventory_adjusted_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 3.4355,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 5.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=5: marginal_capacity",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "marginal_capacity",
+      "reported": 0.0361,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 5.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=6: battery_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "battery_value",
+      "reported": 6.419,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 6.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=6: inventory_adjusted_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 3.4716,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 6.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=6: marginal_capacity",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "marginal_capacity",
+      "reported": 0.0361,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 6.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=8: battery_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "battery_value",
+      "reported": 6.4562,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 8.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=8: inventory_adjusted_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 3.5089,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 8.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=8: marginal_capacity",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "marginal_capacity",
+      "reported": 0.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 8.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=12: battery_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "battery_value",
+      "reported": 6.4562,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 12.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=12: inventory_adjusted_value",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 3.5089,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 12.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=12: marginal_capacity",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "marginal_capacity",
+      "reported": 0.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 12.0
+      }
+    },
+    {
+      "name": "Table 15: power=0: battery_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "battery_value",
+      "reported": 2.9474,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 0.0
+      }
+    },
+    {
+      "name": "Table 15: power=0: inventory_adjusted_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 0.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 0.0
+      }
+    },
+    {
+      "name": "Table 15: power=0: marginal_power",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "marginal_power",
+      "reported": 5.001,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 0.0
+      }
+    },
+    {
+      "name": "Table 15: power=0.5: battery_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "battery_value",
+      "reported": 4.5451,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 0.5
+      }
+    },
+    {
+      "name": "Table 15: power=0.5: inventory_adjusted_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 1.5977,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 0.5
+      }
+    },
+    {
+      "name": "Table 15: power=0.5: marginal_power",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "marginal_power",
+      "reported": 1.9481,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 0.5
+      }
+    },
+    {
+      "name": "Table 15: power=1: battery_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "battery_value",
+      "reported": 5.456,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 1.0
+      }
+    },
+    {
+      "name": "Table 15: power=1: inventory_adjusted_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 2.5086,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 1.0
+      }
+    },
+    {
+      "name": "Table 15: power=1: marginal_power",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "marginal_power",
+      "reported": 1.8027,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 1.0
+      }
+    },
+    {
+      "name": "Table 15: power=1.5: battery_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "battery_value",
+      "reported": 6.1146,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 1.5
+      }
+    },
+    {
+      "name": "Table 15: power=1.5: inventory_adjusted_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 3.1672,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 1.5
+      }
+    },
+    {
+      "name": "Table 15: power=1.5: marginal_power",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "marginal_power",
+      "reported": 0.7,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 1.5
+      }
+    },
+    {
+      "name": "Table 15: power=2: battery_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "battery_value",
+      "reported": 6.4446,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 2.0
+      }
+    },
+    {
+      "name": "Table 15: power=2: inventory_adjusted_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 3.4972,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 2.0
+      }
+    },
+    {
+      "name": "Table 15: power=2: marginal_power",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "marginal_power",
+      "reported": 0.5,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 2.0
+      }
+    },
+    {
+      "name": "Table 15: power=3: battery_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "battery_value",
+      "reported": 6.8273,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 3.0
+      }
+    },
+    {
+      "name": "Table 15: power=3: inventory_adjusted_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 3.8799,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 3.0
+      }
+    },
+    {
+      "name": "Table 15: power=3: marginal_power",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "marginal_power",
+      "reported": 0.2776,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 3.0
+      }
+    },
+    {
+      "name": "Table 15: power=4: battery_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "battery_value",
+      "reported": 6.9767,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 4.0
+      }
+    },
+    {
+      "name": "Table 15: power=4: inventory_adjusted_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 4.0293,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 4.0
+      }
+    },
+    {
+      "name": "Table 15: power=4: marginal_power",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "marginal_power",
+      "reported": 0.05,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 4.0
+      }
+    },
+    {
+      "name": "Table 15: power=6: battery_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "battery_value",
+      "reported": 6.9872,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 6.0
+      }
+    },
+    {
+      "name": "Table 15: power=6: inventory_adjusted_value",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 4.0399,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 6.0
+      }
+    },
+    {
+      "name": "Table 15: power=6: marginal_power",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "marginal_power",
+      "reported": 0.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 6.0
+      }
+    },
+    {
+      "name": "Table 16: alpha=0: battery_value",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "battery_value",
+      "reported": 3.8214,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0.0
+      }
+    },
+    {
+      "name": "Table 16: alpha=0: inventory_adjusted_value",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 0.874,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0.0
+      }
+    },
+    {
+      "name": "Table 16: alpha=0: marginal_capacity_right",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "marginal_capacity_right",
+      "reported": 0.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0.0
+      }
+    },
+    {
+      "name": "Table 16: alpha=0: marginal_power_right",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "marginal_power_right",
+      "reported": 0.0,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0.0
+      }
+    },
+    {
+      "name": "Table 16: alpha=0.5: battery_value",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "battery_value",
+      "reported": 4.3703,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0.5
+      }
+    },
+    {
+      "name": "Table 16: alpha=0.5: inventory_adjusted_value",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 1.4229,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0.5
+      }
+    },
+    {
+      "name": "Table 16: alpha=0.5: marginal_capacity_right",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "marginal_capacity_right",
+      "reported": 0.0723,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0.5
+      }
+    },
+    {
+      "name": "Table 16: alpha=0.5: marginal_power_right",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "marginal_power_right",
+      "reported": 0.175,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0.5
+      }
+    },
+    {
+      "name": "Table 16: alpha=1: battery_value",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "battery_value",
+      "reported": 6.1146,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "name": "Table 16: alpha=1: inventory_adjusted_value",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 3.1672,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "name": "Table 16: alpha=1: marginal_capacity_right",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "marginal_capacity_right",
+      "reported": 0.4624,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "name": "Table 16: alpha=1: marginal_power_right",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "marginal_power_right",
+      "reported": 0.7,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "name": "Table 16: alpha=1.5: battery_value",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "battery_value",
+      "reported": 9.3164,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.5
+      }
+    },
+    {
+      "name": "Table 16: alpha=1.5: inventory_adjusted_value",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 6.3691,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.5
+      }
+    },
+    {
+      "name": "Table 16: alpha=1.5: marginal_capacity_right",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "marginal_capacity_right",
+      "reported": 1.0737,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.5
+      }
+    },
+    {
+      "name": "Table 16: alpha=1.5: marginal_power_right",
+      "file": "3g-sensitivity/table16_variability.csv",
+      "field": "marginal_power_right",
+      "reported": 1.524,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.5
+      }
+    },
+    {
+      "name": "Table 17: alpha=0.5: capacity_plateau",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "capacity_plateau",
+      "reported": 4.85,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0.5
+      }
+    },
+    {
+      "name": "Table 17: alpha=0.5: capacity_value",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "capacity_value",
+      "reported": 1.4767,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0.5
+      }
+    },
+    {
+      "name": "Table 17: alpha=0.5: power_plateau",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "power_plateau",
+      "reported": 2.19,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0.5
+      }
+    },
+    {
+      "name": "Table 17: alpha=0.5: power_value",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "power_value",
+      "reported": 1.512,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0.5
+      }
+    },
+    {
+      "name": "Table 17: alpha=1: capacity_plateau",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "capacity_plateau",
+      "reported": 7.38,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "name": "Table 17: alpha=1: capacity_value",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "capacity_value",
+      "reported": 3.5089,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "name": "Table 17: alpha=1: power_plateau",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "power_plateau",
+      "reported": 4.21,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "name": "Table 17: alpha=1: power_value",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "power_value",
+      "reported": 4.0399,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "name": "Table 17: alpha=1.5: capacity_plateau",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "capacity_plateau",
+      "reported": 7.71,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.5
+      }
+    },
+    {
+      "name": "Table 17: alpha=1.5: capacity_value",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "capacity_value",
+      "reported": 7.8728,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.5
+      }
+    },
+    {
+      "name": "Table 17: alpha=1.5: power_plateau",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "power_plateau",
+      "reported": 4.21,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.5
+      }
+    },
+    {
+      "name": "Table 17: alpha=1.5: power_value",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "power_value",
+      "reported": 8.1128,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 1.5
+      }
+    },
+    {
+      "name": "Table 17: alpha=0 capacity_value",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "capacity_value",
+      "reported": 0.874,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0
+      }
+    },
+    {
+      "name": "Table 17: alpha=0 power_value",
+      "file": "3g-sensitivity/table17_plateaus.csv",
+      "field": "power_value",
+      "reported": 0.874,
+      "tolerance": 5.0100000000000005e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "alpha": 0
+      }
+    },
+    {
+      "name": "Q3f Emin=20: daily_energy",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "daily_energy",
+      "reported": 22.765,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 20
+      }
+    },
+    {
+      "name": "Q3f Emin=20: total_cost",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "total_cost",
+      "reported": 39.971,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 20
+      }
+    },
+    {
+      "name": "Q3f Emin=22.765: daily_energy",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "daily_energy",
+      "reported": 22.765,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 22.765
+      }
+    },
+    {
+      "name": "Q3f Emin=22.765: mu",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "mu",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 22.765
+      }
+    },
+    {
+      "name": "Q3f Emin=25: daily_energy",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "daily_energy",
+      "reported": 25.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 25
+      }
+    },
+    {
+      "name": "Q3f Emin=25: disutility",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "disutility",
+      "reported": 4.331,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 25
+      }
+    },
+    {
+      "name": "Q3f Emin=25: total_cost",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "total_cost",
+      "reported": 40.425,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 25
+      }
+    },
+    {
+      "name": "Q3f Emin=25: above_reference_hours",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "above_reference_hours",
+      "reported": 0.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 25
+      }
+    },
+    {
+      "name": "Q3f Emin=32.34: daily_energy",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "daily_energy",
+      "reported": 32.34,
+      "tolerance": 0.0050001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 32.34
+      }
+    },
+    {
+      "name": "Q3f Emin=32.34: disutility",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "disutility",
+      "reported": 0.239,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 32.34
+      }
+    },
+    {
+      "name": "Q3f Emin=32.34: above_reference_hours",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "above_reference_hours",
+      "reported": 13.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 32.34
+      }
+    },
+    {
+      "name": "Q3f Emin=32.34: above_reference_energy",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "above_reference_energy",
+      "reported": 0.876,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 32.34
+      }
+    },
+    {
+      "name": "Q3f Emin=40: daily_energy",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "daily_energy",
+      "reported": 40.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 40
+      }
+    },
+    {
+      "name": "Q3f Emin=40: above_reference_hours",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "above_reference_hours",
+      "reported": 23.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 40
+      }
+    },
+    {
+      "name": "Q3f Emin=40: total_cost",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "total_cost",
+      "reported": 63.311,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 40
+      }
+    },
+    {
+      "name": "Q3f Emin=40: mu",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "mu",
+      "reported": 2.369,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 40
+      }
+    },
+    {
+      "name": "Q3f Emin=48: daily_energy",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "daily_energy",
+      "reported": 48.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 48
+      }
+    },
+    {
+      "name": "Q3f Emin=48: above_reference_hours",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "above_reference_hours",
+      "reported": 24.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 48
+      }
+    },
+    {
+      "name": "Q3f Emin=48: total_cost",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "total_cost",
+      "reported": 85.012,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 48
+      }
+    },
+    {
+      "name": "Q3f Emin=48: mu",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "mu",
+      "reported": 3.049,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "emin",
+        "parameter_value": 48
+      }
+    },
+    {
+      "name": "Q3f cQ=0.1: daily_energy",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "daily_energy",
+      "reported": 30.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 0.1
+      }
+    },
+    {
+      "name": "Q3f cQ=0.1: above_reference_hours",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "above_reference_hours",
+      "reported": 11.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 0.1
+      }
+    },
+    {
+      "name": "Q3f cQ=0.1: squared_deviation",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "squared_deviation",
+      "reported": 12.778,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 0.1
+      }
+    },
+    {
+      "name": "Q3f cQ=0.1: mu",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "mu",
+      "reported": 1.552,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 0.1
+      }
+    },
+    {
+      "name": "Q3f cQ=0.1: incremental_total_cost",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "incremental_total_cost",
+      "reported": 33.105,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 0.1
+      }
+    },
+    {
+      "name": "Q3f cQ=0.5: daily_energy",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "daily_energy",
+      "reported": 30.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 0.5
+      }
+    },
+    {
+      "name": "Q3f cQ=0.5: above_reference_hours",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "above_reference_hours",
+      "reported": 7.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 0.5
+      }
+    },
+    {
+      "name": "Q3f cQ=1: daily_energy",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "daily_energy",
+      "reported": 30.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 1
+      }
+    },
+    {
+      "name": "Q3f cQ=1: above_reference_hours",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "above_reference_hours",
+      "reported": 0.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 1
+      }
+    },
+    {
+      "name": "Q3f cQ=2: daily_energy",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "daily_energy",
+      "reported": 30.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 2
+      }
+    },
+    {
+      "name": "Q3f cQ=2: above_reference_hours",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "above_reference_hours",
+      "reported": 0.0,
+      "tolerance": 2e-06,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 2
+      }
+    },
+    {
+      "name": "Q3f cQ=2: squared_deviation",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "squared_deviation",
+      "reported": 0.439,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 2
+      }
+    },
+    {
+      "name": "Q3f cQ=2: mu",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "mu",
+      "reported": 0.928,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 2
+      }
+    },
+    {
+      "name": "Q3f cQ=2: incremental_total_cost",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "incremental_total_cost",
+      "reported": 1.265,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 2
+      }
+    },
+    {
+      "name": "Q3f cQ=5: mu",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "mu",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 5
+      }
+    },
+    {
+      "name": "Q3f cQ=10: daily_energy",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "daily_energy",
+      "reported": 31.19,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 10
+      }
+    },
+    {
+      "name": "Q3f cQ=10: mu",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "mu",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 10
+      }
+    },
+    {
+      "name": "Q3f cQ=10: squared_deviation",
+      "file": "3f/sensitivity_metrics.csv",
+      "field": "squared_deviation",
+      "reported": 0.097,
+      "tolerance": 0.0005001,
+      "source_tex": "sections/Q3/Q3f.tex",
+      "selector": {
+        "experiment": "cq",
+        "parameter_value": 10
+      }
+    },
+    {
+      "name": "Table 18: hour=5: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 0.24,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 5.0
+      }
+    },
+    {
+      "name": "Table 18: hour=5: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 0.3,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 5.0
+      }
+    },
+    {
+      "name": "Table 18: hour=5: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 5.0
+      }
+    },
+    {
+      "name": "Table 18: hour=5: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 5.0
+      }
+    },
+    {
+      "name": "Table 18: hour=5: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 5.0
+      }
+    },
+    {
+      "name": "Table 18: hour=5: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 5.0
+      }
+    },
+    {
+      "name": "Table 18: hour=5: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.3,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 5.0
+      }
+    },
+    {
+      "name": "Table 18: hour=6: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 0.72,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 6.0
+      }
+    },
+    {
+      "name": "Table 18: hour=6: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 0.84,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 6.0
+      }
+    },
+    {
+      "name": "Table 18: hour=6: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 0.015,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 6.0
+      }
+    },
+    {
+      "name": "Table 18: hour=6: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 0.015,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 6.0
+      }
+    },
+    {
+      "name": "Table 18: hour=6: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 6.0
+      }
+    },
+    {
+      "name": "Table 18: hour=6: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 6.0
+      }
+    },
+    {
+      "name": "Table 18: hour=6: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.825,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 6.0
+      }
+    },
+    {
+      "name": "Table 18: hour=7: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 1.5,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 7.0
+      }
+    },
+    {
+      "name": "Table 18: hour=7: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 1.26,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 7.0
+      }
+    },
+    {
+      "name": "Table 18: hour=7: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 0.795,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 7.0
+      }
+    },
+    {
+      "name": "Table 18: hour=7: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 0.795,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 7.0
+      }
+    },
+    {
+      "name": "Table 18: hour=7: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 7.0
+      }
+    },
+    {
+      "name": "Table 18: hour=7: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 7.0
+      }
+    },
+    {
+      "name": "Table 18: hour=7: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.465,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 7.0
+      }
+    },
+    {
+      "name": "Table 18: hour=8: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 2.1,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 8.0
+      }
+    },
+    {
+      "name": "Table 18: hour=8: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 0.9,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 8.0
+      }
+    },
+    {
+      "name": "Table 18: hour=8: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 1.15,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 8.0
+      }
+    },
+    {
+      "name": "Table 18: hour=8: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 0.9,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 8.0
+      }
+    },
+    {
+      "name": "Table 18: hour=8: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.25,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 8.0
+      }
+    },
+    {
+      "name": "Table 18: hour=8: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 8.0
+      }
+    },
+    {
+      "name": "Table 18: hour=8: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 8.0
+      }
+    },
+    {
+      "name": "Table 18: hour=9: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 2.7,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 9.0
+      }
+    },
+    {
+      "name": "Table 18: hour=9: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 0.72,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 9.0
+      }
+    },
+    {
+      "name": "Table 18: hour=9: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 1.65,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 9.0
+      }
+    },
+    {
+      "name": "Table 18: hour=9: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 0.72,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 9.0
+      }
+    },
+    {
+      "name": "Table 18: hour=9: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.93,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 9.0
+      }
+    },
+    {
+      "name": "Table 18: hour=9: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 9.0
+      }
+    },
+    {
+      "name": "Table 18: hour=9: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 9.0
+      }
+    },
+    {
+      "name": "Table 18: hour=10: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 3.6,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 10.0
+      }
+    },
+    {
+      "name": "Table 18: hour=10: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 1.26,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 10.0
+      }
+    },
+    {
+      "name": "Table 18: hour=10: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 2.6,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 10.0
+      }
+    },
+    {
+      "name": "Table 18: hour=10: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 1.26,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 10.0
+      }
+    },
+    {
+      "name": "Table 18: hour=10: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 1.34,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 10.0
+      }
+    },
+    {
+      "name": "Table 18: hour=10: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 10.0
+      }
+    },
+    {
+      "name": "Table 18: hour=10: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 10.0
+      }
+    },
+    {
+      "name": "Table 18: hour=11: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 4.2,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 11.0
+      }
+    },
+    {
+      "name": "Table 18: hour=11: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 1.5,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 11.0
+      }
+    },
+    {
+      "name": "Table 18: hour=11: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 3.4,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 11.0
+      }
+    },
+    {
+      "name": "Table 18: hour=11: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 1.5,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 11.0
+      }
+    },
+    {
+      "name": "Table 18: hour=11: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 1.9,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 11.0
+      }
+    },
+    {
+      "name": "Table 18: hour=11: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 11.0
+      }
+    },
+    {
+      "name": "Table 18: hour=11: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 11.0
+      }
+    },
+    {
+      "name": "Table 18: hour=12: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 4.8,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 12.0
+      }
+    },
+    {
+      "name": "Table 18: hour=12: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 5.1,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 12.0
+      }
+    },
+    {
+      "name": "Table 18: hour=12: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 4.095,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 12.0
+      }
+    },
+    {
+      "name": "Table 18: hour=12: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 4.095,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 12.0
+      }
+    },
+    {
+      "name": "Table 18: hour=12: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 12.0
+      }
+    },
+    {
+      "name": "Table 18: hour=12: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 12.0
+      }
+    },
+    {
+      "name": "Table 18: hour=12: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 1.005,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 12.0
+      }
+    },
+    {
+      "name": "Table 18: hour=13: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 4.68,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 13.0
+      }
+    },
+    {
+      "name": "Table 18: hour=13: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 4.5,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 13.0
+      }
+    },
+    {
+      "name": "Table 18: hour=13: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 3.975,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 13.0
+      }
+    },
+    {
+      "name": "Table 18: hour=13: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 3.975,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 13.0
+      }
+    },
+    {
+      "name": "Table 18: hour=13: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 13.0
+      }
+    },
+    {
+      "name": "Table 18: hour=13: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 13.0
+      }
+    },
+    {
+      "name": "Table 18: hour=13: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.525,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 13.0
+      }
+    },
+    {
+      "name": "Table 18: hour=14: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 3.6,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 14.0
+      }
+    },
+    {
+      "name": "Table 18: hour=14: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 3.3,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 14.0
+      }
+    },
+    {
+      "name": "Table 18: hour=14: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 2.895,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 14.0
+      }
+    },
+    {
+      "name": "Table 18: hour=14: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 2.895,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 14.0
+      }
+    },
+    {
+      "name": "Table 18: hour=14: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 14.0
+      }
+    },
+    {
+      "name": "Table 18: hour=14: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 14.0
+      }
+    },
+    {
+      "name": "Table 18: hour=14: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.405,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 14.0
+      }
+    },
+    {
+      "name": "Table 18: hour=15: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 2.4,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 15.0
+      }
+    },
+    {
+      "name": "Table 18: hour=15: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 2.58,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 15.0
+      }
+    },
+    {
+      "name": "Table 18: hour=15: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 1.695,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 15.0
+      }
+    },
+    {
+      "name": "Table 18: hour=15: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 1.695,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 15.0
+      }
+    },
+    {
+      "name": "Table 18: hour=15: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 15.0
+      }
+    },
+    {
+      "name": "Table 18: hour=15: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 15.0
+      }
+    },
+    {
+      "name": "Table 18: hour=15: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.885,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 15.0
+      }
+    },
+    {
+      "name": "Table 18: hour=16: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 1.2,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 16.0
+      }
+    },
+    {
+      "name": "Table 18: hour=16: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 1.38,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 16.0
+      }
+    },
+    {
+      "name": "Table 18: hour=16: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 0.495,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 16.0
+      }
+    },
+    {
+      "name": "Table 18: hour=16: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 0.495,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 16.0
+      }
+    },
+    {
+      "name": "Table 18: hour=16: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 16.0
+      }
+    },
+    {
+      "name": "Table 18: hour=16: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 16.0
+      }
+    },
+    {
+      "name": "Table 18: hour=16: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.885,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 16.0
+      }
+    },
+    {
+      "name": "Table 18: hour=17: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 0.48,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 17.0
+      }
+    },
+    {
+      "name": "Table 18: hour=17: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 0.3,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 17.0
+      }
+    },
+    {
+      "name": "Table 18: hour=17: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 17.0
+      }
+    },
+    {
+      "name": "Table 18: hour=17: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 17.0
+      }
+    },
+    {
+      "name": "Table 18: hour=17: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 17.0
+      }
+    },
+    {
+      "name": "Table 18: hour=17: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 17.0
+      }
+    },
+    {
+      "name": "Table 18: hour=17: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.3,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 17.0
+      }
+    },
+    {
+      "name": "Table 18: hour=18: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 0.12,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 18.0
+      }
+    },
+    {
+      "name": "Table 18: hour=18: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 1.5,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 18.0
+      }
+    },
+    {
+      "name": "Table 18: hour=18: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 18.0
+      }
+    },
+    {
+      "name": "Table 18: hour=18: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 1.5,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 18.0
+      }
+    },
+    {
+      "name": "Table 18: hour=18: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 18.0
+      }
+    },
+    {
+      "name": "Table 18: hour=18: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 1.5,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 18.0
+      }
+    },
+    {
+      "name": "Table 18: hour=18: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 18.0
+      }
+    },
+    {
+      "name": "Table 18: hour=19: reference_load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "reference_load",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 19.0
+      }
+    },
+    {
+      "name": "Table 18: hour=19: pv_available",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv_available",
+      "reported": 1.5,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 19.0
+      }
+    },
+    {
+      "name": "Table 18: hour=19: load",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "load",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 19.0
+      }
+    },
+    {
+      "name": "Table 18: hour=19: pv",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "pv",
+      "reported": 1.5,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 19.0
+      }
+    },
+    {
+      "name": "Table 18: hour=19: import",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "import",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 19.0
+      }
+    },
+    {
+      "name": "Table 18: hour=19: export",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "export",
+      "reported": 1.5,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 19.0
+      }
+    },
+    {
+      "name": "Table 18: hour=19: curtailment",
+      "file": "2c/runs/base/hourly.csv",
+      "field": "curtailment",
+      "reported": 0.0,
+      "tolerance": 0.0005001,
+      "source_tex": "sources/appendices/C_q2c.tex",
+      "selector": {
+        "hour": 19.0
+      }
+    },
+    {
+      "name": "Table 14: capacity=2: average gain",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 1.0188,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 2
+      },
+      "divide_by": "capacity"
+    },
+    {
+      "name": "Table 14: capacity=3: average gain",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 0.8966,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 3
+      },
+      "divide_by": "capacity"
+    },
+    {
+      "name": "Table 14: capacity=4: average gain",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 0.7918,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 4
+      },
+      "divide_by": "capacity"
+    },
+    {
+      "name": "Table 14: capacity=5: average gain",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 0.6871,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 5
+      },
+      "divide_by": "capacity"
+    },
+    {
+      "name": "Table 14: capacity=6: average gain",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 0.5786,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 6
+      },
+      "divide_by": "capacity"
+    },
+    {
+      "name": "Table 14: capacity=8: average gain",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 0.4386,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 8
+      },
+      "divide_by": "capacity"
+    },
+    {
+      "name": "Table 14: capacity=12: average gain",
+      "file": "3g-sensitivity/table14_capacity.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 0.2924,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "capacity": 12
+      },
+      "divide_by": "capacity"
+    },
+    {
+      "name": "Table 15: power=0.5: average gain",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 3.1954,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 0.5
+      },
+      "divide_by": "power"
+    },
+    {
+      "name": "Table 15: power=1: average gain",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 2.5086,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 1
+      },
+      "divide_by": "power"
+    },
+    {
+      "name": "Table 15: power=1.5: average gain",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 2.1115,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 1.5
+      },
+      "divide_by": "power"
+    },
+    {
+      "name": "Table 15: power=2: average gain",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 1.7486,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 2
+      },
+      "divide_by": "power"
+    },
+    {
+      "name": "Table 15: power=3: average gain",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 1.2933,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 3
+      },
+      "divide_by": "power"
+    },
+    {
+      "name": "Table 15: power=4: average gain",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 1.0073,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 4
+      },
+      "divide_by": "power"
+    },
+    {
+      "name": "Table 15: power=6: average gain",
+      "file": "3g-sensitivity/table15_power.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 0.6733,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "power": 6
+      },
+      "divide_by": "power"
+    },
+    {
+      "name": "Table 11: no_battery: maximum deviation",
+      "file": "3g/runs/no_battery/hourly.csv",
+      "field": "deviation",
+      "reported": 0.5093,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {},
+      "aggregate": "max_abs"
+    },
+    {
+      "name": "Table 11: value_battery: maximum deviation",
+      "file": "3g/runs/value_battery/hourly.csv",
+      "field": "deviation",
+      "reported": 0.4798,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {},
+      "aggregate": "max_abs"
+    },
+    {
+      "name": "Q3g operating value: battery_value",
+      "file": "3g/comparison_metrics.csv",
+      "field": "battery_value",
+      "reported": 6.1146,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "scenario": "terminal_value"
+      }
+    },
+    {
+      "name": "Q3g operating value: inventory_adjusted_value",
+      "file": "3g/comparison_metrics.csv",
+      "field": "inventory_adjusted_value",
+      "reported": 3.1672,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {
+        "scenario": "terminal_value"
+      }
+    },
+    {
+      "name": "Table 10 change: import_kWh",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "import_kWh",
+      "reported": 1.4165,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {},
+      "subtract_file": "3g/runs/no_battery/metrics.json"
+    },
+    {
+      "name": "Table 10 change: export_kWh",
+      "file": "3g/runs/value_battery/metrics.json",
+      "field": "export_kWh",
+      "reported": 2.6598,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {},
+      "subtract_file": "3g/runs/no_battery/metrics.json"
+    },
+    {
+      "name": "Table 13 saving: procurement_cost",
+      "file": "3g/runs/no_battery/metrics.json",
+      "field": "procurement_cost",
+      "reported": 5.8939,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {},
+      "subtract_file": "3g/runs/value_battery/metrics.json"
+    },
+    {
+      "name": "Table 13 saving: disutility",
+      "file": "3g/runs/no_battery/metrics.json",
+      "field": "disutility",
+      "reported": 0.2207,
+      "tolerance": 5.01e-05,
+      "source_tex": "sections/Q3/Q3g.tex",
+      "selector": {},
+      "subtract_file": "3g/runs/value_battery/metrics.json"
+    }
+  ],
+  "known_conflicts": [
+    {
+      "source": "sections/Q2/Q2d.tex",
+      "issue": "Hour 8 quadratic load is described as about 1.6; formula and Table 18 give 1.15.",
+      "resolution": "Compute 1.15 from the model; do not force the inconsistent sentence."
+    },
+    {
+      "source": "sections/Q2/Q2e.tex",
+      "issue": "Hour 10 examples use reference 2.7 / separable 1.7, which correspond approximately to hour 9 in zero-based indexing.",
+      "resolution": "Keep supplied zero-based input index and computed hourly values."
+    },
+    {
+      "source": "sections/Q2/Q2e.tex",
+      "issue": "Text describes smoothing/ramping, while the stated objective uses the sum of adjacent deviations.",
+      "resolution": "Implement the stated mathematical sum penalty."
+    }
+  ],
+  "image_method": "Fresh Matplotlib rendering from newly solved CSV/JSON data; no report image files are required or copied."
+}

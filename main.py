@@ -1,67 +1,96 @@
-"""Unified assignment entry point.
+"""The sole root entry point: reproduce report experiments or run tests."""
 
-Examples:
-  python main.py --list-tasks
-  python main.py --task 1e --case Q1_caseA
-  python main.py --task 1f
-  python main.py --task 2c --sweep
-  python main.py --task 3d
-  python main.py --task 3e
-  python main.py --task 3g --mode both --pi 2 --sweep
-  python main.py --task 3g-pi --run-today
-  python main.py --task 3g --help
-
---question Q1_caseA/Q1_caseB/Q2_quadratic/Q3/Q3_battery remains supported.
-Without task/question, run Q1 Case A. Task-specific options follow --task.
-"""
 import argparse
-from importlib import import_module
+from pathlib import Path
+import subprocess
 import sys
 
-TASKS={
- '1e':('src.1e.runner','Q1 model implementation; choose Case A or B'),
- '1f':('src.1f.runner','Q1 comparison: solve both Case A and Case B'),
- '2c':('src.2c.runner','Quadratic-disutility model and optional coefficient sweep'),
- '3d':('src.3d.runner','Daily-minimum model implementation and validation'),
- '3e':('src.3e.runner','Same-data Q2(c)/Q3 comparison, validation and figures'),
- '3f': ('src.3f.runner', 'No-battery sensitivity: daily minimum and quadratic coefficient'),
- '3g':('src.3g.runner','Battery: cyclic/value modes, comparisons and optional sweeps'),
- '3g-pi':('src.3g.estimate_pi','Estimate terminal value from next-day forecasts'),
-}
-ALIASES={'Q1_caseA':'1e','Q1_caseB':'1e','Q2_quadratic':'2c','Q3':'3e','Q3_battery':'3g'}
+# Anchor default paths to the package so running from another directory is safe.
+ROOT = Path(__file__).resolve().parent
 
+
+# Parse the command line, select report tasks, and run them in a fixed order.
 def main(argv=None):
-    p=argparse.ArgumentParser(description=__doc__,formatter_class=argparse.RawDescriptionHelpFormatter,add_help=False,allow_abbrev=False)
-    p.add_argument('--task',choices=TASKS)
-    p.add_argument('--question',help='Backward-compatible data-case selector')
-    p.add_argument('--case',choices=['Q1_caseA','Q1_caseB'])
-    p.add_argument('--list-tasks',action='store_true')
-    p.add_argument('-h','--help',action='store_true')
-    a,rest=p.parse_known_args(argv)
-    if a.list_tasks:
-        for key,(_,description) in TASKS.items():print(f'{key:7} {description}')
-        return
-    if a.help and a.task is None and a.question is None:
-        p.print_help();return
-    if a.question is not None and a.question not in ALIASES:
-        p.error(f'{a.question} has input data but no implemented task in this uploaded working tree. Use --list-tasks.')
-    task=a.task or ALIASES.get(a.question,'1e')
-    if a.task is not None and a.question is not None and ALIASES[a.question]!=a.task:
-        p.error('--task and --question conflict; choose one selector.')
-    if a.case is not None and task!='1e':p.error('--case is only for task 1e; task 1f runs both cases.')
-    if task=='1e':
-        case=a.case or a.question or 'Q1_caseA'
-        if a.case and a.question and a.case!=a.question:p.error('--case and --question conflict.')
-        rest=['--case',case]+rest
-    if task=='2c' and not a.help:
-        # Keep original main.py behaviour: base only unless --sweep requested.
-        if '--sweep' not in rest and '--base-only' not in rest:rest.append('--base-only')
-        if '--sweep' in rest:
-            i=rest.index('--sweep')
-            if i+1==len(rest) or rest[i+1].startswith('--'):
-                values=import_module('src.2c.runner').DEFAULT_SWEEP
-                rest[i+1:i+1]=[str(v) for v in values]
-    if a.help:rest.append('--help')
-    import_module(TASKS[task][0]).main(rest)
+    """Dispatch named tasks; outputs are anchored to the repository by default."""
+    from src.experiments import TASKS, run_task
+    from src.report import verify_report
+    from src.report_plotting import render_report_figures
+    from src.model import write_json
 
-if __name__=='__main__':main()
+    # Expose task selection, output location, plot control, and smoke-test mode.
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument(
+        "--task",
+        choices=["all", "test"] + list(TASKS),
+        default="all",
+        help="Default: all report experiments.",
+    )
+    p.add_argument("--list-tasks", action="store_true")
+    p.add_argument(
+        "--output-dir",
+        type=Path,
+        default=ROOT / "results",
+        help="Parent directory; each task gets a separate subdirectory.",
+    )
+    p.add_argument(
+        "--no-plots", action="store_true", help="Save numerical outputs only."
+    )
+    p.add_argument(
+        "--quick",
+        action="store_true",
+        help="Smoke mode: sparse battery scans without plateau search; NOT report reproduction.",
+    )
+    args = p.parse_args(argv)
+    # Listing tasks is read-only and exits before any scenario is solved.
+    if args.list_tasks:
+        for k, v in TASKS.items():
+            print(f"{k:16} {v}")
+        return
+    # Run pytest with the same Python interpreter selected by the user.
+    if args.task == "test":
+        raise SystemExit(
+            subprocess.call(
+                [sys.executable, "-m", "pytest", "-q", str(ROOT / "tests")], cwd=ROOT
+            )
+        )
+    # Avoid duplicate aliases in the full report run; calibration is nested in battery tasks.
+    tasks = (
+        ["1f", "2b", "2c", "2d", "2e", "3e", "3f", "3g", "3g-sensitivity"]
+        if args.task == "all"
+        else [args.task]
+    )
+    # Execute tasks sequentially, with a separate subdirectory for each one.
+    for task in tasks:
+        print(f"Running {task}: {TASKS[task]}", flush=True)
+        result = run_task(
+            task,
+            args.output_dir / task,
+            plots=(task == "3g-pi" and not args.no_plots),
+            quick=args.quick,
+        )
+        print(
+            f"Validated {task}; results: {(args.output_dir/task).resolve()}", flush=True
+        )
+    # Generate report pictures from this run's numerical files, after all tasks finish.
+    if tasks != ["3g-pi"]:
+        report = verify_report(args.output_dir, tasks=tasks, quick=args.quick)
+        if not args.no_plots:
+            figures = render_report_figures(
+                args.output_dir, tasks=tasks, quick=args.quick
+            )
+            report["figures"] = figures
+            report["figure_count"] = len(figures)
+            write_json(args.output_dir / "report" / "manifest.json", report)
+        print(
+            f"Report check: {report['checked_count']} numerical checkpoints matched; "
+            f"{report['figure_count']} report figures freshly rendered.",
+            flush=True,
+        )
+    print(
+        f"All selected experiments completed. Outputs: {args.output_dir.resolve()}",
+        flush=True,
+    )
+
+
+if __name__ == "__main__":
+    main()
