@@ -302,13 +302,14 @@ def report_style():
 
 
 # Q1/Q2 and Q3(f) retain the old runners' midpoint display; Q3(e/g) use interval boundaries.
-"""Draw an hourly result column on the supplied Matplotlib axes.
+
+
+def step(ax, h, column, label, **style):
+    """Draw an hourly result column on the supplied Matplotlib axes.
 
     Inputs: hourly DataFrame, column name, legend label, and plot style.
     Values retain the selected column's units. Updates ax; returns None.
     """
-
-def step(ax, h, column, label, **style):
     where = style.pop("where", "mid")
     x = h.index.to_numpy()
     y = h[column].to_numpy()
@@ -830,14 +831,14 @@ def sensitivity_profiles(runs, table, experiment):
 
 
 # Figure 18 plots stored energy at hour boundaries, including the initial stock at boundary 0.
-"""Return a three-panel battery dispatch figure.
+
+def battery_dispatch(h):
+    """Return a three-panel battery dispatch figure.
 
     Input: hourly solved results with energy in kWh, power in kW,
     and electricity prices in DKK/kWh.
     Output: a Matplotlib Figure showing prices, dispatch, and stored energy.
     """
-
-def battery_dispatch(h):
     fig, axes = plt.subplots(3, 1, sharex=True, figsize=(11, 9))
     for key, label in [
         ("effective_import_price", "Import a_t"),
