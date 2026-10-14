@@ -12,10 +12,20 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # Guard the exact original JSON bytes against accidental edits.
 def test_original_baseline_data_hashes():
-    for relative, expected in json.loads(
-        (ROOT / "docs/data_hashes.json").read_text()
-    ).items():
-        assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == expected
+    """Check original data while allowing Windows/Linux line endings."""
+    expected_hashes = json.loads(
+        (ROOT / "docs/data_hashes.json").read_text(encoding="utf-8")
+    )
+
+    for relative, expected in expected_hashes.items():
+        raw = (ROOT / relative).read_bytes()
+
+        # Stored reference hashes use CRLF line endings.
+        # Normalize both LF and CRLF files to that format before hashing.
+        normalized = raw.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
+        actual = hashlib.sha256(normalized).hexdigest()
+
+        assert actual == expected, f"Original data changed: {relative}"
 
 
 # Check catalogue-ratio conversions, battery efficiency, and next-day horizons.
