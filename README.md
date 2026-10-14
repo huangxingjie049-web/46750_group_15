@@ -4,23 +4,6 @@
 
 **This Python package integrates the contents of all branches and modularizes them, enabling the reader to better understand the code and its relationship to the results presented in the report.** The original JSON inputs, shared optimization model, code comments, single root `main.py`, and validation/test coverage are retained.
 
-**Running the ordinary command recalculates the numerical results and draws the
-report figures from those new results.** No report PNG/JPG is copied or required.
-
-The drawing code restores the four-panel Q1 overview from your `plotting1.py`,
-the Q2(b) drawing conventions from `main_q2_linear.py`, the Q2(c) blocks from
-`run_q2c.py`, and Q3(f) panel/step conventions from its old runner. The remaining
-report-specific panels and sizing marks are implemented in the shared renderer.
-Figure 7/8 JPEG composites are newly plotted as two panels, not pasted pictures.
-
-All 26 numbered figures retain the report filenames, panel choices, selected
-hours, line/bar meanings, and image dimensions. Plot coordinates and annotations
-come from computed CSV/JSON files. Image byte equality is not used as a substitute
-for computation. Historical nonunique dual/dispatch choices and font rendering
-can differ; the actual computed choices are shown and saved honestly.
-
-Each figure also exports the exact line/bar arrays captured from its Matplotlib
-artists as `.plot_data.json`, plus the input-file paths and hashes used to draw it.
 
 ## 1. Run the complete report package
 
@@ -103,8 +86,7 @@ python main.py --task all
 ```
 
 The optimization models are continuous LP/QPs; the battery model has 168
-variables. Verification used the bundled restricted Gurobi license. Your DTU
-academic license also works. Keep private license files and keys out of Git.
+variables. Verification used the bundled restricted Gurobi license. Keep private license files and keys out of Git.
 
 ## 3. Commands and experiment locations
 
@@ -262,33 +244,7 @@ use `dataclasses.replace`; the source data files are not rewritten.
 - Capacity/power scans retain initial 2 kWh, use right perturbation 1e-4, and
   locate zero marginal within numerical tolerance. They are conditional scans.
 
-## 7. Verification and report inconsistencies
-
-Each run has `hourly.csv`, `metrics.json`, `input_snapshot.json`, `validation.json`,
-`constraint_duals.csv`, and `model.lp`. Validation recomputes the delivered
-schedule rather than relying on an earlier stored solver vector. Separable
-no-battery models also receive a solver-independent procurement oracle.
-
-The report contract checks major Tables 1–3,5–18 and additional Q3(f)/calibration
-values. Table 4's threshold behavior is exercised by the threshold sweep and
-mathematical tests; the contract does not claim a literal audit of every prose
-sentence or each pixel's numerical coordinate. Tolerances are half the displayed
-rounding unit plus a small numerical allowance, not an adjustable fit criterion.
-
-Three source conflicts remain explicitly documented rather than hidden:
-
-1. Q2(d) describes hour-8 quadratic load as about 1.6, but its formula and Table 18
-   give 1.15. The model computes 1.15; hour 9 is 1.65.
-2. Q2(e)'s hour-10 examples use values approximately belonging to zero-based hour 9.
-   Supplied time indices and computed values are retained.
-3. Q2(e)'s prose describes ramp smoothing while its formula uses adjacent sums.
-   The code implements the formula.
-
-These conflicts do not make it possible to match every sentence simultaneously.
-`results/report/manifest.json` lists them alongside the passing numerical checks.
-See `docs/VERIFICATION.md` and its logs for the final run and test evidence.
-
-## 8. Integration into your branch
+## 7. Integration into your branch
 
 Copy this package into the new code branch as a complete project, including
 `report_reference/contract.json` and `docs/diagrams/`. The former supplies report
@@ -301,5 +257,4 @@ want results tracked in the branch, deliberately adjust `.gitignore` or force-ad
 selected outputs. Do not commit virtual environments, caches, or private licenses.
 
 The original course data/starter source is
-https://github.com/lemitri-DTU/template-assignment-1. No external time-series
-source was introduced. This package does not modify the uploaded report itself.
+https://github.com/lemitri-DTU/template-assignment-1. 
