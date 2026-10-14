@@ -20,6 +20,7 @@ exposes the quantities needed by the optimisation models as attributes with expl
 The raw dictionaries are kept in ``data.raw`` in case you need a field that is not exposed
 as an attribute.
 """
+
 from __future__ import annotations
 
 import json
@@ -45,54 +46,74 @@ class InputData:
 
     question: str
     consumer_id: str
-    hours: np.ndarray                     # 0 .. 23
+    hours: np.ndarray  # 0 .. 23
 
     # Grid / market conditions (from bus_params.json)
-    energy_price: np.ndarray              # DKK/kWh, one value per hour
-    import_tariff: float                  # DKK/kWh charged on every kWh imported
-    export_tariff: float                  # DKK/kWh charged on every kWh exported
-    max_import_kW: float | None           # None = no grid limit in Assignment 1
-    max_export_kW: float | None           # None = no grid limit in Assignment 1
+    energy_price: np.ndarray  # DKK/kWh, one value per hour
+    import_tariff: float  # DKK/kWh charged on every kWh imported
+    export_tariff: float  # DKK/kWh charged on every kWh exported
+    max_import_kW: float | None  # None = no grid limit in Assignment 1
+    max_export_kW: float | None  # None = no grid limit in Assignment 1
 
     # PV system (from the "DERs" catalogue)
     pv_max_kW: float
-    pv_profile: np.ndarray                # ratio of pv_max_kW available each hour, in [0, 1]
-    pv_available: np.ndarray              # kWh/h = pv_max_kW * pv_profile
-    pv_marginal_cost: float               # DKK per kWh of PV actually produced (0 if not given)
+    pv_profile: np.ndarray  # ratio of pv_max_kW available each hour, in [0, 1]
+    pv_available: np.ndarray  # kWh/h = pv_max_kW * pv_profile
+    pv_marginal_cost: float  # DKK per kWh of PV actually produced (0 if not given)
 
     # Flexible load (from the "loads" catalogue)
-    load_max_kWh: float                   # maximum hourly consumption, kWh/h
-    load_min_kWh: float                   # minimum hourly consumption, kWh/h
-    consumption_utility: float | None     # DKK per kWh consumed (Question 1; None otherwise)
-    min_daily_energy_kWh: float | None    # minimum energy to consume over the day (Question 3)
-    reference_load: np.ndarray | None     # preferred hourly consumption, kWh/h
-                                          # = load_max_kWh * reference_load_capacity_factor
-    linear_disutility: float | None       # DKK per kWh of absolute deviation from reference_load
-    quadratic_disutility: float | None    # DKK per kWh^2 of deviation from reference_load
+    load_max_kWh: float  # maximum hourly consumption, kWh/h
+    load_min_kWh: float  # minimum hourly consumption, kWh/h
+    consumption_utility: (
+        float | None
+    )  # DKK per kWh consumed (Question 1; None otherwise)
+    min_daily_energy_kWh: (
+        float | None
+    )  # minimum energy to consume over the day (Question 3)
+    reference_load: np.ndarray | None  # preferred hourly consumption, kWh/h
+    # = load_max_kWh * reference_load_capacity_factor
+    linear_disutility: (
+        float | None
+    )  # DKK per kWh of absolute deviation from reference_load
+    quadratic_disutility: float | None  # DKK per kWh^2 of deviation from reference_load
 
     # Battery (Q3_battery only; from the "storages" catalogue; all None when absent)
     battery_capacity_kWh: float | None = None
     battery_max_charge_kW: float | None = None
     battery_max_discharge_kW: float | None = None
-    battery_charging_efficiency: float | None = None      # fraction of charged energy reaching the battery
-    battery_discharging_efficiency: float | None = None   # fraction of discharged energy reaching the consumer
-    battery_initial_soc_kWh: float | None = None          # state of charge at the start of the day
-    battery_final_soc_kWh: float | None = None            # None ON PURPOSE: the end-of-horizon treatment is
-                                                          # your modeling choice (Question 3.(g))
+    battery_charging_efficiency: float | None = (
+        None  # fraction of charged energy reaching the battery
+    )
+    battery_discharging_efficiency: float | None = (
+        None  # fraction of discharged energy reaching the consumer
+    )
+    battery_initial_soc_kWh: float | None = (
+        None  # state of charge at the start of the day
+    )
+    battery_final_soc_kWh: float | None = (
+        None  # None ON PURPOSE: the end-of-horizon treatment is
+    )
+    # your modeling choice (Question 3.(g))
 
     # Next-day forecasts (for exploring the end-of-horizon choice of Question 3.(g))
-    energy_price_next_day: np.ndarray | None = None       # DKK/kWh, 24 values for the following day
-    pv_available_next_day: np.ndarray | None = None       # kWh/h available the following day
-    reference_load_next_day: np.ndarray | None = None     # preferred consumption the following day, kWh/h
+    energy_price_next_day: np.ndarray | None = (
+        None  # DKK/kWh, 24 values for the following day
+    )
+    pv_available_next_day: np.ndarray | None = None  # kWh/h available the following day
+    reference_load_next_day: np.ndarray | None = (
+        None  # preferred consumption the following day, kWh/h
+    )
 
     # Everything that was read, unprocessed
     raw: dict[str, Any] = field(default_factory=dict, repr=False)
 
     # ------------------------------------------------------------------ helpers
+    # Use the loaded time index as the authoritative horizon length.
     @property
     def n_hours(self) -> int:
         return len(self.hours)
 
+    # Describe a loaded case for inspection without solving an optimization.
     def summary(self) -> str:
         """Compact textual overview of the dataset."""
         lines = [
@@ -109,16 +130,20 @@ class InputData:
             f"Reference profile    : {'yes (%.1f kWh/day)' % self.reference_load.sum() if self.reference_load is not None else 'no'}",
             f"Disutility lin/quad  : {self.linear_disutility} / {self.quadratic_disutility}",
             f"Battery              : "
-            + (f"{self.battery_capacity_kWh:.1f} kWh, {self.battery_max_charge_kW:.1f}/"
-               f"{self.battery_max_discharge_kW:.1f} kW, eta {self.battery_charging_efficiency:.2f}/"
-               f"{self.battery_discharging_efficiency:.2f}, initial SoC {self.battery_initial_soc_kWh:.1f} kWh"
-               if self.battery_capacity_kWh is not None else "no"),
+            + (
+                f"{self.battery_capacity_kWh:.1f} kWh, {self.battery_max_charge_kW:.1f}/"
+                f"{self.battery_max_discharge_kW:.1f} kW, eta {self.battery_charging_efficiency:.2f}/"
+                f"{self.battery_discharging_efficiency:.2f}, initial SoC {self.battery_initial_soc_kWh:.1f} kWh"
+                if self.battery_capacity_kWh is not None
+                else "no"
+            ),
             f"Next-day forecasts   : {'yes' if self.energy_price_next_day is not None else 'no'}",
         ]
         return "\n".join(lines)
 
 
 # ---------------------------------------------------------------------- loading
+# Read a required UTF-8 input file and fail clearly when it is missing.
 def _read_json(path: Path) -> Any:
     if not path.exists():
         raise FileNotFoundError(f"Missing input file: {path}")
@@ -126,6 +151,7 @@ def _read_json(path: Path) -> Any:
         return json.load(f)
 
 
+# Resolve a catalogue or bus entry by its identifier.
 def _first_with(items: list[dict], key: str, value: str, what: str) -> dict:
     """Return the first dict in ``items`` whose ``key`` equals ``value``."""
     for item in items:
@@ -134,20 +160,27 @@ def _first_with(items: list[dict], key: str, value: str, what: str) -> dict:
     raise KeyError(f"No {what} with {key} == {value!r}")
 
 
+# Convert an hourly input to a numeric vector and enforce its expected length.
 def _as_array(values, name: str, n_hours: int = 24) -> np.ndarray:
     arr = np.asarray(values, dtype=float)
     if arr.shape != (n_hours,):
-        raise ValueError(f"{name} must have {n_hours} hourly values, got shape {arr.shape}")
+        raise ValueError(
+            f"{name} must have {n_hours} hourly values, got shape {arr.shape}"
+        )
     return arr
 
 
+# Normalize accepted case names to the basename used in data/params_*.json.
 def _case_name(question: str) -> str:
     """Accept ``"Q1_caseA"``, ``"params_Q1_caseA"`` or ``"params_Q1_caseA.json"``."""
     name = question.removesuffix(".json")
     return name.removeprefix("params_")
 
 
-def load_question(question: str, data_dir: Path | str = DATA_DIR, consumer_index: int = 0) -> InputData:
+# Join the case selector, appliance catalogue, and bus data into InputData.
+def load_question(
+    question: str, data_dir: Path | str = DATA_DIR, consumer_index: int = 0
+) -> InputData:
     """Read the shared catalogue plus ``params_<question>.json`` and return an :class:`InputData`.
 
     Parameters
@@ -168,9 +201,13 @@ def load_question(question: str, data_dir: Path | str = DATA_DIR, consumer_index
             f"Available: {list_questions(data_dir)}"
         )
 
-    raw = {name.removesuffix(".json"): _read_json(data_dir / name) for name in SHARED_FILES}
+    # Load shared catalogues once, then attach the selected consumer case.
+    raw = {
+        name.removesuffix(".json"): _read_json(data_dir / name) for name in SHARED_FILES
+    }
     raw["params"] = _read_json(case_file)
 
+    # The case specifies appliance IDs and connection bus rather than duplicating parameters.
     consumer = raw["params"]["consumers"][consumer_index]
     cid = consumer["consumer_id"]
     appliance_ids = list(consumer["list_appliances"])
@@ -182,15 +219,21 @@ def load_question(question: str, data_dir: Path | str = DATA_DIR, consumer_index
     if (price < 0).any():
         raise ValueError("Energy prices are assumed non-negative in Assignment 1")
 
+    # Preserve missing optional parameters as None instead of silently using zero.
     def opt_float(d: dict, key: str) -> float | None:
         v = d.get(key)
         return None if v is None else float(v)
 
     # --- PV (the consumer's DER of type PV in the catalogue)
     ders = catalogue.get("DERs") or []
-    pv = next((d for d in ders if d["DER_id"] in appliance_ids and d["DER_type"] == "PV"), None)
+    pv = next(
+        (d for d in ders if d["DER_id"] in appliance_ids and d["DER_type"] == "PV"),
+        None,
+    )
     if pv is None:
-        raise KeyError(f"None of {appliance_ids} is a PV system in the 'DERs' catalogue")
+        raise KeyError(
+            f"None of {appliance_ids} is a PV system in the 'DERs' catalogue"
+        )
     pv_max = float(pv["max_power_kW"])
     pv_profile = _as_array(pv["hourly_profile_ratio"], "PV hourly_profile_ratio")
     if (pv_profile < 0).any() or (pv_profile > 1).any():
@@ -203,9 +246,15 @@ def load_question(question: str, data_dir: Path | str = DATA_DIR, consumer_index
         raise KeyError(f"None of {appliance_ids} is in the 'loads' catalogue")
     load_max = float(load["max_load_KWh_per_hour"])
     ref_factor = load.get("reference_load_capacity_factor")
-    reference_load = (None if ref_factor is None
-                      else load_max * _as_array(ref_factor, "reference_load_capacity_factor"))
-    if reference_load is not None and ((reference_load < 0).any() or (reference_load > load_max).any()):
+    # Convert reference capacity factors to hourly energy with the load maximum.
+    reference_load = (
+        None
+        if ref_factor is None
+        else load_max * _as_array(ref_factor, "reference_load_capacity_factor")
+    )
+    if reference_load is not None and (
+        (reference_load < 0).any() or (reference_load > load_max).any()
+    ):
         raise ValueError("reference_load_capacity_factor must lie in [0, 1]")
 
     # --- battery (Q3_battery only; None elsewhere)
@@ -214,6 +263,7 @@ def load_question(question: str, data_dir: Path | str = DATA_DIR, consumer_index
     bat_kwargs: dict[str, Any] = {}
     if bat is not None:
         cap = float(bat["storage_capacity_kWh"])
+        # Convert initial SOC ratio to kWh at loading; sizing experiments later keep that kWh fixed.
         bat_kwargs = dict(
             battery_capacity_kWh=cap,
             battery_max_charge_kW=float(bat["max_charging_power_kW"]),
@@ -228,15 +278,26 @@ def load_question(question: str, data_dir: Path | str = DATA_DIR, consumer_index
     nd_price = bus.get("energy_price_next_day_DKK_per_kWh")
     nd_pv = pv.get("hourly_profile_ratio_next_day")
     nd_ref = load.get("reference_hourly_profile_ratio_next_day")
+    # Carry next-day forecasts separately so ordinary solves continue using current-day inputs.
     nd_kwargs = dict(
-        energy_price_next_day=None if nd_price is None
-            else _as_array(nd_price, "energy_price_next_day_DKK_per_kWh"),
-        pv_available_next_day=None if nd_pv is None
-            else pv_max * _as_array(nd_pv, "hourly_profile_ratio_next_day"),
-        reference_load_next_day=None if nd_ref is None
-            else load_max * _as_array(nd_ref, "reference_hourly_profile_ratio_next_day"),
+        energy_price_next_day=(
+            None
+            if nd_price is None
+            else _as_array(nd_price, "energy_price_next_day_DKK_per_kWh")
+        ),
+        pv_available_next_day=(
+            None
+            if nd_pv is None
+            else pv_max * _as_array(nd_pv, "hourly_profile_ratio_next_day")
+        ),
+        reference_load_next_day=(
+            None
+            if nd_ref is None
+            else load_max * _as_array(nd_ref, "reference_hourly_profile_ratio_next_day")
+        ),
     )
 
+    # Expose one typed case with explicit units while retaining raw dictionaries for auditing.
     return InputData(
         question=case,
         consumer_id=cid,
@@ -263,9 +324,12 @@ def load_question(question: str, data_dir: Path | str = DATA_DIR, consumer_index
     )
 
 
+# Discover supported cases from existing selector files.
 def list_questions(data_dir: Path | str = DATA_DIR) -> list[str]:
     """Names of all cases available under ``data/`` (one per ``params_*.json``)."""
-    return sorted(p.stem.removeprefix("params_") for p in Path(data_dir).glob("params_*.json"))
+    return sorted(
+        p.stem.removeprefix("params_") for p in Path(data_dir).glob("params_*.json")
+    )
 
 
 if __name__ == "__main__":  # quick manual check:  python -m src.data_loader

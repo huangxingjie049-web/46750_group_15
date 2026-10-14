@@ -1,0 +1,20 @@
+Running 1f: Q1 Cases A/B comparison
+Validated 1f; results: /workspace/scratch/64f43afe5a00/deliverables/46750_group15_reproduce/results/1f
+Running 2b: Linear disutility base and threshold-focused coefficient sweep
+Validated 2b; results: /workspace/scratch/64f43afe5a00/deliverables/46750_group15_reproduce/results/2b
+Running 2c: Quadratic disutility base and coefficient sweep
+Validated 2c; results: /workspace/scratch/64f43afe5a00/deliverables/46750_group15_reproduce/results/2c
+Running 2d: Q1/linear/quadratic comparison at low/base/high weights
+Validated 2d; results: /workspace/scratch/64f43afe5a00/deliverables/46750_group15_reproduce/results/2d
+Running 2e: Coupled quadratic base and alternating/block price experiment
+Validated 2e; results: /workspace/scratch/64f43afe5a00/deliverables/46750_group15_reproduce/results/2e
+Running 3e: Daily-energy base vs Q2(c)
+Validated 3e; results: /workspace/scratch/64f43afe5a00/deliverables/46750_group15_reproduce/results/3e
+Running 3f: Daily minimum and c_Q sensitivity
+Validated 3f; results: /workspace/scratch/64f43afe5a00/deliverables/46750_group15_reproduce/results/3f
+Running 3g: Calibrated battery, cyclic alternative and no-daily-requirement comparison
+Validated 3g; results: /workspace/scratch/64f43afe5a00/deliverables/46750_group15_reproduce/results/3g
+Running 3g-sensitivity: Mean-preserving price variability, capacity, power and saturation scans
+Validated 3g-sensitivity; results: /workspace/scratch/64f43afe5a00/deliverables/46750_group15_reproduce/results/3g-sensitivity
+Report check: 426 numerical checkpoints matched; 26 report figures freshly rendered.
+All selected experiments completed. See /workspace/scratch/64f43afe5a00/deliverables/46750_group15_reproduce/results/report/manifest.json.

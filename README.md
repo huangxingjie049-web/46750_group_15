@@ -1,212 +1,305 @@
-# 46750 - Assignment 1: Demand-Side Flexibility in Active Distribution Grids
+# DTU 46750 — Group 15: solve and generate all report figures
 
-Starter repository for **Group Assignment 1** of *46750 - Optimization in Modern Power Systems* (DTU).
-It contains the input data for every question (in `data/`), a small and working Python code base to
-build on, and the instructions below. The structure is a suggestion: adapt it to your needs, but keep
-it documented (update this README) so that your code stays reproducible and easy to grade.
+![Code modules and report export](docs/diagrams/module_relationships.png)
 
-**Getting your own copy.** This is a public template: on the repository page, click
-**Use this template -> Create a new repository** to create your group's own repository under one
-member's GitHub account (recommended - the group can then work with git), or **Code -> Download ZIP**
-to work without GitHub. Using the Python starter code is recommended but not required; the input data
-in `data/` must be used as provided.
+**This Python package integrates the contents of all branches and modularizes them, enabling the reader to better understand the code and its relationship to the results presented in the report.** The original JSON inputs, shared optimization model, code comments, single root `main.py`, and validation/test coverage are retained.
 
-**Submitting your code.** Choose one of the two, and say in your report which one you chose:
-attach your complete project code as a single `.zip` file to your submission in DTU Learn, or give
-the link to your group's GitHub repository on the front page of your report. A linked repository must
-be accessible to the graders (public, or private with the teaching team invited) and must not be
-modified after the deadline - the last commit before the deadline is what is graded.
+**Running the ordinary command recalculates the numerical results and draws the
+report figures from those new results.** No report PNG/JPG is copied or required.
 
-## 1. Setup
+The drawing code restores the four-panel Q1 overview from your `plotting1.py`,
+the Q2(b) drawing conventions from `main_q2_linear.py`, the Q2(c) blocks from
+`run_q2c.py`, and Q3(f) panel/step conventions from its old runner. The remaining
+report-specific panels and sizing marks are implemented in the shared renderer.
+Figure 7/8 JPEG composites are newly plotted as two panels, not pasted pictures.
 
-### 1.1 Python environment
+All 26 numbered figures retain the report filenames, panel choices, selected
+hours, line/bar meanings, and image dimensions. Plot coordinates and annotations
+come from computed CSV/JSON files. Image byte equality is not used as a substitute
+for computation. Historical nonunique dual/dispatch choices and font rendering
+can differ; the actual computed choices are shown and saved honestly.
 
-Use one of the two options (both install the same packages).
+Each figure also exports the exact line/bar arrays captured from its Matplotlib
+artists as `.plot_data.json`, plus the input-file paths and hashes used to draw it.
 
-**Option A - pip and venv**
+## 1. Run the complete report package
+
+Run from the directory containing `main.py`:
+
 ```bash
-python -m venv venv
-source venv/bin/activate            # macOS / Linux
-# venv\Scripts\activate.bat         # Windows cmd
-# venv\Scripts\Activate.ps1         # Windows PowerShell
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
+python -m pytest -q
+python main.py --task all
 ```
 
-**Option B - conda**
+The default full run executes all numerical experiments, checks physical and KKT
+conditions for every scenario, compares 426 report checkpoints, and then freshly
+renders all 26 numbered report figures. Numerical failures stop before plotting.
+
+**The newly generated report pictures are in `results/report/figures/`.**
+The Q1/Q2/Q3 folders and filenames match the paths used in the uploaded LaTeX.
+`results/report/figure_index.csv` maps Figures 1–26 to those files.
+
+`results/report/numerical_match.csv` contains, for every checkpoint, its source
+LaTeX file, computed output file, report value, computed value, difference,
+tolerance, and pass/fail status. `results/report/manifest.json` records the
+comparison scope, generated-image hashes, source numerical files, and drawing
+provenance. The report's own text is not rewritten.
+
+## 2. Python environment
+
+Recommended: **Python 3.12, 64-bit**, with Gurobi 13.0.1. Use `requirements.txt`
+for bounded compatible dependencies, or `requirements-lock.txt` for the exact
+top-level versions used in verification. An environment is needed only for
+computing: after running, the generated PNG/JPG files can be opened without Python.
+
+### Windows PowerShell
+
+```powershell
+python --version
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements-lock.txt
+python -m pytest -q
+python main.py --task all
+```
+
+If activation is blocked, call the interpreter directly:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
+.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe main.py --task all
+```
+
+### Windows CMD
+
+```bat
+python -m venv .venv
+.venv\Scripts\activate.bat
+python -m pip install -r requirements-lock.txt
+python -m pytest -q
+python main.py --task all
+```
+
+### macOS / Linux
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-lock.txt
+python -m pytest -q
+python main.py --task all
+```
+
+### Conda
+
 ```bash
 conda env create -f environment.yaml
-conda activate 46750-a1
+conda activate dtu46750-group15
+python -m pytest -q
+python main.py --task all
 ```
 
-### 1.2 Gurobi licence
+The optimization models are continuous LP/QPs; the battery model has 168
+variables. Verification used the bundled restricted Gurobi license. Your DTU
+academic license also works. Keep private license files and keys out of Git.
 
-The code uses [Gurobi](https://www.gurobi.com) through the `gurobipy` package. The package ships with a
-restricted licence that is large enough for this assignment (models up to 2000 variables/constraints), so
-`python main.py` works out of the box. For unrestricted use, request a free
-[academic licence](https://www.gurobi.com/academia/academic-program-and-licenses/) with your DTU e-mail
-and activate it with `grbgetkey <your-key>` (on the DTU network or VPN).
+## 3. Commands and experiment locations
 
-### 1.3 Check that everything works
-```bash
-python main.py
-```
-This loads the `Q1_caseA` case from `data/`, prints a summary of the input data and saves the
-input figure to `results/Q1_caseA/`. Until you complete the model (see Section 3) it prints
-`[skipped] The model has no constraints ...` and stops there - that is expected.
-
-## 2. Repository structure
-
-```
-main.py                  Entry point: load data -> build model -> solve -> save results and figures
-src/
-  data_loader.py         load_question("Q1_caseA") -> InputData (all parameters, with units)
-  model.py               FlexibleConsumerModel: build() / solve() -> Results (primal + dual values)
-  scenarios.py           Helpers that derive sensitivity scenarios from a base InputData
-  plotting.py            Figures for inputs, optimal schedule, duals and scenario comparisons
-data/
-  appliance_params.json  SHARED catalogue: every PV system, flexible load and battery - see Section 4
-  bus_params.json        SHARED grid connection: prices (both days) and tariffs
-  params_Q1_caseA.json   One small file per case: composes a consumer from the catalogue
-  params_Q1_caseB.json
-  params_Q2_linear.json
-  params_Q2_quadratic.json
-  params_Q3.json
-  params_Q3_battery.json
-results/                 Written by main.py (git-ignored)
-requirements.txt, environment.yaml, LICENSE, .gitignore
-```
-
-The four modules mirror the workflow you are asked to implement and document: *data loading*,
-*model building*, *solving and extracting results*, *plotting*. Keep them separate as your code grows -
-for example one model class per question in `src/model.py` (or one file per question), and one function per
-experiment in `main.py`.
-
-## 3. How to use the code
-
-**Run everything for one case**
-```bash
-python main.py --question Q1_caseA              # base case
-python main.py --question Q1_caseA --scenarios  # + example sensitivity scenarios
-python main.py --show                           # open the figures in a window
-```
-
-**Use it from a notebook or your own script** (run from the repository root):
-```python
-from src.data_loader import load_question
-from src.model import FlexibleConsumerModel
-from src.plotting import plot_schedule, plot_duals
-from src.scenarios import scale_prices
-
-data = load_question("Q1_caseA")
-print(data.summary())
-
-results = FlexibleConsumerModel(data).build().solve()
-print(results)                    # objective, daily totals, scalar duals
-results.hourly                    # DataFrame: one row per hour with variables, prices and hourly duals
-plot_schedule(results, data)
-
-high_spread = scale_prices(data, factor=2.0, keep_mean=True)
-results_hs = FlexibleConsumerModel(high_spread).build().solve()
-```
-
-**What you need to implement.** `FlexibleConsumerModel.build()` in `src/model.py` is entirely `TODO`:
-identify and declare the decision variables of your formulation, then add the objective and the
-constraints - the gurobipy pattern for each step is shown in comments (including the `vtype=` to use
-if you ever declare binary variables). Complete it with your formulation from Question 1, then extend
-or subclass it for the following questions.
-Everything downstream (solving, extraction of primal and dual values, saving, plotting) already works.
-
-**Conventions that make the primal and dual values come out for free**
-
-* Store every variable family in `self.var[<name>]`. `solve()` returns the hourly values of each family
-  as a column of `results.hourly`. gurobipy indexes names automatically - `m.addVars(T, name="p_import")`
-  creates `p_import[0]` ... `p_import[23]`, and the same holds for `m.addConstrs(..., name=...)` - so
-  per-hour names come for free. Families named `import`, `export`, `load`, `pv` make the standard plots
-  of `src/plotting.py` work out of the box. With binary or integer variables (`vtype=GRB.BINARY`) the
-  model becomes a MILP and dual values are no longer defined - `solve()` then skips them.
-
-* Store every constraint family in `self.con[<name>]`. `solve()` returns the dual value (Gurobi attribute
-  `Pi`) of every hourly constraint as a column `dual_<name>` of `results.hourly`, and of every single
-  constraint in `results.duals`.
-* Write the bounds you want a dual for as explicit constraints (`m.addConstr(...)`), not as variable bounds
-  (`lb=`, `ub=`). Gurobi reports the sensitivity of a variable bound in the reduced cost (`RC`), not in `Pi`.
-* No quadratic *constraint* is needed in this assignment: the quadratic disutility sits in the objective, and
-  the duals of the (linear) constraints of a QP need nothing special. If you ever add one (`m.addQConstr(...)`),
-  its dual is in the attribute `QCPi` and Gurobi only computes it when the parameter `QCPDual` is 1 -
-  `model.py` sets it and reads the right attribute for you.
-  Gurobi's sign convention is d(objective)/d(right-hand side): for a "<=" constraint in a minimization the value
-  is non-positive; state the convention you use when you report multipliers.
-
-## 4. Input data
-
-All input data lives in `data/`: two **shared** files plus one small **case** file per
-question. The shared files form a catalogue of every appliance used anywhere in the assignment;
-each `params_<case>.json` composes the consumer of one case by picking appliances from the
-catalogue by ID. All time series have 24 hourly values (hour 0 to 23).
-
-**Units.** Every field name carries its unit. Fields ending in `_kW` are power ratings (kW);
-fields ending in `_kWh_per_hour` (or `_KWh_per_hour` - same unit despite the capital K) are hourly
-energy bounds (kWh consumed within one hour); fields ending in `_kWh` are energy amounts;
-`_DKK_per_kWh` are prices/costs and `_DKK_per_kWh2` is the quadratic disutility coefficient.
-**Capacity factors and ratios** (`hourly_profile_ratio`, `reference_load_capacity_factor`,
-`initial_state_of_charge_ratio`, and the `_next_day` profiles) are **dimensionless fractions in
-[0, 1] of the corresponding maximum** - multiply by it to get physical values. With 1-hour periods,
-a power rating in kW and an energy amount in kWh/h are numerically interchangeable; the loader
-does every conversion for you and exposes physical quantities:
-`pv_available = max_power_kW x hourly_profile_ratio` (kWh/h),
-`reference_load = max_load_KWh_per_hour x reference_load_capacity_factor` (kWh/h), and
-`battery_initial_soc_kWh = storage_capacity_kWh x initial_state_of_charge_ratio` (kWh).
-
-| Question in the assignment | Case | Appliances (from the catalogue) |
+| Report item | Command | Numerical experiment function |
 |---|---|---|
-| Question 1 - hourly consumption decision (utility u, PV cost c_PV), case A: c_PV < u | `Q1_caseA` | `PV_01_A` + `FL_01` (a load with `consumption_utility_DKK_per_kWh`; no reference profile, no daily requirement) |
-| Question 1, case B: a more expensive PV, c_PV > u | `Q1_caseB` | `PV_01_B` + `FL_01` (`PV_01_B` differs from `PV_01_A` only in `marginal_cost_DKK_per_kWh`) |
-| Question 2 - linear disutility of deviating from a reference profile | `Q2_linear` | `PV_01_A` + `FL_02_L` (reference profile, `linear_disutility_DKK_per_kWh`; same hourly bounds as Question 1; no utility) |
-| Question 2 - quadratic disutility | `Q2_quadratic` | `PV_01_A` + `FL_02_Q` (as `FL_02_L` with `quadratic_disutility_DKK_per_kWh2` instead) |
-| Question 3 - minimum daily energy requirement | `Q3` | `PV_01_A` + `FL_03` (as `FL_02_Q` plus `min_total_energy_per_day_kWh`, the E_min of the daily requirement) |
-| Question 3.(g) - the same consumer with a small battery | `Q3_battery` | `PV_01_A` + `FL_03` + `BAT_01` |
+| Q1(e–f), Cases A/B | `python main.py --task 1f` | `q1()` |
+| Q1(e) alias, also both cases | `python main.py --task 1e` | `q1()` |
+| Q2(b), linear comfort | `python main.py --task 2b` | `q2b()` |
+| Q2(c), quadratic comfort | `python main.py --task 2c` | `q2c()` |
+| Q2(d), model comparison | `python main.py --task 2d` | `q2d()` |
+| Q2(e), non-separable extension | `python main.py --task 2e` | `q2e()` |
+| Q3(d), model/validation alias | `python main.py --task 3d` | `q3base()` |
+| Q3(e), daily requirement | `python main.py --task 3e` | `q3base()` |
+| Q3(f), two sensitivity experiments | `python main.py --task 3f` | `q3f()` |
+| Q3(g), battery and terminal alternatives | `python main.py --task 3g` | `q3g()` |
+| Next-day pi calibration alone | `python main.py --task 3g-pi` | `calibrate_pi()` |
+| Q3(g)(v), sizing/volatility/plateaus | `python main.py --task 3g-sensitivity` | `q3g_sensitivity()` |
+| List tasks | `python main.py --list-tasks` | CLI help |
+| Full numerical reproduction + freshly drawn report figures | `python main.py --task all` | all report tasks |
+| Tests | `python -m pytest -q` or `python main.py --task test` | `tests/` |
 
-No data is shipped for the bonus question 2.(e) on purpose: choosing your own cost parameters (and
-justifying them) is part of that question - start from the `Q2_quadratic` case and override in code.
+The functions above are in `src/experiments.py`. All reuse `src/model.py` rather
+than separate per-question solvers. Theory items remain in the report and are
+checked where appropriate through the scalar oracle, KKT, and edge-case tests.
 
-`params_<case>.json` - the case file
-: `consumers[]`: `consumer_id`, `connection_bus` (a `bus_id` of `bus_params.json`), `list_appliances`
-  (IDs of the consumer's DERs, loads and storages in `appliance_params.json`). `hyperparameters` is
-  unused in Assignment 1 (`null`).
+A single-task run checks its own numerical checkpoints and exports the associated
+newly rendered report images. Its manifest says **partial scope**; it is not a full
+report reproduction. Standalone pi calibration has no numbered figure export.
 
-`appliance_params.json` - the shared catalogue, one list per appliance type (`null` if none)
-: **DERs**: `DER_id`, `DER_type` (`"PV"`), `max_power_kW` (peak power, kW), `marginal_cost_DKK_per_kWh` (cost of every kWh produced), `hourly_profile_ratio` (dimensionless fraction of `max_power_kW` available each hour; available energy in kWh/h = `max_power_kW` x ratio), `hourly_profile_ratio_next_day` (see *Next-day forecasts* below)
-: **loads**: `load_id`, `load_type`, `max_load_KWh_per_hour` and `min_load_KWh_per_hour` (hourly consumption bounds, kWh/h), `consumption_utility_DKK_per_kWh` (value of every kWh consumed, Question 1), `linear_disutility_DKK_per_kWh` and `quadratic_disutility_DKK_per_kWh2` (Questions 2-3), `min_total_energy_per_day_kWh` (the E_min of Question 3), `reference_load_capacity_factor` (dimensionless fraction of `max_load_KWh_per_hour`; preferred consumption in kWh/h = max load x factor), `reference_hourly_profile_ratio_next_day` (see *Next-day forecasts*). Fields a load does not use are `null`. The hourly bounds are the same for every load: deviations from the reference are limited only by them.
-: **storages**: `storage_id`, `storage_type` (`"battery"`), `storage_capacity_kWh`, `max_charging_power_kW`, `max_discharging_power_kW`, `charging_efficiency` and `discharging_efficiency` (fraction of the energy transferred that survives each conversion - a full round trip keeps η_ch·η_dis), `initial_state_of_charge_ratio` (fraction of `storage_capacity_kWh` in the battery at the start of the day). **No final state of charge is given on purpose**: how to treat the battery's state of charge at the end of the day (constraint or objective) is your modeling choice in Question 3.(g).
-: **heat_pumps**: not used in Assignment 1 (`null`)
+Additional controls:
 
-`bus_params.json` - grid and market conditions at the connection bus
-: `bus_id`, `import_tariff_DKK_per_kWh`, `export_tariff_DKK_per_kWh`, `energy_price_DKK_per_kWh` (24 values), `energy_price_next_day_DKK_per_kWh` (see *Next-day forecasts*), `max_import_kW`, `max_export_kW` (`null` = no grid limit in Assignment 1)
+```bash
+python main.py --help
+python main.py --task all --output-dir results_review
+python main.py --task all --no-plots
+python main.py --task all --quick --output-dir smoke_results
+```
 
-**Next-day forecasts.** Three fields carry the forecast for the *following* day:
-`energy_price_next_day_DKK_per_kWh` (in `bus_params.json`), `hourly_profile_ratio_next_day` (in the
-DER entries) and `reference_hourly_profile_ratio_next_day` (in the load entries). They are **not
-needed for the base models**: they are provided in case you want to explore the end-of-horizon
-choice of Question 3.(g) with a look-ahead (for instance a rolling-horizon or a two-day experiment).
-`load_question()` exposes them as `energy_price_next_day`, `pv_available_next_day` and
-`reference_load_next_day`.
+`--output-dir` is a parent: task folders and `report/` are placed below it.
+`--no-plots` keeps numerical checks but skips figure generation. No extra plotting
+flag is needed: drawing is already enabled by default.
+`--quick` skips dense sizing and plateau searches; its report scope is explicitly
+incomplete and four sizing figures are omitted, so do not use it for the final report. A rerun overwrites
+same-named files; use a separate output parent to retain independent executions.
 
-`load_question()` in `src/data_loader.py` shows exactly how each attribute is derived from these files.
+## 4. Module relationships and execution order
 
-**Modifying or adding data.** For sensitivity analyses, prefer deriving scenarios in code
-(`src/scenarios.py`) over editing the JSON files - it keeps the base case intact and the experiment
-reproducible. If you do add appliances or case files, follow the same structure (a new entry in the
-catalogue, a new `params_<case>.json`) and document them here.
+![Scenario loop and report verification](docs/diagrams/execution_order.png)
 
-## 5. What is expected of your code
+| Module/folder | Responsibility |
+|---|---|
+| `main.py` | Sole entry point: solve, check, and render report figures by default |
+| `src/data_loader.py` | JSON catalogue/bus/case joining and physical unit conversions |
+| `src/model.py` | Shared LP/QP construction, solving, `Result`, cost and dual extraction |
+| `src/validation.py` | Physical/accounting/KKT checks and independent scalar optimization |
+| `src/experiments.py` | Report parameter lists, comparisons, pi calibration, plateau search |
+| `src/report.py` | Compare solver outputs with report numerical expectations; no picture reads |
+| `src/report_plotting.py` | Generate all numbered report figures from numerical CSV/JSON and capture plotted arrays |
+| `src/plotting.py` | Retained general diagnostic plotting helpers used by the experiment API |
+| `tests/` | Input, mathematical model, experiment, and report integrity tests |
+| `report_reference/source/` | Report LaTeX text for traceability; original pictures are deliberately absent |
+| `report_reference/contract.json` | Report image names/dimensions, numeric expectations, rounding tolerances, known conflicts |
+| `results/<task>/runs/<scenario>/` | Newly executed numerical run files |
+| `results/report/figures/` | Newly generated PNG/JPG, vector PDF, and `.plot_data.json` files |
+| `results/report/numerical_match.csv` | Report-versus-computed numerical comparisons |
 
-Your code is part of the submission (as a repository link or a `.zip`, see the top of this README).
-The graders should be able to open it, follow this README, and reproduce every number and figure in
-your report. In practice:
+Normal execution is:
 
-* keep the separation between data loading, model building, solving and plotting;
-* document every function you add (a short docstring stating inputs, outputs and units is enough), and
-  describe any new module or data file in this README;
-* make each experiment of the report runnable with a single command (e.g. `python main.py --question ...`
-  or one notebook cell), and save its outputs under `results/`;
-* commit regularly and with meaningful messages - the git history is also a record of everyone's contribution.
+1. Load input and define a scenario copy.
+2. Solve the shared LP/QP.
+3. Validate its physical equations, accounting, and optimality.
+4. Save its hourly schedule, metrics, input snapshot, dual rows, and model LP.
+5. Repeat and create the task's numerical summary/manifest.
+6. Compare selected results with the report's checkpoint list.
+7. If comparisons pass, render the associated PNG/JPG/PDF figures with Matplotlib,
+   capture their plotted arrays, and record numerical source-file checksums.
+
+For battery tasks, next-day solves calibrate pi first. Current-day scenarios use
+that same pi. Tests are run explicitly; `--task all` does not implicitly run pytest.
+
+## 5. All 26 report figures
+
+See `docs/FIGURE_MAP.md` for the exact paths. The following groups are included:
+
+- Figures 1–2: Q1 four-panel A/B overviews.
+- Figures 3–4: linear base and response at hours 7, 9, 11, 18.
+- Figures 5–6: quadratic base and four-panel sensitivity, hours 5, 8, 12, 18.
+- Figures 7–8: two-panel model comparison and coefficient responses.
+- Figures 9–11: separate non-separable base, comparison, and timing profiles.
+- Figures 12–13: daily requirement, including signed deviations and two-model flows.
+- Figures 14–17: daily-minimum/cQ summaries and six-panel load comparisons.
+- Figures 18–20: storage dispatch, 2x2 flow/price comparison, signed/absolute deviations.
+- Figures 21–25: capacity, common power, price volatility and conditional scans,
+  including the report's base/saturation marks and line-style explanations.
+- Figure 26: appendix linear/quadratic benchmark.
+
+The 26 images are created by `Figure.savefig()` from current solved data. The
+original report images are not bundled, opened, or copied. Generated-file hashes
+identify the new run; reference hashes are retained only as review metadata, not
+as an output-copy mechanism or a requirement to fabricate historical pixels.
+
+## 6. Mathematical conventions and experiments
+
+Each interval is 1 hour, t=0,...,23. `load`, `pv`, `import`, `export` are interval
+energy in kWh. Battery `charge`/`discharge` are kW, numerically kWh over 1 hour.
+`soc[t]` is end-of-hour internal energy at boundary t+1; initial SOC is boundary 0.
+
+Effective prices are `a=p+import_tariff`, `b=p-export_tariff`.
+Procurement is `C=sum(cPV*PV+a*import-b*export)`.
+
+| Model | Maximized objective |
+|---|---|
+| Q1 | `sum(u*L)-C` |
+| Q2 linear | `-C-cL*sum(abs(L-reference))` |
+| Q2 quadratic / Q3 | `-C-cQ*sum((L-reference)^2)` |
+| Non-separable | quadratic minus `cS*sum((delta[t]+delta[t-1])^2)` |
+| Value battery | selected objective plus `pi*soc[23]` once |
+| Cyclic battery | no terminal credit; impose `soc[23]=initial_SOC` |
+
+The non-separable penalty is the **sum** of adjacent deviations, as stated in
+the report formula. Complete disutility includes local and coupling terms.
+`total_cost=C+D` excludes the terminal credit. Raw battery operating value is an
+objective difference; inventory-adjusted value subtracts `pi*initial_SOC` and
+does not subtract equipment investment or degradation cost.
+
+All variable bounds are explicit rows. Exported `dual_*` columns contain raw
+Gurobi RHS sensitivities Pi. In report notation:
+
+- `lambda=-dual_balance`;
+- lower-bound multiplier = `-Pi`, upper-bound multiplier = `+Pi`;
+- `mu=-Pi(minimum_energy)`;
+- initial inventory sensitivity = `+Pi(storage_balance[0])`;
+- capacity marginal = sum of SOC-upper Pi;
+- common-power marginal = sum of charging-upper plus discharging-upper Pi.
+
+Ties can produce nonunique decisions/duals. Different allocations in equally
+priced battery charging hours do not justify changing model coefficients to
+force an old solver trajectory. Both generated figures and CSVs show the actual newly solved choices. Raw Q1
+duals use the same explicit-row RHS convention as the original code.
+
+Original JSON bytes are checked against `docs/data_hashes.json`. Scenario changes
+use `dataclasses.replace`; the source data files are not rewritten.
+
+- Q2(b): 34 distinct weights, including threshold ±0.001 and exact ties.
+- Q2(c): cQ=0.05,0.1,0.2,0.5,1,2,5,10.
+- Q2(d): low/base/high comparison plus the report's 34 linear and eight quadratic
+  response samples (49 total solves including the Q1 comparison).
+- Q2(e): cS=1; alternating [1,2] repeated 12 times and six-hour low/high blocks.
+- Q3(f): Emin=20,22.765,25,32.34,40,48 at cQ=1; cQ=0.1,0.5,1,2,5,10 at Emin=30.
+- Pi calibration: next-day forecasts, initial 2 kWh, central steps .001/.01/.1;
+  select .01 estimate; free day-2 terminal SOC with zero day-3 reward.
+- Q3 battery: Emin=40, cQ=1, E=4 kWh, Pch=Pdis=1.5 kW, efficiencies .95,
+  initial inventory 2 kWh. Compare value/cyclic/no-daily alternatives.
+- Variability: mean(p)+alpha*(p-mean(p)); alpha=0,.5,1,1.5; calibrated pi fixed.
+- Capacity/power scans retain initial 2 kWh, use right perturbation 1e-4, and
+  locate zero marginal within numerical tolerance. They are conditional scans.
+
+## 7. Verification and report inconsistencies
+
+Each run has `hourly.csv`, `metrics.json`, `input_snapshot.json`, `validation.json`,
+`constraint_duals.csv`, and `model.lp`. Validation recomputes the delivered
+schedule rather than relying on an earlier stored solver vector. Separable
+no-battery models also receive a solver-independent procurement oracle.
+
+The report contract checks major Tables 1–3,5–18 and additional Q3(f)/calibration
+values. Table 4's threshold behavior is exercised by the threshold sweep and
+mathematical tests; the contract does not claim a literal audit of every prose
+sentence or each pixel's numerical coordinate. Tolerances are half the displayed
+rounding unit plus a small numerical allowance, not an adjustable fit criterion.
+
+Three source conflicts remain explicitly documented rather than hidden:
+
+1. Q2(d) describes hour-8 quadratic load as about 1.6, but its formula and Table 18
+   give 1.15. The model computes 1.15; hour 9 is 1.65.
+2. Q2(e)'s hour-10 examples use values approximately belonging to zero-based hour 9.
+   Supplied time indices and computed values are retained.
+3. Q2(e)'s prose describes ramp smoothing while its formula uses adjacent sums.
+   The code implements the formula.
+
+These conflicts do not make it possible to match every sentence simultaneously.
+`results/report/manifest.json` lists them alongside the passing numerical checks.
+See `docs/VERIFICATION.md` and its logs for the final run and test evidence.
+
+## 8. Integration into your branch
+
+Copy this package into the new code branch as a complete project, including
+`report_reference/contract.json` and `docs/diagrams/`. The former supplies report
+comparison expectations; the latter displays the README structure diagrams. Keep one root Python runner: `main.py`.
+
+Run the full command, inspect `results/report/numerical_match.csv`, then commit
+source, tests, README, and report numerical references. `results/` is ignored by Git by
+default although execution results are included in this downloaded ZIP. If you
+want results tracked in the branch, deliberately adjust `.gitignore` or force-add
+selected outputs. Do not commit virtual environments, caches, or private licenses.
+
+The original course data/starter source is
+https://github.com/lemitri-DTU/template-assignment-1. No external time-series
+source was introduced. This package does not modify the uploaded report itself.

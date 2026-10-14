@@ -1,0 +1,7 @@
+# Exact top-level versions used for the included verification (Python 3.12).
+gurobipy==13.0.1
+numpy==2.3.5
+pandas==2.2.3
+scipy==1.17.0
+matplotlib==3.10.8
+pytest==9.1.1
