@@ -1,0 +1,87 @@
+% Compact implementation-aligned reference; requires amsmath, amssymb.
+% The user's longer subsection is authoritative. See CONSISTENCY_zh.md.
+\subsection{Mathematical formulations and problem classes}
+Members are indexed by $i\in\mathcal N$, and $t\in\mathcal T=\{0,\ldots,23\}$.
+The interval is one hour; conversions of battery power and contractual
+capacity into hourly energy are implicit. Define
+\begin{align}
+ \ell^{\rm ref}_{i,t}&=L^{\max}\rho_t,&
+ \underline\ell_{i,t}&=\max\{0,\ell^{\rm ref}_{i,t}-d^{\max}\},&
+ \overline\ell_{i,t}&=\min\{L^{\max},\ell^{\rm ref}_{i,t}+d^{\max}\},\\
+ E_i^{\min}&=\sum_t\ell^{\rm ref}_{i,t},&
+ D_i&=\sum_t c_i^L(d^+_{i,t}+d^-_{i,t}).
+\end{align}
+Here $L^{\max}=3$ kWh/h, $d^{\max}=1$ kWh and $c_i^L>0$.
+Let $\mathcal X_i$ consist of
+\begin{align}
+ \underline\ell_{i,t}\le\ell_{i,t}&\le\overline\ell_{i,t},&
+ \sum_t\ell_{i,t}&\ge E_i^{\min},\\
+ \ell_{i,t}-\ell^{\rm ref}_{i,t}&=d^+_{i,t}-d^-_{i,t},&
+ d^+_{i,t},d^-_{i,t}&\ge0,\\
+ 0\le P_{i,t}&\le\overline P_{i,t},&
+ 0\le p^{\rm ch}_{i,t}&\le\overline P_i^{\rm ch},\\
+ 0\le p^{\rm dis}_{i,t}&\le\overline P_i^{\rm dis},&
+ 0\le e_{i,t}&\le\overline E_i,\\
+ e_{i,0}&=E_i^0+\rho_i^{\rm ch}p^{\rm ch}_{i,0}
+                         -p^{\rm dis}_{i,0}/\rho_i^{\rm dis},\\
+ e_{i,t}&=e_{i,t-1}+\rho_i^{\rm ch}p^{\rm ch}_{i,t}
+                         -p^{\rm dis}_{i,t}/\rho_i^{\rm dis},\quad t=1,\ldots,23,\\
+ e_{i,23}&\ge E_i^0,\\
+ q_{i,t}&=\ell_{i,t}-P_{i,t}+p^{\rm ch}_{i,t}-p^{\rm dis}_{i,t},
+ \qquad q_{i,t}\in\mathbb R.
+\end{align}
+All hourly constraints apply for $t\in\mathcal T$, unless stated otherwise.
+Members without an asset have its availability/capacity/power limits set to zero.
+In $\mathcal R$ and $\mathcal I$, $q=I-E$ denotes individually metered net
+import. In $\mathcal C$, $q$ is internal net demand, and only the community
+meter incurs external trading costs and grid tariffs.
+
+The full and discounted trading prices are
+\begin{align}
+ a_t&=p_t+\tau^{\rm imp},& b_t&=p_t-\tau^{\rm exp},\\
+ a_t^{\rm d}&=p_t+(1-\beta^{\rm DSO})\tau^{\rm imp},&
+ b_t^{\rm d}&=p_t-(1-\beta^{\rm DSO})\tau^{\rm exp}.
+\end{align}
+Discounted tariffs apply to all metered imports and exports. An additional
+penalty $\alpha^{\rm DSO}>0$ DKK/kWh applies to imports above the cap.
+
+\paragraph{Reference model $\mathcal R$.}
+\begin{align}
+ J^{\mathcal R}=\min\quad&\sum_{i,t}
+ [c_iP_{i,t}+a_tI_{i,t}-b_tE_{i,t}+c_i^L(d^+_{i,t}+d^-_{i,t})],\\
+ \mathrm{s.t.}\quad&\mathcal X_i,\quad i\in\mathcal N,\\
+ &q_{i,t}-I_{i,t}+E_{i,t}=0,\quad I_{i,t},E_{i,t}\ge0.
+\end{align}
+The cap is only a reference for ex-post congestion measurement in this model.
+Separate metering is preserved; the summed optimization is separable.
+
+\paragraph{Individual contracts $\mathcal I$.}
+First solve $\mathcal R$ and fix
+\begin{equation}
+ n_i^{\mathcal R}=\left[\sum_t(I^{\mathcal R}_{i,t}-E^{\mathcal R}_{i,t})\right]_+,
+ \quad \kappa_i=\frac{n_i^{\mathcal R}}{\sum_j n_j^{\mathcal R}},
+ \quad \overline P^{\rm DSO}_{i,t}=\kappa_i\overline P_t^{\rm DSO}.
+\end{equation}
+The denominator must be positive. Then
+\begin{align}
+ J^{\mathcal I}=\min\quad&\sum_{i,t}[c_iP_{i,t}+a_t^{\rm d}I_{i,t}
+ -b_t^{\rm d}E_{i,t}+c_i^L(d^+_{i,t}+d^-_{i,t})+\alpha^{\rm DSO}x_{i,t}],\\
+ \mathrm{s.t.}\quad&\mathcal X_i,\quad i\in\mathcal N,\\
+ &q_{i,t}-I_{i,t}+E_{i,t}=0,\\
+ &I_{i,t}-x_{i,t}\le\kappa_i\overline P_t^{\rm DSO},
+ \quad I_{i,t},E_{i,t},x_{i,t}\ge0.
+\end{align}
+
+\paragraph{Centralized community $\mathcal C$.}
+\begin{align}
+ J^{\mathcal C}=\min\quad&\sum_{i,t}[c_iP_{i,t}+c_i^L(d^+_{i,t}+d^-_{i,t})]
+ +\sum_t[a_t^{\rm d}P_t^{\rm imp}-b_t^{\rm d}P_t^{\rm exp}+\alpha^{\rm DSO}x_t],\\
+ \mathrm{s.t.}\quad&\mathcal X_i,\quad i\in\mathcal N,\\
+ &\sum_i q_{i,t}-P_t^{\rm imp}+P_t^{\rm exp}=0,\\
+ &P_t^{\rm imp}-x_t\le\overline P_t^{\rm DSO},
+ \quad P_t^{\rm imp},P_t^{\rm exp},x_t\ge0.
+\end{align}
+The models minimize procurement cost plus disutility; for $\mathcal C$ this
+is equivalent to maximizing welfare $W^{\mathcal C}=-J^{\mathcal C}$ under
+the reference utility normalization. Each is an LP. Base-case feasibility
+and boundedness imply strong duality and necessary and sufficient KKT conditions.

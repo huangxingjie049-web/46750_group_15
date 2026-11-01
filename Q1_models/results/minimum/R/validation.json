@@ -1,0 +1,8 @@
+{
+  "primal_violation": 1.249000902703301e-16,
+  "stationarity_residual": 2.220446049250313e-16,
+  "dual_sign_violation": 0.0,
+  "complementarity_residual": 0.0,
+  "primal_dual_gap": 4.547473508864641e-13,
+  "reconstructed_objective_error": 2.2737367544323206e-13
+}
