@@ -1,0 +1,29 @@
+{
+  "optimal_cost_DKK": 398.2416941828257,
+  "terminal": "minimum",
+  "original_congested_hours": [
+    4,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "tie_schedules": [
+    {
+      "secondary_objective": "min_import_in_original_congested_hours",
+      "J_DKK": 398.2416941828252,
+      "feeder_exceedance_kWh": 66.30210526320835
+    },
+    {
+      "secondary_objective": "max_import_in_original_congested_hours",
+      "J_DKK": 398.24169418282526,
+      "feeder_exceedance_kWh": 66.70210526314612
+    }
+  ],
+  "provided_exceedance_kWh": 66.5,
+  "interpretation": "Recorded schedules are equally optimal; their exceedances need not be identical."
+}

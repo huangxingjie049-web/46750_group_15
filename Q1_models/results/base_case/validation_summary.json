@@ -1,0 +1,195 @@
+{
+  "results": [
+    {
+      "variant": "R",
+      "terminal": "minimum",
+      "J_DKK": 398.2416941828257,
+      "W_DKK": -398.2416941828257,
+      "total_cost_DKK": 398.2416941828257,
+      "private_cost_DKK": 152.65800000000004,
+      "grid_cost_DKK": 245.58369418282544,
+      "energy_cost_DKK": 151.7065085872576,
+      "tariff_cost_DKK": 93.87718559556785,
+      "disutility_cost_DKK": 3.479999999999997,
+      "PV_cost_DKK": 149.178,
+      "daily_import_kWh": 173.3863711911357,
+      "daily_export_kWh": 17.96,
+      "peak_import_kW": 27.599999999999994,
+      "feeder_exceedance_kWh": 66.70210526315788,
+      "charged_exceedance_kWh": 0,
+      "penalty_DKK": 0.0,
+      "hours_above_cap": 9,
+      "max_exceedance_kW": 18.209999999999994,
+      "cap_binding_hours": 0,
+      "battery_overlap_hours": 0,
+      "trade_overlap_hours": 0,
+      "variables": 3840,
+      "constraints": 1568,
+      "gurobi_version": [
+        13,
+        0,
+        3
+      ],
+      "gain_vs_R_DKK": 0.0
+    },
+    {
+      "variant": "I",
+      "terminal": "minimum",
+      "J_DKK": 480.6694304855543,
+      "W_DKK": -480.6694304855543,
+      "total_cost_DKK": 480.6694304855543,
+      "private_cost_DKK": 258.7426754328135,
+      "grid_cost_DKK": 221.92675505274033,
+      "energy_cost_DKK": 156.66452768792146,
+      "tariff_cost_DKK": 22.38183479978661,
+      "disutility_cost_DKK": 106.80107543281319,
+      "PV_cost_DKK": 151.9416,
+      "daily_import_kWh": 167.53554045987593,
+      "daily_export_kWh": 14.398922423021162,
+      "peak_import_kW": 11.082392845914697,
+      "feeder_exceedance_kWh": 4.2880392565032395,
+      "charged_exceedance_kWh": 4.288039256503242,
+      "penalty_DKK": 42.88039256503242,
+      "hours_above_cap": 3,
+      "max_exceedance_kW": 1.6923928459146964,
+      "cap_binding_hours": 8,
+      "battery_overlap_hours": 0,
+      "trade_overlap_hours": 0,
+      "variables": 4224,
+      "constraints": 1952,
+      "gurobi_version": [
+        13,
+        0,
+        3
+      ],
+      "gain_vs_R_DKK": -82.42773630272859
+    },
+    {
+      "variant": "C",
+      "terminal": "minimum",
+      "J_DKK": 372.1624344736842,
+      "W_DKK": -372.1624344736842,
+      "total_cost_DKK": 372.1624344736842,
+      "private_cost_DKK": 193.16228421052637,
+      "grid_cost_DKK": 179.00015026315788,
+      "energy_cost_DKK": 154.29526368421054,
+      "tariff_cost_DKK": 24.70488657894737,
+      "disutility_cost_DKK": 47.39499999999996,
+      "PV_cost_DKK": 145.76728421052627,
+      "daily_import_kWh": 180.08105263157896,
+      "daily_export_kWh": 21.94755,
+      "peak_import_kW": 9.39,
+      "feeder_exceedance_kWh": 0.0,
+      "charged_exceedance_kWh": 0.0,
+      "penalty_DKK": 0.0,
+      "hours_above_cap": 0,
+      "max_exceedance_kW": 0.0,
+      "cap_binding_hours": 18,
+      "battery_overlap_hours": 0,
+      "trade_overlap_hours": 0,
+      "variables": 3144,
+      "constraints": 1232,
+      "gurobi_version": [
+        13,
+        0,
+        3
+      ],
+      "gain_vs_R_DKK": 26.079259709141525
+    }
+  ],
+  "independent_solver": {
+    "R": {
+      "success": true,
+      "objective_difference_DKK": 5.684341886080802e-14,
+      "note": "Independent solver, same assembled LP; dispatch may differ."
+    },
+    "I": {
+      "success": true,
+      "objective_difference_DKK": 1.1368683772161603e-13,
+      "note": "Independent solver, same assembled LP; dispatch may differ."
+    },
+    "C": {
+      "success": true,
+      "objective_difference_DKK": 0.0,
+      "note": "Independent solver, same assembled LP; dispatch may differ."
+    }
+  },
+  "shares": {
+    "C1": 0.10403639920354911,
+    "C1_PV": 0.019559100406851524,
+    "C1_B": 0.10608687531323004,
+    "C1_PVB": 0.01993159019991829,
+    "C2": 0.10403639920354908,
+    "C2_PV": 0.02007381357545288,
+    "C2_B": 0.10608687531323006,
+    "C2_PVB": 0.0199315901999183,
+    "C3": 0.10403639920354908,
+    "C3_PV": 0.02007381357545288,
+    "C3_B": 0.10608687531323006,
+    "C3_PVB": 0.0199315901999183,
+    "C4": 0.10403639920354908,
+    "C4_PV": 0.02007381357545288,
+    "C4_B": 0.10608687531323006,
+    "C4_PVB": 0.0199315901999183
+  },
+  "report_equation_checks": {
+    "R": {
+      "load_bounds": 0.0,
+      "daily_minimum": 3.552713678800501e-15,
+      "deviation_split": 1.27675647831893e-15,
+      "absolute_deviation": 1.27675647831893e-15,
+      "net_definition": 1.1102230246251565e-16,
+      "battery_dynamics": 1.249000902703301e-16,
+      "asset_bounds": 0.0,
+      "terminal_lower_bound": 0.0,
+      "balance": 0.0,
+      "cap": 0.0,
+      "objective_reconstruction_DKK": 1.1368683772161603e-13
+    },
+    "I": {
+      "load_bounds": 0.0,
+      "daily_minimum": 3.552713678800501e-15,
+      "deviation_split": 0.0,
+      "absolute_deviation": 0.0,
+      "net_definition": 1.1102230246251565e-16,
+      "battery_dynamics": 1.1102230246251565e-16,
+      "asset_bounds": 0.0,
+      "terminal_lower_bound": 0.0,
+      "balance": 0.0,
+      "cap": 0.0,
+      "objective_reconstruction_DKK": 5.968558980384842e-13
+    },
+    "C": {
+      "load_bounds": 0.0,
+      "daily_minimum": 0.0,
+      "deviation_split": 4.440892098500626e-16,
+      "absolute_deviation": 4.440892098500626e-16,
+      "net_definition": 1.1102230246251565e-16,
+      "battery_dynamics": 1.1102230246251565e-16,
+      "asset_bounds": 0.0,
+      "terminal_lower_bound": 0.0,
+      "balance": 1.7763568394002505e-15,
+      "cap": 0.0,
+      "objective_reconstruction_DKK": 0.0
+    }
+  },
+  "terminal_condition_check": {
+    "case": "single_battery_member_zero_initial_SOC_negative_last_hour_price",
+    "initial_SOC_kWh": 0.0,
+    "minimum_terminal_SOC_kWh": 0.7124999999999999,
+    "cyclic_terminal_SOC_kWh": 0.0,
+    "minimum_cost_DKK": 0.20999999999999908,
+    "cyclic_cost_DKK": 3.255937499999998,
+    "passed": true,
+    "note": "Demonstrates the two terminal constraints are different models."
+  },
+  "no_contract_limit_error_DKK": 0.0,
+  "official_R": {
+    "daily_import_kWh": 173.4,
+    "peak_import_kW": 27.6,
+    "cost_DKK": 398.24,
+    "exceedance_kWh": 66.5
+  },
+  "reference_exceedance_note": "Official 66.5 kWh is dispatch-dependent; run audit_reference_ties.py.",
+  "scope": "Q1 suggested steps 1-3 only; no sensitivity or settlement study."
+}
