@@ -1,0 +1,399 @@
+\subsection{Mathematical formulations and problem classes}
+\label{sec:q1-formulations}
+
+\par
+\begingroup
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+The three models minimize procurement cost plus disutility.
+For the community model, this is equivalent to maximizing
+community welfare.
+
+Members are indexed by $i\in\mathcal N$, and the horizon
+is $\mathcal T=\{0,\ldots,23\}$.
+Each time interval lasts one hour.
+Loads, PV generation and exchanges are measured in kWh
+per interval, while battery powers and contractual
+capacity limits are measured in kW.
+Conversion from power to energy over each one-hour
+interval is implicit, and the one-hour factor is
+omitted throughout.
+
+For individually metered members in $\mathcal R$ and $\mathcal I$,
+total imports and exports are denoted by
+$I_{i,t}=q^{\rm imp}_{i,t}$ and
+$E_{i,t}=q^{\rm exp}_{i,t}$.
+Member PV generation is $P_{i,t}$, distinct from
+community imports and exports
+$P_t^{\rm imp},P_t^{\rm exp}$.
+
+
+\subsubsection{Prosumer model}
+
+The reference load and hourly bounds are
+\begin{align}
+\ell^{\rm ref}_{i,t}
+&=L^{\max}\rho_t,
+\label{eq:q1-reference-load}\\
+\underline\ell_{i,t}
+&=\max\{0,\ell^{\rm ref}_{i,t}-d^{\max}\},
+\label{eq:q1-load-lower}\\
+\overline\ell_{i,t}
+&=\min\{L^{\max},
+         \ell^{\rm ref}_{i,t}+d^{\max}\},
+\label{eq:q1-load-upper}
+\end{align}
+where $\rho_t\in[0,1]$ is the reference-load
+capacity factor, $L^{\max}=3$~kWh/h is the maximum
+consumption rate, and $d^{\max}=1$~kWh is the
+maximum hourly deviation.
+
+The minimum daily load equals the daily reference
+energy:
+\begin{equation}
+E_i^{\min}
+=\sum_{t\in\mathcal T}\ell^{\rm ref}_{i,t}.
+\label{eq:q1-daily-minimum-parameter}
+\end{equation}
+
+Positive and negative deviations from the reference
+load are denoted by $d^+_{i,t}$ and $d^-_{i,t}$.
+The hourly linear disutility is
+\begin{equation}
+D_i^L(d^+_{i,t},d^-_{i,t})
+=c_i^L(d^+_{i,t}+d^-_{i,t}),
+\qquad c_i^L>0,
+\label{eq:q1-hourly-disutility}
+\end{equation}
+where $c_i^L$ is measured in DKK/kWh.
+Total daily disutility is
+\begin{equation}
+D_i
+=\sum_{t\in\mathcal T}
+c_i^L(d^+_{i,t}+d^-_{i,t}).
+\label{eq:q1-daily-disutility}
+\end{equation}
+
+Every member satisfies
+\begin{subequations}
+\label{eq:q1-shared-member}
+\begin{alignat}{2}
+&\underline\ell_{i,t}
+\le\ell_{i,t}\le\overline\ell_{i,t},
+&\qquad&t\in\mathcal T,
+\label{eq:q1-load-bounds}\\
+&\sum_{t\in\mathcal T}\ell_{i,t}
+\ge E_i^{\min},
+&&
+\label{eq:q1-daily-energy}\\
+&\ell_{i,t}-\ell^{\rm ref}_{i,t}
+=d^+_{i,t}-d^-_{i,t},
+&\qquad&t\in\mathcal T,
+\label{eq:q1-deviation-split}\\
+&d^+_{i,t},d^-_{i,t}\ge0,
+&\qquad&t\in\mathcal T,
+\label{eq:q1-deviation-nonnegative}\\
+&0\le P_{i,t}\le\overline P_{i,t},
+&\qquad&t\in\mathcal T,
+\label{eq:q1-pv-bounds}\\
+&0\le p^{\rm ch}_{i,t}\le\overline P_i^{\rm ch},
+&\qquad&t\in\mathcal T,
+\label{eq:q1-charge-bounds}\\
+&0\le p^{\rm dis}_{i,t}\le\overline P_i^{\rm dis},
+&\qquad&t\in\mathcal T,
+\label{eq:q1-discharge-bounds}\\
+&e_{i,0}
+=E_i^0
++\rho_i^{\rm ch}p^{\rm ch}_{i,0}
+-\frac{p^{\rm dis}_{i,0}}{\rho_i^{\rm dis}},
+&&
+\label{eq:q1-initial-dynamics}\\
+&e_{i,t}
+=e_{i,t-1}
++\rho_i^{\rm ch}p^{\rm ch}_{i,t}
+-\frac{p^{\rm dis}_{i,t}}{\rho_i^{\rm dis}},
+&\qquad&t=1,\ldots,23,
+\label{eq:q1-storage-dynamics}\\
+&0\le e_{i,t}\le\overline E_i,
+&\qquad&t\in\mathcal T,
+\label{eq:q1-storage-bounds}\\
+&e_{i,23}\ge E_i^0.
+&&
+\label{eq:q1-terminal-condition}
+\end{alignat}
+\end{subequations}
+
+We impose $e_{i,23}\ge E_i^0$
+to prevent the model from reducing the day's cost by ending with less
+stored energy than it started with, while allowing the battery to end
+the day above its initial energy level.
+Here $\overline P_{i,t}$ is available PV energy,
+$E_i^0$ is initial stored energy, $\overline E_i$
+is battery capacity, $\overline P_i^{\rm ch}$ and
+$\overline P_i^{\rm dis}$ are charging and
+discharging power limits, and
+$\rho_i^{\rm ch},\rho_i^{\rm dis}$ are the
+corresponding efficiencies.
+
+Define member net consumption by
+\begin{equation}
+q_{i,t}
+=\ell_{i,t}-P_{i,t}
++p^{\rm ch}_{i,t}-p^{\rm dis}_{i,t}.
+\label{eq:q1-net-consumption}
+\end{equation}
+Positive $q_{i,t}$ denotes an import requirement,
+while negative $q_{i,t}$ denotes a net energy surplus.
+In $\mathcal R$ and $\mathcal I$, the metering balance gives
+$q_{i,t}=I_{i,t}-E_{i,t}$ using the total member import.
+
+Let $\mathcal X_i$ denote the constraints
+\eqref{eq:q1-shared-member} together with
+\eqref{eq:q1-net-consumption}.
+
+
+\subsubsection{Trading prices and contract convention}
+
+The effective full-tariff trading prices are
+\begin{equation}
+a_t=p_t+\tau^{\rm imp},
+\qquad
+b_t=p_t-\tau^{\rm exp},
+\label{eq:q1-full-prices}
+\end{equation}
+where $p_t$ is the day-ahead energy price and
+$\tau^{\rm imp},\tau^{\rm exp}$ are the import
+and export grid tariffs.
+
+Under a contract, the effective prices become
+\begin{equation}
+a_t^{\rm d}
+=p_t+(1-\beta^{\rm DSO})\tau^{\rm imp},
+\qquad
+b_t^{\rm d}
+=p_t-(1-\beta^{\rm DSO})\tau^{\rm exp}.
+\label{eq:q1-discounted-prices}
+\end{equation}
+The discount $\beta^{\rm DSO}\in[0,1]$ applies
+only to grid tariffs.
+Under a contract, imports within the cap are charged at $a_t^{\rm d}$
+and exports are credited at $b_t^{\rm d}$.
+Imports above the cap are charged at the day-ahead price plus
+the penalty, $p_t+\alpha^{\rm DSO}$.
+
+\par
+\endgroup
+
+\subsubsection{Reference model $\mathcal R$}
+
+Without a contract, members independently minimize
+procurement cost plus disutility. Members are separately metered
+and exchange no energy with their neighbours. Exports from one
+member do not offset another member's billed imports.
+Let
+\[
+\Gamma^{\mathcal R}
+=
+\left\{
+\ell_{i,t},\,d^+_{i,t},\,d^-_{i,t},\,P_{i,t},\,
+p^{\rm ch}_{i,t},\,p^{\rm dis}_{i,t},\,e_{i,t},\,
+I_{i,t},\,E_{i,t}
+\right\}_{i\in\mathcal N,\ t\in\mathcal T}
+\]
+denote the collection of decision variables.
+The members' independent problems can equivalently be written together as
+\begin{subequations}
+\label{eq:q1-model-R}
+\begin{align}
+J^{\mathcal R}
+=\min\limits_{\Gamma^{\mathcal R}}\quad&
+\sum_{i\in\mathcal N}\sum_{t\in\mathcal T}
+\Big[
+c_iP_{i,t}
++a_tI_{i,t}-b_tE_{i,t}
++c_i^L(d^+_{i,t}+d^-_{i,t})
+\Big],
+\label{eq:q1-R-objective}\\
+\mathrm{s.t.}\quad&
+\mathcal X_i,
+&&i\in\mathcal N,\\
+&q_{i,t}-I_{i,t}+E_{i,t}=0,
+&&i\in\mathcal N,\ t\in\mathcal T,
+\label{eq:q1-R-balance}\\
+&I_{i,t},E_{i,t}\ge0,
+&&i\in\mathcal N,\ t\in\mathcal T.
+\end{align}
+\end{subequations}
+
+The contractual cap does not constrain dispatch
+or generate penalties in $\mathcal R$.
+It is only a reference for measuring congestion.
+The aggregated gross import across individual
+meters is $\sum_i I_{i,t}^{\mathcal R}$.
+
+
+\subsubsection{Individual-contract model $\mathcal I$}
+
+Each consumer receives a share of the community cap. The discount
+applies to imports within its individual cap and to its exports.
+Consumers schedule their operations independently.
+
+First solve $\mathcal R$ and fix the individual
+capacity allocation:
+\begin{align}
+n_i^{\mathcal R}
+&=
+\left[
+\sum_{t\in\mathcal T}
+\left(
+I_{i,t}^{\mathcal R}-E_{i,t}^{\mathcal R}
+\right)
+\right]_+,
+\label{eq:q1-reference-net-import}\\
+\kappa_i
+&=\frac{n_i^{\mathcal R}}
+        {\sum_{j\in\mathcal N}n_j^{\mathcal R}},
+\label{eq:q1-cap-share}\\
+\overline P_{i,t}^{\rm DSO}
+&=\kappa_i\overline P_t^{\rm DSO},
+\label{eq:q1-individual-cap}
+\end{align}
+where $[y]_+=\max\{y,0\}$.
+
+Let $I_{i,t}^{\rm cap}$ be the import within the individual cap and
+$x_{i,t}$ the import above it, both in kWh. The meter records the total
+$I_{i,t}=I_{i,t}^{\rm cap}+x_{i,t}$.
+The collection of decision variables is
+\[
+\Gamma^{\mathcal I}
+=
+\left(
+\Gamma^{\mathcal R}
+\setminus
+\{I_{i,t}\}_{i\in\mathcal N,\ t\in\mathcal T}
+\right)
+\cup
+\{I_{i,t}^{\rm cap},\,x_{i,t}\}_{i\in\mathcal N,\ t\in\mathcal T}.
+\]
+The individual-contract model is
+\begin{subequations}
+\label{eq:q1-model-I}
+
+\begin{equation}
+\begin{aligned}
+J^{\mathcal I}=\min\limits_{\Gamma^{\mathcal I}}\quad&
+\sum_{i\in\mathcal N}\sum_{t\in\mathcal T}
+\Big[
+c_iP_{i,t}
++a_t^{\rm d}I_{i,t}^{\rm cap}
+-b_t^{\rm d}E_{i,t}\\
+&\qquad\quad
++c_i^L(d^+_{i,t}+d^-_{i,t})
++(p_t+\alpha^{\rm DSO})x_{i,t}
+\Big],
+\end{aligned}
+\label{eq:q1-I-objective}
+\end{equation}
+\begin{align}
+\mathrm{s.t.}\quad&
+\mathcal X_i,
+&&i\in\mathcal N,\\
+&q_{i,t}-I_{i,t}^{\rm cap}-x_{i,t}+E_{i,t}=0,
+&&i\in\mathcal N,\ t\in\mathcal T,
+\label{eq:q1-I-balance}\\
+&0\le I_{i,t}^{\rm cap}
+\le\kappa_i\overline P_t^{\rm DSO},
+&&i\in\mathcal N,\ t\in\mathcal T,
+\label{eq:q1-I-cap}\\
+&E_{i,t},x_{i,t}\ge0,
+&&i\in\mathcal N,\ t\in\mathcal T.
+\end{align}
+\end{subequations}
+
+Since $p_t+\alpha^{\rm DSO}>a_t^{\rm d}$ in the base case,
+optimality implies
+\begin{equation}
+x_{i,t}
+=
+\left[
+I_{i,t}
+-\kappa_i\overline P_t^{\rm DSO}
+\right]_+.
+\end{equation}
+
+\subsubsection{Centralized community model $\mathcal C$}
+
+The community manager jointly dispatches all members under a single
+contract at one connection point to maximize community welfare.
+The community trades with the external grid through a single meter,
+while members exchange electricity freely behind the meter.
+Only transactions crossing this meter incur external energy trading
+costs, grid tariffs and cap-exceedance penalties.
+
+Let $P_t^{\rm imp,cap}$ be the import within the community cap and
+$x_t$ the import above it, both in kWh. The common meter records the total
+$P_t^{\rm imp}=P_t^{\rm imp,cap}+x_t$.
+The collection of decision variables is
+\[
+\Gamma^{\mathcal C}
+=
+\left(
+\Gamma^{\mathcal I}
+\setminus
+\{I_{i,t}^{\rm cap},\,x_{i,t},\,E_{i,t}\}_{i\in\mathcal N,\ t\in\mathcal T}
+\right)
+\cup
+\{P_t^{\rm imp,cap},\,x_t,\,P_t^{\rm exp}\}_{t\in\mathcal T}.
+\]
+The centralized model is
+\begin{subequations}
+\label{eq:q1-model-C}
+\begin{align}
+J^{\mathcal C}=\min\limits_{\Gamma^{\mathcal C}}\quad&
+\sum_{i\in\mathcal N}\sum_{t\in\mathcal T}
+\Big[
+c_iP_{i,t}
++c_i^L(d^+_{i,t}+d^-_{i,t})
+\Big]
+\nonumber\\
+&+\sum_{t\in\mathcal T}
+\Big[
+a_t^{\rm d}P_t^{\rm imp,cap}
+-b_t^{\rm d}P_t^{\rm exp}
++(p_t+\alpha^{\rm DSO})x_t
+\Big],
+\label{eq:q1-C-objective}\\
+\mathrm{s.t.}\quad&
+\mathcal X_i,
+&&i\in\mathcal N,\\
+&\sum_{i\in\mathcal N}q_{i,t}
+-P_t^{\rm imp,cap}-x_t+P_t^{\rm exp}=0,
+&&t\in\mathcal T,
+\label{eq:q1-community-balance}\\
+&0\le P_t^{\rm imp,cap}
+\le\overline P_t^{\rm DSO},
+&&t\in\mathcal T,
+\label{eq:q1-community-cap}\\
+&P_t^{\rm exp},x_t\ge0,
+&&t\in\mathcal T.
+\end{align}
+\end{subequations}
+
+Since $p_t+\alpha^{\rm DSO}>a_t^{\rm d}$ in the base case,
+the optimal split satisfies
+$x_t=[P_t^{\rm imp}-\overline P_t^{\rm DSO}]_+$.
+
+\subsubsection{Problem classes and consequences for duality}
+
+The objective functions and all constraints of the three
+models are linear, and there are no integer variables.
+In the base case, each model is feasible and its objective
+is bounded below. Therefore, strong duality holds:
+\begin{equation}
+J^{\mathcal R}=D^{\mathcal R},\qquad
+J^{\mathcal I}=D^{\mathcal I},\qquad
+J^{\mathcal C}=D^{\mathcal C}.
+\end{equation}
+The KKT conditions are necessary and sufficient for
+global optimality.

@@ -1,0 +1,113 @@
+% Requires amsmath and amssymb in the main report.
+% Replace the existing Contract value metrics subsection with this file.
+% Equation and subsection numbering are inherited from the main report.
+\subsection{Contract value metrics}
+\label{sec:q1-contract-value-metrics}
+
+The contract is evaluated from two perspectives: the community's total
+cost and the import-limitation service delivered to the DSO. To compare
+the three models, define the hourly import quantity
+\begin{equation}
+G_t^m =
+\begin{cases}
+\displaystyle\sum_{i\in\mathcal N} I_{i,t}^m,
+    & m\in\{\mathcal R,\mathcal I\},\\[4pt]
+P_t^{\mathrm{imp},\mathcal C},
+    & m=\mathcal C,
+\end{cases}
+\qquad t\in\mathcal T.
+\label{eq:q1-metrics-import}
+\end{equation}
+Thus, imports are summed across individual meters in $\mathcal R$ and
+$\mathcal I$, whereas $\mathcal C$ uses the community's single external
+meter. Exports from one member do not offset another member's metered
+imports in $\mathcal R$ or $\mathcal I$. Following the one-hour convention,
+$G_t^m$ is measured in kWh per interval and is numerically equal to the
+average import power in kW over that interval.
+For the two contract models the metered totals are
+$I_{i,t}^{\mathcal I}=I_{i,t}^{\mathrm{cap},\mathcal I}+x_{i,t}^{\mathcal I}$
+and
+$P_t^{\mathrm{imp},\mathcal C}=P_t^{\mathrm{imp,cap},\mathcal C}
++x_t^{\mathcal C}$. These totals enter the import metrics and the
+energy and tariff charges.
+
+\paragraph{Community perspective.}
+The first metric is the optimal total cost $J^m$ (DKK), already defined
+by each model's objective. It includes net energy trading costs, grid
+tariffs, exceedance penalties where applicable, PV production costs and
+load-deviation disutility. Including disutility accounts for the cost
+of changing members' preferred consumption schedules.
+
+The benefit of signing a contract relative to the no-contract reference is
+\begin{equation}
+\Delta J^{m\mid\mathcal R}
+= J^{\mathcal R}-J^m,
+\qquad m\in\{\mathcal I,\mathcal C\}.
+\label{eq:q1-metrics-gain-reference}
+\end{equation}
+A positive value means that the contract lowers the community's total
+cost; a negative value means that remaining without a contract is cheaper.
+The additional benefit of signing collectively rather than individually is
+\begin{equation}
+\Delta J^{\mathcal C\mid\mathcal I}
+= J^{\mathcal I}-J^{\mathcal C}.
+\label{eq:q1-metrics-gain-pooling}
+\end{equation}
+This difference measures the combined value of shared contractual capacity,
+coordinated dispatch and energy exchanges behind the community meter,
+under the same contract terms. These are aggregate benefits; they do not
+establish that every member benefits after settlement.
+
+\paragraph{DSO perspective.}
+The remaining import above the common cap is measured by
+\begin{equation}
+V^m
+= \sum_{t\in\mathcal T}
+  \left[G_t^m-\overline P_t^{\mathrm{DSO}}\right]_+,
+\qquad m\in\{\mathcal R,\mathcal I,\mathcal C\},
+\label{eq:q1-metrics-exceedance}
+\end{equation}
+where $[z]_+=\max\{z,0\}$. The unit is kWh under the one-hour convention.
+The cap is only an evaluation threshold in $\mathcal R$; it neither
+constrains dispatch nor generates a contractual penalty in that model.
+
+Two complementary metrics describe the magnitude and frequency of high
+imports:
+\begin{align}
+P_{\mathrm{peak}}^m
+&= \max_{t\in\mathcal T}G_t^m,
+\label{eq:q1-metrics-peak}\\
+H^m
+&= \sum_{t\in\mathcal T}
+\mathbf{1}\!\left\{
+G_t^m>\overline P_t^{\mathrm{DSO}}+\varepsilon
+\right\}.
+\label{eq:q1-metrics-hours}
+\end{align}
+Here $P_{\mathrm{peak}}^m$ is reported in kW. The indicator
+$\mathbf{1}\{\cdot\}$ equals one when its condition holds and zero otherwise.
+Since each interval lasts one hour, $H^m$ is the number of hours above the
+cap, reported in h. The tolerance $\varepsilon=2\times10^{-6}$ kWh
+matches the numerical tolerance used in the implementation.
+
+Smaller values of $V^m$, $P_{\mathrm{peak}}^m$ and $H^m$ indicate less
+residual exceedance, a lower peak and fewer hours above the cap,
+respectively. Their improvements are assessed against $\mathcal R$
+under the same cap profile. These metrics quantify the import-limitation
+service, rather than the DSO's complete monetary net benefit.
+
+The aggregate exceedance $V^{\mathcal I}$ must be distinguished from
+the individual contracts' charged exceedance
+$\sum_{i,t}x_{i,t}^{\mathcal I}$. The latter can be larger because a
+member can exceed its allocated cap while other members leave their
+shares unused. In $\mathcal C$, $V^{\mathcal C}=\sum_t x_t^{\mathcal C}$
+when the above-cap price strictly exceeds the within-cap price, as in the
+base case. For low-penalty sweep points, compute $V^{\mathcal C}$ from
+total metered imports using the same definition as for the other models.
+
+All comparisons retain the same member data and battery terminal condition,
+and $\mathcal I$ and $\mathcal C$ use identical discount, penalty and
+community cap parameters. If the contractual cap is varied, $V^m$ and
+$H^m$ are evaluated against the cap of that configuration for all three
+models. The actual peak is reported alongside them, so that compliance
+with a looser cap is not interpreted as a reduction in peak import.

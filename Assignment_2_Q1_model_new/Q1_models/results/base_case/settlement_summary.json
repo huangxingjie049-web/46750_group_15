@@ -1,0 +1,10 @@
+{
+  "member_net_payments_DKK": 342.76644526315795,
+  "external_grid_cost_DKK": 179.00015026315788,
+  "manager_surplus_DKK": 163.76629500000007,
+  "congestion_rent_DKK": 163.76629500000004,
+  "budget_balanced": false,
+  "member_count": 16,
+  "members_individually_rational_vs_R": 3,
+  "members_individually_rational_vs_I": 8
+}

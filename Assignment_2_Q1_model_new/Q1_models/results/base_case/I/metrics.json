@@ -1,0 +1,31 @@
+{
+  "variant": "I",
+  "terminal": "minimum",
+  "J_DKK": 480.13342557849177,
+  "W_DKK": -480.13342557849177,
+  "total_cost_DKK": 480.13342557849177,
+  "private_cost_DKK": 259.0531664902069,
+  "grid_cost_DKK": 221.08025908828404,
+  "energy_cost_DKK": 156.35403663052813,
+  "tariff_cost_DKK": 21.845829892723703,
+  "disutility_cost_DKK": 107.11156649020657,
+  "PV_cost_DKK": 151.9416,
+  "daily_import_kWh": 167.53554045987593,
+  "daily_export_kWh": 14.398922423021158,
+  "peak_import_kW": 11.082392845914697,
+  "feeder_exceedance_kWh": 4.2880392565032395,
+  "charged_exceedance_kWh": 4.288039256503242,
+  "penalty_DKK": 42.88039256503242,
+  "hours_above_cap": 3,
+  "max_exceedance_kW": 1.6923928459146964,
+  "cap_binding_hours": 8,
+  "battery_overlap_hours": 0,
+  "trade_overlap_hours": 0,
+  "variables": 4224,
+  "constraints": 1952,
+  "gurobi_version": [
+    13,
+    0,
+    3
+  ]
+}

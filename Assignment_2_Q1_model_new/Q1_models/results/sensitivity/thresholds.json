@@ -1,0 +1,60 @@
+[
+  {
+    "parameter": "beta",
+    "model": "C",
+    "field": "J",
+    "target": 398.2416941828257,
+    "lo": 0.4838038444519043,
+    "hi": 0.4838039398193359,
+    "value": 0.4838038921356201,
+    "kind": "signing"
+  },
+  {
+    "parameter": "f",
+    "model": "I",
+    "field": "J",
+    "target": 398.2416941828257,
+    "lo": 1.8474717140197754,
+    "hi": 1.8474717736244202,
+    "value": 1.8474717438220978,
+    "kind": "signing"
+  },
+  {
+    "parameter": "f",
+    "model": "C",
+    "field": "J",
+    "target": 398.2416941828257,
+    "lo": 1.138785719871521,
+    "hi": 1.1387857794761658,
+    "value": 1.1387857496738434,
+    "kind": "signing"
+  },
+  {
+    "parameter": "alpha",
+    "model": "I",
+    "field": "J",
+    "target": 398.2416941828257,
+    "lo": 1.4954327940940857,
+    "hi": 1.4954328536987305,
+    "value": 1.495432823896408,
+    "kind": "signing"
+  },
+  {
+    "parameter": "alpha",
+    "model": "I",
+    "kind": "minimum_exceedance_plateau",
+    "value": 5.066000036895275,
+    "lo": 5.065999925136566,
+    "hi": 5.066000036895275,
+    "minimum_charged_exceedance": 4.288039256503243
+  },
+  {
+    "parameter": "alpha",
+    "model": "C",
+    "kind": "minimum_exceedance_plateau",
+    "value": 4.310000091791153,
+    "lo": 4.309999980032444,
+    "hi": 4.310000091791153,
+    "minimum_charged_exceedance": 0.0
+  }
+]

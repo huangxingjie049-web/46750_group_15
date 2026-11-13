@@ -1,0 +1,5 @@
+consumer_type,member_count,IR_vs_R_count,mean_gain_vs_R_DKK,IR_vs_I_count,mean_gain_vs_I_DKK,IR_vs_best_alternative_count
+Load,4,0,-18.5176,1,-6.473348388977192,0
+Load + PV,4,1,-2.8618049999999977,3,1.965752661330849,1
+Load + battery,4,0,-14.378691585872566,0,-12.444982288890039,0
+Load + PV + battery,4,2,1.3363377631578954,4,3.003752042738049,2

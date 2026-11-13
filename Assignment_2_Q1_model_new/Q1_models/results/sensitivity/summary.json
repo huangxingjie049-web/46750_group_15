@@ -1,0 +1,107 @@
+{
+  "reference_cost": 398.2416941828257,
+  "reference_exceedance": 66.70210526315788,
+  "shares": {
+    "C1": 0.10403639920354911,
+    "C1_PV": 0.019559100406851524,
+    "C1_B": 0.10608687531323004,
+    "C1_PVB": 0.01993159019991829,
+    "C2": 0.10403639920354908,
+    "C2_PV": 0.02007381357545288,
+    "C2_B": 0.10608687531323006,
+    "C2_PVB": 0.0199315901999183,
+    "C3": 0.10403639920354908,
+    "C3_PV": 0.02007381357545288,
+    "C3_B": 0.10608687531323006,
+    "C3_PVB": 0.0199315901999183,
+    "C4": 0.10403639920354908,
+    "C4_PV": 0.02007381357545288,
+    "C4_B": 0.10608687531323006,
+    "C4_PVB": 0.0199315901999183
+  },
+  "minimum_charged_exceedance": {
+    "I": 4.288039256503243,
+    "C": 0.0
+  },
+  "thresholds": [
+    {
+      "parameter": "beta",
+      "model": "C",
+      "field": "J",
+      "target": 398.2416941828257,
+      "lo": 0.4838038444519043,
+      "hi": 0.4838039398193359,
+      "value": 0.4838038921356201,
+      "kind": "signing"
+    },
+    {
+      "parameter": "f",
+      "model": "I",
+      "field": "J",
+      "target": 398.2416941828257,
+      "lo": 1.8474717140197754,
+      "hi": 1.8474717736244202,
+      "value": 1.8474717438220978,
+      "kind": "signing"
+    },
+    {
+      "parameter": "f",
+      "model": "C",
+      "field": "J",
+      "target": 398.2416941828257,
+      "lo": 1.138785719871521,
+      "hi": 1.1387857794761658,
+      "value": 1.1387857496738434,
+      "kind": "signing"
+    },
+    {
+      "parameter": "alpha",
+      "model": "I",
+      "field": "J",
+      "target": 398.2416941828257,
+      "lo": 1.4954327940940857,
+      "hi": 1.4954328536987305,
+      "value": 1.495432823896408,
+      "kind": "signing"
+    },
+    {
+      "parameter": "alpha",
+      "model": "I",
+      "kind": "minimum_exceedance_plateau",
+      "value": 5.066000036895275,
+      "lo": 5.065999925136566,
+      "hi": 5.066000036895275,
+      "minimum_charged_exceedance": 4.288039256503243
+    },
+    {
+      "parameter": "alpha",
+      "model": "C",
+      "kind": "minimum_exceedance_plateau",
+      "value": 4.310000091791153,
+      "lo": 4.309999980032444,
+      "hi": 4.310000091791153,
+      "minimum_charged_exceedance": 0.0
+    }
+  ],
+  "grid_points": {
+    "beta": 76,
+    "f": 150,
+    "alpha": 138
+  },
+  "unique_model_points": 1226,
+  "max_optimality_certificate_residual": 4.547473508864641e-12,
+  "base_case_metrics_check": {
+    "compared_to_step4_csv": true,
+    "max_absolute_difference": 0.0
+  },
+  "notes": [
+    "Each experiment changes one contract parameter only.",
+    "R dispatch and cap shares fixed from one reference solve.",
+    "Cap = supplied hourly cap * f/1.3; shape unchanged.",
+    "Above-cap imports pay the day-ahead price plus the penalty.",
+    "Charged exceedance is the LP variable x. Physical contract exceedance is reconstructed from metered flows and may differ at low penalties.",
+    "R exceedance re-evaluated at each cap; R objective is constant.",
+    "Fixed primal-simplex solver; alternate LP optima can change dispatch metrics.",
+    "No assertion of monotonic aggregate V for I: penalty targets individual excess."
+  ]
+}

@@ -1,0 +1,35 @@
+% Optional rows for the report's existing three-column nomenclature table.
+% Insert inside longtable, after the existing derived quantities.
+\multicolumn{3}{l}{\textbf{Contract value metrics}}\\
+$G_t^m$ &
+Hourly aggregate metered import: $\sum_i I_{i,t}^m$ in $\mathcal R,\mathcal I$;
+$P_t^{\mathrm{imp},\mathcal C}$ in $\mathcal C$ (including exceedance
+in both contract models) &
+kWh\\
+$\Delta J^{m\mid\mathcal R}$ &
+Community cost saving relative to no contract,
+$J^{\mathcal R}-J^m$, for $m\in\{\mathcal I,\mathcal C\}$ &
+DKK\\
+$\Delta J^{\mathcal C\mid\mathcal I}$ &
+Additional saving from collective rather than individual contracts,
+$J^{\mathcal I}-J^{\mathcal C}$ &
+DKK\\
+$V^m$ &
+Daily aggregate import exceedance,
+$\sum_t[G_t^m-\overline P_t^{\mathrm{DSO}}]_+$ &
+kWh\\
+$P_{\mathrm{peak}}^m$ &
+Maximum hourly import, $\max_t G_t^m$,
+expressed as average power under the one-hour convention &
+kW\\
+$H^m$ &
+Number of one-hour intervals whose import exceeds the cap by more
+than $\varepsilon$ &
+h\\
+$\varepsilon$ &
+Numerical tolerance for identifying hours above the cap:
+$2\times10^{-6}$ &
+kWh\\
+$\mathbf{1}\{\cdot\}$ &
+Indicator equal to one if the stated condition holds and zero otherwise &
+--\\

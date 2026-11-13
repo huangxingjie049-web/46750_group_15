@@ -1,0 +1,14 @@
+{
+  "member_net_payments_DKK": 342.76644526315795,
+  "external_purchase_DKK": 228.1620052631579,
+  "external_sale_revenue_DKK": 49.161854999999996,
+  "exceedance_penalty_DKK": 0.0,
+  "external_net_cost_DKK": 179.0001502631579,
+  "manager_surplus_DKK": 163.766295,
+  "capacity_rent_DKK": 163.76629500000004,
+  "strictly_budget_balanced": false,
+  "external_cost_covered": true,
+  "IR_vs_R_count": 3,
+  "IR_vs_I_count": 8,
+  "IR_vs_best_alternative_count": 3
+}
