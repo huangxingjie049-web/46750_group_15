@@ -1,0 +1,49 @@
+{
+ "in5": {
+  "n": 5,
+  "seed": 1,
+  "quantities": [
+   "profile"
+  ],
+  "profile_theta_min": 0.8008887955607862,
+  "profile_theta_max": 1.188976952736095,
+  "profile_theta_mean": 1.0111194553522933,
+  "profile_set_mean": 1.0,
+  "profile_within_bounds": true,
+  "indices_recover_draws": true,
+  "emin_equals_reference_energy": true,
+  "probabilities_sum_to_one": true
+ },
+ "in10": {
+  "n": 10,
+  "seed": 1,
+  "quantities": [
+   "profile"
+  ],
+  "profile_theta_min": 0.8008887955607862,
+  "profile_theta_max": 1.1958621088695556,
+  "profile_theta_mean": 0.9979533883854422,
+  "profile_set_mean": 1.0,
+  "profile_within_bounds": true,
+  "indices_recover_draws": true,
+  "emin_equals_reference_energy": true,
+  "probabilities_sum_to_one": true
+ },
+ "oos": {
+  "n": 100,
+  "seed": 1000,
+  "quantities": [
+   "profile"
+  ],
+  "profile_theta_min": 0.8003506672928883,
+  "profile_theta_max": 1.1999798761354432,
+  "profile_theta_mean": 1.002926580181491,
+  "profile_set_mean": 1.0,
+  "profile_within_bounds": true,
+  "indices_recover_draws": true,
+  "emin_equals_reference_energy": true,
+  "probabilities_sum_to_one": true
+ },
+ "in5_nested_in_in10": true,
+ "oos_disjoint_from_in_sample": true
+}

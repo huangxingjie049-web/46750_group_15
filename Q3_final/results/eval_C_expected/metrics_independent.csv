@@ -1,0 +1,2 @@
+scenario,rule,J,physical,external,energy,tariff,penalty,revenue,budget_surplus,import_kWh,export_kWh,peak_import_kW,exceedance_kWh,hours_above_cap,max_exceedance_kW,value_tol,J_C,regret
+expected,independent,703.028856371191,218.2032,484.8256563711909,160.70261828254849,20.02303808864266,304.0999999999998,317.72552947368416,-167.10012689750675,176.77030470914127,17.28,22.0,30.40999999999998,9,12.61,0.0,372.162434473684,330.86642189750694

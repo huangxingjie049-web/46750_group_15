@@ -1,0 +1,2 @@
+scenario,probability,cost,physical,external,revenue,budget_surplus,penalty,exceedance_kWh,hours_above_cap,peak_import_kW,exempt
+0,1.0,372.29546481994447,193.6211603878117,178.67430443213306,178.67430443210893,-2.4130031306413002e-11,0.0,0.0,0,9.39,0
