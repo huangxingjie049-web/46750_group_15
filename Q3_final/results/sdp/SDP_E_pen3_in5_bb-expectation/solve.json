@@ -1,0 +1,158 @@
+{
+ "config": {
+  "name": "SDP_E_pen3",
+  "risk": "neutral",
+  "cvar_alpha": 0.9,
+  "cvar_weight": 0.5,
+  "cap": "penalty",
+  "epsilon": 0.2,
+  "bb": "expectation",
+  "price_lb": -15.0,
+  "price_ub": 15.0,
+  "time_limit": 900.0,
+  "mip_gap": 0.001,
+  "threads": 0,
+  "seed": 0,
+  "warm_start": "pool:in5",
+  "start_time_limit": 120.0,
+  "bb_penalty": 100.0,
+  "mip_focus": 1,
+  "contract": {
+   "alpha": 3.0
+  }
+ },
+ "N": 5,
+ "status": 2,
+ "solutions": 1,
+ "runtime_s": 1.4700000286102295,
+ "build_s": 0.3304157257080078,
+ "variables": 39986,
+ "constraints": 22441,
+ "sos1_pairs": 17400,
+ "binaries": 0,
+ "phase1": [
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CC_eps0.2_in5_bb-expectation\\prices.json",
+   "status": 2,
+   "runtime_s": 6.461999893188477,
+   "objective": 370.3882704861485
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CC_eps0.2_pen3_in5_bb-expectation\\prices.json",
+   "status": 2,
+   "runtime_s": 17.01200008392334,
+   "objective": 370.55267162472825
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CC_eps0.4_pen3_in5_bb-expectation\\prices.json",
+   "status": 9,
+   "runtime_s": 122.65899991989136
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CC_eps0.6_pen3_in5_bb-expectation\\prices.json",
+   "status": 2,
+   "runtime_s": 54.032999992370605,
+   "objective": 370.4283255590354
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CC_eps0_pen3_in5_bb-expectation\\prices.json",
+   "status": 2,
+   "runtime_s": 23.822999954223633,
+   "objective": 370.6255756348025
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CVaR_a0.9_w0.5_pen3_in5_bb-expectation\\prices.json",
+   "status": 2,
+   "runtime_s": 3.9189999103546143,
+   "objective": 370.17219882078166
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CVaR_a0.9_w0.75_in5_bb-expectation\\prices.json",
+   "status": 2,
+   "runtime_s": 6.833999872207642,
+   "objective": 370.39118738390266
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_E_in5_bb-none\\prices.json",
+   "status": 9,
+   "runtime_s": 120.3289999961853,
+   "objective": 536.9010548392697
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\data\\n5_vectors\\A.json",
+   "status": 2,
+   "runtime_s": 34.91599988937378,
+   "objective": 370.625575732559
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\data\\n5_vectors\\C.json",
+   "status": 2,
+   "runtime_s": 21.391000032424927,
+   "objective": 370.6255756395589
+  }
+ ],
+ "phase1_runtime_s": 411.3779995441437,
+ "warm_start": "complete solution of phase 1 (C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CVaR_a0.9_w0.5_pen3_in5_bb-expectation\\prices.json)",
+ "phase1_objective": 370.17219882078166,
+ "warm_start_prices": [
+  1.4099999999999722,
+  1.4099999999999722,
+  1.4099999999999722,
+  1.4099999999999722,
+  1.4099999999999722,
+  1.4099999999999722,
+  1.4099999999999717,
+  1.4099999999999722,
+  1.9099999999999955,
+  3.409999999999972,
+  3.409999999999972,
+  3.409999999999972,
+  3.409999999999972,
+  3.409999999999972,
+  2.409999999999972,
+  1.9099999999999726,
+  1.9099999999999726,
+  1.9099999999999722,
+  1.9099999999999722,
+  14.6782632544655,
+  2.1163434903046783,
+  1.5623268698060633,
+  1.4099999999999722,
+  1.4099999999999722
+ ],
+ "total_runtime_s": 412.8479995727539,
+ "objective": 370.17219882078166,
+ "bound": 369.9335924267459,
+ "gap": 0.0006445821560772116,
+ "expected_cost": 370.1721988207846,
+ "prices": [
+  1.4099999999999722,
+  1.4099999999999722,
+  1.4099999999999722,
+  1.4099999999999722,
+  1.4099999999999722,
+  1.4099999999999722,
+  1.4099999999999717,
+  1.4099999999999722,
+  1.9099999999999955,
+  3.409999999999972,
+  3.409999999999972,
+  3.409999999999972,
+  3.409999999999972,
+  3.409999999999972,
+  2.409999999999972,
+  1.9099999999999726,
+  1.9099999999999726,
+  1.9099999999999722,
+  1.9099999999999722,
+  14.6782632544655,
+  2.1163434903046783,
+  1.5623268698060633,
+  1.4099999999999722,
+  1.4099999999999722
+ ],
+ "bb_residual": 0.0,
+ "max_complementarity": 0.0,
+ "max_strong_duality_gap": 2.3945290195115376e-12,
+ "max_member_suboptimality": 3.077538224260934e-13
+}

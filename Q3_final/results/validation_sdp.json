@@ -1,0 +1,24 @@
+{
+ "J_C_Q1": 372.16243447368413,
+ "V1_N1": {
+  "status": 2,
+  "objective": 372.16243447368436,
+  "bound": 372.16243447368436,
+  "gap": 0.0,
+  "runtime_s": 0.016000032424926758,
+  "variables": 8016,
+  "sos1_pairs": 3480,
+  "difference_to_C": 2.2737367544323206e-13
+ },
+ "V2_three_copies": {
+  "status": 2,
+  "objective": 372.1624344736842,
+  "bound": 372.1624344736842,
+  "gap": 0.0,
+  "runtime_s": 0.10800004005432129,
+  "variables": 24000,
+  "sos1_pairs": 10440,
+  "difference_to_C": 5.684341886080802e-14
+ },
+ "passed": true
+}

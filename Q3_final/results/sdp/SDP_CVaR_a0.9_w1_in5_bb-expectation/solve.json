@@ -1,0 +1,164 @@
+{
+ "config": {
+  "name": "SDP_CVaR_a0.9_w1",
+  "risk": "cvar",
+  "cvar_alpha": 0.9,
+  "cvar_weight": 1.0,
+  "cap": "penalty",
+  "epsilon": 0.2,
+  "bb": "expectation",
+  "price_lb": -15.0,
+  "price_ub": 15.0,
+  "time_limit": 600.0,
+  "mip_gap": 0.001,
+  "threads": 0,
+  "seed": 0,
+  "warm_start": "pool:in5,C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CVaR_a0.9_w0.75_in5_bb-expectation\\prices.json,C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CVaR_a0.9_w1_in5_bb-expectation\\prices.json",
+  "start_time_limit": 120.0,
+  "bb_penalty": 100.0,
+  "mip_focus": 1,
+  "contract": {}
+ },
+ "N": 5,
+ "status": 2,
+ "solutions": 1,
+ "runtime_s": 1.1549999713897705,
+ "build_s": 0.34937357902526855,
+ "variables": 39992,
+ "constraints": 22446,
+ "sos1_pairs": 17400,
+ "binaries": 0,
+ "phase1": [
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CC_eps0.2_in5_bb-expectation\\prices.json",
+   "status": 2,
+   "runtime_s": 13.389999866485596,
+   "objective": 2922.811546852813
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CC_eps0.2_pen3_in5_bb-expectation\\prices.json",
+   "status": 2,
+   "runtime_s": 65.85199999809265,
+   "objective": 383.12249953622455
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CC_eps0.4_pen3_in5_bb-expectation\\prices.json",
+   "status": 9,
+   "runtime_s": 121.82299995422363
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CC_eps0.6_in5_bb-expectation\\prices.json",
+   "status": 2,
+   "runtime_s": 11.049000024795532,
+   "objective": 375.4645026229852
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CC_eps0.6_pen3_in5_bb-expectation\\prices.json",
+   "status": 2,
+   "runtime_s": 109.80799984931946,
+   "objective": 395.5571054011931
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CVaR_a0.6_w0.5_in5_bb-expectation\\prices.json",
+   "status": 2,
+   "runtime_s": 11.279000043869019,
+   "objective": 375.94452083779936
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CVaR_a0.9_w0.5_pen3_in5_bb-expectation\\prices.json",
+   "status": 9,
+   "runtime_s": 120.08400011062622,
+   "objective": 527.9893539150308
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CVaR_a0.9_w0.75_in5_bb-expectation\\prices.json",
+   "status": 2,
+   "runtime_s": 10.355000019073486,
+   "objective": 375.4645025991452
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_E_in5_bb-none\\prices.json",
+   "status": 9,
+   "runtime_s": 120.25999999046326,
+   "objective": 536.9010548392608
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\data\\n5_vectors\\A.json",
+   "status": 2,
+   "runtime_s": 15.339999914169312,
+   "objective": 375.9459035326028
+  },
+  {
+   "start": "C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\data\\n5_vectors\\C.json",
+   "status": 2,
+   "runtime_s": 16.47000002861023,
+   "objective": 375.8731105099675
+  }
+ ],
+ "phase1_runtime_s": 615.7099997997284,
+ "warm_start": "complete solution of phase 1 (C:\\Users\\sekim\\OneDrive\\Desktop\\46750_group_15-Assignment_2_Q2_model\\Q3_final\\results\\sdp\\SDP_CVaR_a0.9_w0.75_in5_bb-expectation\\prices.json)",
+ "phase1_objective": 375.4645025991452,
+ "warm_start_prices": [
+  1.4100000000001527,
+  1.410000000000076,
+  1.4100000000001132,
+  1.4100000000000745,
+  1.4100000000001023,
+  1.410000000000025,
+  1.4100000000000579,
+  1.41000000000006,
+  2.4100000000001147,
+  3.410000000000048,
+  3.410000000000079,
+  5.41,
+  3.4100000000000827,
+  3.410000000000049,
+  2.410000000000115,
+  1.910000000000114,
+  1.9100000000001405,
+  1.9100000000001351,
+  1.910000000000108,
+  10.188334287415394,
+  15.0,
+  1.4100000000001218,
+  1.41000000000011,
+  1.4100000000000885
+ ],
+ "total_runtime_s": 616.8649997711182,
+ "objective": 375.4645025991452,
+ "bound": 375.43797427637816,
+ "gap": 7.065467596375542e-05,
+ "expected_cost": 370.3911873839051,
+ "prices": [
+  1.4100000000001527,
+  1.410000000000076,
+  1.4100000000001132,
+  1.4100000000000745,
+  1.4100000000001023,
+  1.410000000000025,
+  1.4100000000000579,
+  1.41000000000006,
+  2.4100000000001147,
+  3.410000000000048,
+  3.410000000000079,
+  5.41,
+  3.4100000000000827,
+  3.410000000000049,
+  2.410000000000115,
+  1.910000000000114,
+  1.9100000000001405,
+  1.9100000000001351,
+  1.910000000000108,
+  10.188334287415394,
+  15.0,
+  1.4100000000001218,
+  1.41000000000011,
+  1.4100000000000885
+ ],
+ "bb_residual": 0.0,
+ "max_complementarity": 0.0,
+ "max_strong_duality_gap": 1.9344525981068728e-12,
+ "max_member_suboptimality": 2.0294876890147862e-13,
+ "cvar": 375.4645025991452,
+ "var": 375.4645025991452
+}

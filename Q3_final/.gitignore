@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+logs/
+results_old*/
+results_pass*/
+*.zip
+!results/
