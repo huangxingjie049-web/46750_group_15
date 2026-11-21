@@ -3,6 +3,8 @@ from pathlib import Path
 import sys
 import json
 import os
+import tempfile
+import shutil
 
 import gurobipy as gp
 from gurobipy import GRB, quicksum
@@ -25,7 +27,7 @@ def main():
 
     outside_file = (
         Path(__file__).resolve().parent
-        / "outside_costs_R.json"
+        / "outside_costs_RI.json"
     )
 
     outside_costs = json.loads(
@@ -41,6 +43,13 @@ def main():
     alpha = float(contract["penalty_DKK_per_kWh"])
     caps = list(contract["capacity_limit_kW"])
 
+
+    economic_upper_bound = max(
+        p + (1 - beta) * data.tau_imp
+        for p in prices
+    ) + alpha
+
+
     # Original independent follower reference
     response = aggregate_response(data, prices)
     accounting = calculate_manager_accounting(
@@ -51,10 +60,10 @@ def main():
     model.Params.OutputFlag = 1
 
     # Accept a solution within 2% of the best bound.
-    model.Params.MIPGap = 0.001
+    model.Params.MIPGap = 0.02
     model.Params.MIPGapAbs = 1e-5
     # Stop after at most 180 seconds.
-    model.Params.TimeLimit = 120
+    model.Params.TimeLimit = 300
     model.Params.MIPFocus = 1
     model.Params.Heuristics = 0.5
 
@@ -62,8 +71,10 @@ def main():
     # Internal prices are decision variables in the IR relaxation model.
     # Price bounds are used for numerical optimization.
     # These bounds are not part of the DSO contract.
-    PRICE_LO = -15.0
-    PRICE_HI = 15.0
+
+    PRICE_LO = 0.0
+    PRICE_HI = economic_upper_bound
+
 
     x = model.addVars(
         T,
@@ -89,6 +100,20 @@ def main():
     exports = model.addVars(T, lb=0.0, name="feeder_export")
     excess = model.addVars(T, lb=0.0, name="capacity_excess")
 
+    above_cap = model.addVars(
+        T,
+        vtype=GRB.BINARY,
+        name="above_cap"
+    )
+
+    grid_import_mode = model.addVars(
+        T,
+        vtype=GRB.BINARY,
+        name="grid_import_mode"
+    )
+
+
+
     for t in T:
         total_net = quicksum(
             blocks[i]["net"][t] for i in blocks
@@ -104,10 +129,39 @@ def main():
             name=f"feeder_balance_{t}"
         )
 
+        model.addGenConstrIndicator(
+            grid_import_mode[t],
+            True,
+            exports[t] == 0.0,
+            name=f"no_export_{t}"
+        )
+
+        model.addGenConstrIndicator(
+            grid_import_mode[t],
+            False,
+            imports[t] == 0.0,
+            name=f"no_import_{t}"
+        )
+
         model.addConstr(
             imports_cap[t] <= caps[t],
             name=f"capacity_limit_{t}"
         )
+
+        model.addGenConstrIndicator(
+            above_cap[t],
+            False,
+            excess[t] == 0.0,
+            name=f"no_excess_{t}"
+        )
+
+        model.addGenConstrIndicator(
+            above_cap[t],
+            True,
+            imports_cap[t] == caps[t],
+            name=f"cap_filled_{t}"
+        )
+
 
 
     # Community physical costs
@@ -122,7 +176,6 @@ def main():
         for t in T
     )
 
-
     tariff_cost = quicksum(
         (1 - beta) * (
             data.tau_imp * imports_cap[t]
@@ -130,7 +183,6 @@ def main():
         )
         for t in T
     )
-
 
     penalty_cost = alpha * quicksum(
         excess[t] for t in T
@@ -157,40 +209,82 @@ def main():
         name="budget_balance"
     )
 
-
-    # Common IR relaxation (DKK per member)
-    epsilon = model.addVar(
+    # Individual IR relaxation: one slack for each member
+    ir_slack = model.addVars(
+        list(blocks.keys()),
         lb=0.0,
-        name="IR_relaxation"
+        name="IR_slack"
     )
 
     for member_id in blocks:
         model.addConstr(
             blocks[member_id]["private_cost_linear"]
-            <= outside_costs[member_id] + epsilon,
+            <= outside_costs[member_id] + ir_slack[member_id],
             name=f"relaxed_IR_{member_id}"
         )
 
+
     # Cost threshold required by strict BB + IR
-    model.addConstr(
-        physical_cost + external_cost
-        <= sum(outside_costs.values()),
-        name="strict_IR_cost_threshold"
+    #model.addConstr(
+        #physical_cost + external_cost
+        #<= sum(outside_costs.values()),
+        #name="strict_IR_cost_threshold"
+    #)
+
+
+    # Stage 1: Minimize total individual IR violations
+    total_ir_slack = quicksum(
+        ir_slack[member_id] for member_id in blocks
+    )
+
+    social_cost = physical_cost + external_cost
+
+
+    # Lexicographic optimization:
+    # First minimize total IR slack, then community social cost.
+    model.ModelSense = GRB.MINIMIZE
+
+    model.setObjectiveN(
+        total_ir_slack,
+        index=0,
+        priority=2,
+        weight=1.0,
+        abstol=1e-6,
+        reltol=0.0,
+        name="min_total_IR_slack"
+    )
+
+    model.setObjectiveN(
+        social_cost,
+        index=1,
+        priority=1,
+        weight=1.0,
+        abstol=1e-6,
+        reltol=0.0,
+        name="min_community_social_cost"
     )
 
 
-
-    # Manager minimizes community social cost.
-    model.setObjective(
-        epsilon,
-        GRB.MINIMIZE
-    )
 
     # ============================================
+    # Warm start from the previous feasible solution.
+    model.update()
+    start_file = (
+        Path(__file__).resolve().parent
+        / "ir_relax_RI_updated_tariff.sol"
+    )
 
-    # Warm start disabled for the updated Q1 formulation.
-    # The saved dp_bb_start.sol belongs to the previous model.
-    print("\nWarm start disabled for updated Q1 formulation.")
+    if False and start_file.exists():
+        with tempfile.TemporaryDirectory(prefix="gurobi_start_") as temp_dir:
+            temp_start = Path(temp_dir) / "ir_start.sol"
+            shutil.copyfile(start_file, temp_start)
+
+            model.read(str(temp_start))
+
+        print("\nWarm start loaded from:", start_file)
+    else:
+        print("\nNo saved IR relaxation solution found.")
+
 
 
     # Solve only once.
@@ -202,13 +296,18 @@ def main():
             f"No feasible solution. Status: {model.Status}"
         )
 
-    print("\nSOLVER STATUS")
+
+    print("\nMULTI-OBJECTIVE SOLVER STATUS")
     print("-" * 50)
     print("Status:", model.Status)
-    print("Best feasible objective:", model.ObjVal)
-    print("Best bound:", model.ObjBound)
-    print("MIP gap:", model.MIPGap)
-    print("Runtime:", model.Runtime)
+    print(f"Runtime: {model.Runtime:.2f} seconds")
+    print(f"Total IR slack (feasible): {total_ir_slack.getValue():.8f} DKK")
+    print(f"Community social cost (feasible): {social_cost.getValue():.8f} DKK")
+
+    print("\nObjective priority:")
+    print("1. Minimize total individual IR slack")
+    print("2. Minimize community social cost")
+
 
     if model.Status == GRB.TIME_LIMIT:
         print("Stopped at time limit with a feasible solution.")
@@ -226,7 +325,7 @@ def main():
         f'{accounting["community_cost"]:.8f}'
     )
 
-    print(f"IR relaxation epsilon objective: {model.ObjVal:.8f}")
+    print(f"Total individual IR slack: {total_ir_slack.getValue():.8f} DKK")
 
     print("\nKKT MANAGER COST BREAKDOWN")
     print("-" * 65)
@@ -258,6 +357,29 @@ def main():
     )
 
 
+    # Check that the community does not import and export simultaneously.
+    print("\n=== SIMULTANEOUS IMPORT / EXPORT CHECK ===")
+
+    simultaneous_hours = [
+        t for t in T
+        if imports[t].X > 1e-5 and exports[t].X > 1e-5
+    ]
+
+    print(f"Hours with simultaneous import and export: {simultaneous_hours}")
+
+    for t in simultaneous_hours:
+        print(
+            f"Hour {t:02d}: "
+            f"Import = {imports[t].X:.6f} kW, "
+            f"Export = {exports[t].X:.6f} kW"
+        )
+
+    assert not simultaneous_hours, (
+        "Simultaneous feeder import and export detected"
+    )
+
+
+
     #-----bb verify-----
 
     print("\nDP + BB VALIDATION")
@@ -286,8 +408,9 @@ def main():
     print(f"BB residual:               {bb_residual:.3e}")
     print(f"Linearization error:       {linearization_error:.3e}")
     print(f"Community total cost:      {(physical_cost + external_cost).getValue():.8f}")
-    print(f"Best bound:                {model.ObjBound:.8f}")
-    print(f"MIP gap:                   {model.MIPGap:.4%}")
+    print(f"Total IR slack (feasible): {total_ir_slack.getValue():.8f} DKK")
+    print("Multi-objective bounds and gaps: see Gurobi solver log")
+
 
     assert abs(bb_residual) < 1e-5
     assert linearization_error < 1e-5
@@ -349,9 +472,12 @@ def main():
     print("Hours at upper price bound:", at_upper)
 
 
+
     print("\nCOMPARISON WITH Q1 CENTRAL DISPATCH")
 
     central_cost = 372.162434
+    social_cost_value = social_cost.getValue()
+
 
     # Calculate actual community social cost
     social_cost = (
@@ -359,9 +485,9 @@ def main():
     ).getValue()
 
     print(f"Q1 C cost:            {central_cost:.6f} DKK")
-    print(f"Community social cost:{social_cost:12.6f} DKK")
-    print(f"Community cost - C:   {social_cost - central_cost:.6f} DKK")
-    print(f"IR relaxation epsilon:{epsilon.X:12.6f} DKK")
+    print(f"Community social cost:{social_cost_value:12.6f} DKK")
+    print(f"Community cost - C:   {social_cost_value - central_cost:.6f} DKK")
+    print(f"Total IR slack: {total_ir_slack.getValue():12.6f} DKK")
 
 
     print("\nIR RELAXATION MANAGER KKT TEST PASSED")
@@ -393,7 +519,7 @@ def main():
     # ===============================================
     outside_file = (
         Path(__file__).resolve().parent
-        / "outside_costs_R.json"
+        / "outside_costs_RI.json"
     )
 
     outside_costs = json.loads(
@@ -404,7 +530,7 @@ def main():
     print("=" * 75)
     print(
         f"{'Member':10s} "
-        f"{'Q1 R cost':>12s} "
+        f"{'Q1 R/I cost':>12s} "
         f"{'DP+BB cost':>12s} "
         f"{'IR margin':>12s}"
     )
@@ -444,15 +570,48 @@ def main():
     print("=" * 55)
 
     print(f"Solver status: {model.Status}")
-    print(f"Minimum found epsilon: {epsilon.X:.8f} DKK")
-    print(f"Best bound on epsilon: {model.ObjBound:.8f} DKK")
-    print(f"MIP gap: {model.MIPGap:.4%}")
+    print(f"Total IR slack (feasible): {total_ir_slack.getValue():.8f} DKK")
+    print(f"Community social cost: {social_cost_value:.8f} DKK")
 
-    social_cost = (
-        physical_cost + external_cost
-    ).getValue()
 
-    print(f"Community social cost: {social_cost:.8f} DKK")
+    print("\nINDIVIDUAL IR SLACK RESULTS")
+    print("-" * 55)
+
+    for member_id in blocks:
+        print(
+            f"{member_id:10s} "
+            f"Slack = {ir_slack[member_id].X:.6f} DKK"
+        )
+
+
+    print("\n=== IR SLACK CONSISTENCY CHECK ===")
+
+    max_slack_error = 0.0
+    actual_total_violation = 0.0
+
+    for member_id in blocks:
+        private_cost = blocks[member_id]["private_cost_linear"].getValue()
+        reference_cost = outside_costs[member_id]
+
+        actual_violation = max(0.0, private_cost - reference_cost)
+        slack_value = ir_slack[member_id].X
+
+        slack_error = abs(slack_value - actual_violation)
+        max_slack_error = max(max_slack_error, slack_error)
+        actual_total_violation += actual_violation
+
+        print(
+            f"{member_id:10s} "
+            f"Actual violation = {actual_violation:.6f}, "
+            f"Slack = {slack_value:.6f}, "
+            f"Difference = {slack_error:.3e}"
+        )
+
+    print(f"Total actual IR violation: {actual_total_violation:.8f} DKK")
+    print(f"Total model IR slack: {total_ir_slack.getValue():.8f} DKK")
+    print(f"Maximum slack difference: {max_slack_error:.3e} DKK")
+
+    print(f"Community social cost: {social_cost_value:.8f} DKK")
 
     print("\nIndividual IR margins:")
     for member_id in blocks:
@@ -476,12 +635,12 @@ def main():
             os.chdir(output_dir)
             #model.write("ir_relax_best.sol")
 
-            model.write("ir_relax_q1new.sol")
+            model.write("ir_relax_RI_Q1new.sol")
         finally:
             os.chdir(original_dir)
 
         print("\nIR relaxation solution saved:")
-        print(output_dir / "ir_relax_q1new.sol")
+        print(output_dir / "ir_relax_RI_Q1new.sol")
 
 
     #---------------

@@ -57,6 +57,7 @@ def calculate_manager_accounting(data, response):
     )
 
 
+
     grid_tariff_cost = sum(
         (1 - beta) * (
             data.tau_imp * (imports[t] - excess[t])
@@ -66,14 +67,15 @@ def calculate_manager_accounting(data, response):
     )
 
 
+
     penalty_cost = alpha * sum(excess)
 
     external_cost = (
         energy_cost + grid_tariff_cost + penalty_cost
     )
 
+    # Cross-check using the Q1 tariff formulation.
 
-    # Cross-check using the updated Q1 tariff formulation.
     direct_external_cost = sum(
         data.prices[t] * (imports[t] - exports[t])
         + (1 - beta) * (
@@ -83,6 +85,8 @@ def calculate_manager_accounting(data, response):
         + alpha * excess[t]
         for t in T
     )
+
+
 
 
     assert abs(

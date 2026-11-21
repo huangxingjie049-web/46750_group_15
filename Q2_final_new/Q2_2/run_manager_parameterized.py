@@ -13,7 +13,7 @@ from gurobipy import GRB, quicksum
 
 # Change only these settings between experiments.
 MODE = "BB"  # 'DP', 'BB', 'STRICT_IR', 'TRANSFER'
-CAP_MULTIPLIER = 1.00 # 1.00, 0.90, 1.10
+CAP_MULTIPLIER = 1.10 # 1.00, 0.90, 1.10
 TIME_LIMIT = 180
 MIP_GAP = 0.02
 USE_WARM_START = False
@@ -53,18 +53,49 @@ def main():
     wholesale = list(data.prices)
     beta = float(data.contract["tariff_discount_ratio"])
     alpha = float(data.contract["penalty_DKK_per_kWh"])
+
+    economic_upper_bound = max(
+        p + (1 - beta) * data.tau_imp
+        for p in wholesale
+    ) + alpha
+
+    print("\n=== ECONOMIC PRICE BOUND ===")
+    print(f"Maximum wholesale price: {max(wholesale):.6f} DKK/kWh")
+    print(f"Discounted import tariff: {(1 - beta) * data.tau_imp:.6f} DKK/kWh")
+    print(f"Capacity penalty alpha: {alpha:.6f} DKK/kWh")
+    print(f"Suggested economic upper bound: {economic_upper_bound:.6f} DKK/kWh")
+
+
     caps = [CAP_MULTIPLIER * float(c) for c in data.contract["capacity_limit_kW"]]
-    outside = json.loads((THIS_DIR / "outside_costs_R.json").read_text(encoding="utf-8"))
+
+
+    outside_file = (
+        THIS_DIR
+        / f"outside_costs_RI_cap_{CAP_MULTIPLIER:.2f}".replace(".", "p")
+    )
+    outside_file = outside_file.with_suffix(".json")
+
+    outside = json.loads(
+        outside_file.read_text(encoding="utf-8")
+    )
+    print(f"Outside cost file: {outside_file.name}")
+
+
     assert set(outside) == {member.id for member in data.members}
 
     print("\n=== PARAMETERIZED Q2 MANAGER ===")
     print(f"MODE={mode}; CAP_MULTIPLIER={CAP_MULTIPLIER:.2f}; CAP_HOUR_00={caps[0]:.4f} kW")
-    print(f"Reference R sum = {sum(outside.values()):.8f} DKK")
+    print(f"Reference R/I sum = {sum(outside.values()):.8f} DKK")
     model = gp.Model("Q2_manager_parameterized")
     model.Params.OutputFlag = 1
     model.Params.MIPGap = MIP_GAP
     model.Params.TimeLimit = TIME_LIMIT
-    x = model.addVars(T, lb=-15.0, ub=15.0, name="internal_price")
+    x = model.addVars(
+        T,
+        lb=0.0,
+        ub=economic_upper_bound,
+        name="internal_price"
+    )
 
     blocks = {}
     for member in data.members:
@@ -75,6 +106,12 @@ def main():
     imports_cap = model.addVars(T, lb=0.0, name="feeder_import_within_cap")
     exports = model.addVars(T, lb=0.0, name="feeder_export")
     excess = model.addVars(T, lb=0.0, name="capacity_excess")
+    above_cap = model.addVars(T, vtype=GRB.BINARY, name="above_cap")
+
+    grid_import_mode = model.addVars(
+        T, vtype=GRB.BINARY, name="grid_import_mode"
+    )
+
 
     for t in T:
         model.addConstr(
@@ -87,10 +124,37 @@ def main():
             ),
             name=f"feeder_balance_{t}",
         )
+
+        # Prevent simultaneous grid import and export.
+        model.addGenConstrIndicator(
+            grid_import_mode[t], True,
+            exports[t] == 0.0,
+            name=f"no_export_{t}"
+        )
+
+        model.addGenConstrIndicator(
+            grid_import_mode[t], False,
+            imports[t] == 0.0,
+            name=f"no_import_{t}"
+        )
+
         model.addConstr(
             imports_cap[t] <= caps[t],
             name=f"capacity_limit_{t}",
         )
+
+
+        model.addGenConstrIndicator(
+            above_cap[t], False,
+            excess[t] == 0.0,
+            name=f"no_excess_{t}"
+        )
+        model.addGenConstrIndicator(
+            above_cap[t], True,
+            imports_cap[t] == caps[t],
+            name=f"cap_filled_{t}"
+        )
+
 
 
     physical_cost = quicksum(
@@ -101,8 +165,10 @@ def main():
         wholesale[t] * (imports[t] - exports[t]) for t in T
     )
 
+
     tariff_cost = (1 - beta) * quicksum(
-        data.tau_imp * imports_cap[t] + data.tau_exp * exports[t]
+        data.tau_imp * imports_cap[t]
+        + data.tau_exp * exports[t]
         for t in T
     )
 
@@ -142,6 +208,24 @@ def main():
     print(f"External cost: {external_cost.getValue():.8f} DKK")
     print(f"DSO penalty: {penalty_cost.getValue():.8f} DKK")
     print(f"Peak import: {max(imports[t].X for t in T):.4f} kW")
+
+    print("\n=== SIMULTANEOUS IMPORT / EXPORT CHECK ===")
+    simultaneous_hours = [
+        t for t in T
+        if imports[t].X > 1e-5 and exports[t].X > 1e-5
+    ]
+
+    print(f"Hours with simultaneous import and export: {simultaneous_hours}")
+
+    for t in simultaneous_hours:
+        print(
+            f"Hour {t:02d}: "
+            f"Import = {imports[t].X:.6f} kW, "
+            f"Export = {exports[t].X:.6f} kW"
+        )
+
+    assert not simultaneous_hours, "Simultaneous feeder import and export detected"
+
 
     max_excess_error = max(
         abs(excess[t].X - max(0.0, imports[t].X - caps[t]))
@@ -188,6 +272,21 @@ def main():
             print(f"Members meeting IR AFTER transfers: {sum(v >= -1e-5 for v in final_margins.values())}/16")
 
     optimized_prices = [x[t].X for t in T]
+
+    print("\n=== INTERNAL PRICE DIAGNOSTICS ===")
+    print(f"Minimum internal price: {min(optimized_prices):.6f} DKK/kWh")
+    print(f"Maximum internal price: {max(optimized_prices):.6f} DKK/kWh")
+    print(f"Hours at lower bound (0): {[t for t in T if abs(x[t].X) < 1e-5]}")
+
+    print(
+        f"Hours at upper bound ({economic_upper_bound:.3f}): "
+        f"{[t for t in T if abs(x[t].X - economic_upper_bound) < 1e-5]}"
+    )
+
+    print("Hourly internal prices (DKK/kWh):")
+    for t in T:
+        print(f"Hour {t:02d}: {optimized_prices[t]:.6f}")
+
     max_gap = 0.0
     for member in data.members:
         direct = solve_member(convert_member(member), optimized_prices, output=False)

@@ -78,6 +78,9 @@ def main():
     for r in h_rows:
         hour = int(r["hour"])
 
+        # Step1: use the same hourly dual prices from Q1 C
+        # so we can compare different schedules under exactly the same prices
+        # 固定Q1 C的24小时对偶价格，确保C调度与成员独立响应是在相同电价下比较的
         prices[hour] = float(
             r["internal_price_DKK_per_kWh"]
         )
@@ -147,6 +150,9 @@ def main():
             d_minus = float(r["d_minus_kWh"])
             net = float(r["net_kWh"])
 
+            #Step3: 16 members have the same minimum private costs as in C,
+            # but they choose different schedules
+            #检查是否存在不同但同样最优的调度
             c_private += (
                 member["pv_cost"] * pv
                 + member["disutility_rate"]
@@ -157,6 +163,9 @@ def main():
             c_net.append(net)
 
         # Independently solve this follower LP
+        #Step2: Each independently finds the cheapest schedule under the same prices
+        # 我们固定同一组价格，让16名成员分别找到自己的最低费用调度，
+        # 而不是由Manager直接规定他们怎么用电。
         follower = solve_member(
             member,
             prices,
@@ -330,6 +339,9 @@ if __name__ == "__main__":
         ]
 
         # 3. Solve the 16 independent follower LPs
+        #Step4: combine the independent schedules
+        #calculate the community cost using the same accounting method
+        #我们把独立成员的用电调度加起来，并用相同的电网计费方法计算C和独立响应的社区成本
         response = aggregate_response(data, prices)
 
         # Use existing, previously validated accounting
